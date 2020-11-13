@@ -8,7 +8,7 @@ int main() {
 	
 	std::cout << "5 + 6 = " << StringCalc::add("5", "6") << "\n";
 
-	std::cout << StringCalc::sub("0", "0") << "\n";
+	std::cout << "12 - 7 = " << StringCalc::sub("12", "7") << "\n";
 
 	std::cout << StringCalc::mult("0", "0") << "\n";
 
