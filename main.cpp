@@ -6,7 +6,7 @@
 
 int main() {
 	
-	std::cout << StringCalc::add("0", "0") << "\n";
+	std::cout << "5 + 6 = " << StringCalc::add("5", "6") << "\n";
 
 	std::cout << StringCalc::sub("0", "0") << "\n";
 
