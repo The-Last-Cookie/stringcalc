@@ -4,7 +4,7 @@ std::string StringCalc::add(std::string str1, std::string str2) {
 	
 	// Input sanitization
 	if (!std::regex_match(str1, std::regex("[0-9]+")) || !std::regex_match(str2, std::regex("[0-9]+"))) {
-		std::cout << "Error: Strings may only contain numbers!" << "\n";
+		std::cout << "Error: Strings may only contain positive numbers!" << "\n";
 		return "";
 	}
 	else if (str1 == "0") {
@@ -58,7 +58,7 @@ std::string StringCalc::sub(std::string str1, std::string str2) {
 	
 	// Input sanitization
 	if (!std::regex_match(str1, std::regex("[0-9]+")) || !std::regex_match(str2, std::regex("[0-9]+"))) {
-		std::cout << "Error: Strings may only contain numbers!";
+		std::cout << "Error: Strings may only contain positive numbers!";
 		return "";
 	}
 	else if (str2 == "0") {
@@ -66,6 +66,14 @@ std::string StringCalc::sub(std::string str1, std::string str2) {
 	}
 	else if (str1 == "0") {
 		return "-" + str2;
+	}
+	else if (str1 == str2) {
+		return "0";
+	}
+
+	// In case the result would be negative, switch numbers
+	if (str2 == StringCalc::max(str1, str2)) {
+		return "-" + sub(str2, str1);
 	}
 
 	// Add zeros, so both strings have the same length
@@ -116,7 +124,7 @@ std::string StringCalc::mult(std::string str1, std::string str2) {
 	
 	// Input sanitization
 	if (!std::regex_match(str1, std::regex("[0-9]+")) || !std::regex_match(str2, std::regex("[0-9]+"))) {
-		std::cout << "Error: Strings may only contain numbers!" << "\n";
+		std::cout << "Error: Strings may only contain positive numbers!" << "\n";
 		return "";
 	}
 	else if (str1.empty() || str1 == "0" || str2.empty() || str2 == "0") {
@@ -160,7 +168,7 @@ std::string StringCalc::mult(std::string str1, std::string str2) {
 	
 	// Add simple multiplication strings together
 	while (singleResults.size() > 1) {
-		singleResults[1] = add(singleResults[0], singleResults[1]);
+		singleResults[1] = StringCalc::add(singleResults[0], singleResults[1]);
 
 		std::vector<std::string>::iterator it;
 		it = singleResults.begin();
@@ -179,7 +187,7 @@ std::string StringCalc::max(std::string str1, std::string str2) {
 	
 	// Input sanitization
 	if (!std::regex_match(str1, std::regex("[0-9]+")) || !std::regex_match(str2, std::regex("[0-9]+"))) {
-		std::cout << "Error: Strings may only contain numbers!";
+		std::cout << "Error: Strings may only contain positive numbers!";
 		return "";
 	}
 	
