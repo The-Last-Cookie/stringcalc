@@ -11,16 +11,16 @@
 namespace StringCalc {
 
 	// Addition
-	std::string add(std::string str1, std::string str2);
+	std::string add(std::string addend1, std::string addend2);
 
 	// Sutraction
-	std::string sub(std::string str1, std::string str2);
+	std::string sub(std::string minuend, std::string subtrahend);
 
 	// Multiplication
-	std::string mult(std::string str1, std::string str2);
+	std::string mult(std::string factor1, std::string factor2);
 
 	// Division (without remainder)
-	std::string div(std::string str1, std::string str2);
+	std::string div(std::string dividend, std::string divisor);
 
 	// Return string with higher value
 	// If both strings are the same, the function will return an empty string

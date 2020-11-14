@@ -4,41 +4,41 @@
 
 #include "stringcalc.h"
 
-std::string StringCalc::add(std::string str1, std::string str2) {
+std::string StringCalc::add(std::string addend1, std::string addend2) {
 	
 	// Input sanitization
-	if (!std::regex_match(str1, std::regex("[0-9]+")) || !std::regex_match(str2, std::regex("[0-9]+"))) {
+	if (!std::regex_match(addend1, std::regex("[0-9]+")) || !std::regex_match(addend2, std::regex("[0-9]+"))) {
 		std::cout << "Error: Strings may only contain positive numbers!" << "\n";
 		return "";
 	}
-	else if (str1 == "0") {
-		return str2;
+	else if (addend1 == "0") {
+		return addend2;
 	}
-	else if (str2 == "0") {
-		return str1;
+	else if (addend2 == "0") {
+		return addend1;
 	}
 
 	// Add zeros, so both strings have the same length
-	if (str1.length() > str2.length()) {
-		int len = str1.length() - str2.length();
+	if (addend1.length() > addend2.length()) {
+		int len = addend1.length() - addend2.length();
 		for (int i = 0; i < len; i++) {
-			str2.insert(0, "0");
+			addend2.insert(0, "0");
 		}
 	}
-	else if (str1.length() < str2.length()) {
-		int len = str2.length() - str1.length();
+	else if (addend1.length() < addend2.length()) {
+		int len = addend2.length() - addend1.length();
 		for (int i = 0; i < len; i++) {
-			str1.insert(0, "0");
+			addend1.insert(0, "0");
 		}
 	}
 
-	std::string result = "";
+	std::string sum = "";
 
 	// Add single digits together
 	int carrier = 0;
-	for (int i = str1.length() - 1; i >= 0; i--) {
+	for (int i = addend1.length() - 1; i >= 0; i--) {
 		// ASCII value convertion
-		int temp = str1[i] + str2[i] + carrier - 96;
+		int temp = addend1[i] + addend2[i] + carrier - 96;
 
 		if (temp > 9) {
 			carrier = 1;
@@ -48,90 +48,90 @@ std::string StringCalc::add(std::string str1, std::string str2) {
 			carrier = 0;
 		}
 
-		result.insert(0, std::to_string(temp));
+		sum.insert(0, std::to_string(temp));
 	}
 
 	if (carrier == 1) {
-		result.insert(0, std::to_string(carrier));
+		sum.insert(0, std::to_string(carrier));
 	}
 
-	return result;
+	return sum;
 }
 
-std::string StringCalc::sub(std::string str1, std::string str2) {
+std::string StringCalc::sub(std::string minuend, std::string subtrahend) {
 	
 	// Input sanitization
-	if (!std::regex_match(str1, std::regex("[0-9]+")) || !std::regex_match(str2, std::regex("[0-9]+"))) {
+	if (!std::regex_match(minuend, std::regex("[0-9]+")) || !std::regex_match(subtrahend, std::regex("[0-9]+"))) {
 		std::cout << "Error: Strings may only contain positive numbers!";
 		return "";
 	}
-	else if (str2 == "0") {
-		return str1;
+	else if (subtrahend == "0") {
+		return minuend;
 	}
-	else if (str1 == "0") {
-		return "-" + str2;
+	else if (minuend == "0") {
+		return "-" + subtrahend;
 	}
-	else if (str1 == str2) {
+	else if (minuend == subtrahend) {
 		return "0";
 	}
 
-	// In case the result would be negative, switch numbers
-	if (str2 == StringCalc::max(str1, str2)) {
-		return "-" + sub(str2, str1);
+	// In case the difference would be negative, switch numbers
+	if (subtrahend == StringCalc::max(minuend, subtrahend)) {
+		return "-" + sub(subtrahend, minuend);
 	}
 
 	// Add zeros, so both strings have the same length
-	if (str1.length() > str2.length()) {
-		int len = str1.length() - str2.length();
+	if (minuend.length() > subtrahend.length()) {
+		int len = minuend.length() - subtrahend.length();
 		for (int i = 0; i < len; i++) {
-			str2.insert(0, "0");
+			subtrahend.insert(0, "0");
 		}
 	}
-	else if (str1.length() < str2.length()) {
-		int len = str2.length() - str1.length();
+	else if (minuend.length() < subtrahend.length()) {
+		int len = subtrahend.length() - minuend.length();
 		for (int i = 0; i < len; i++) {
-			str1.insert(0, "0");
+			minuend.insert(0, "0");
 		}
 	}
 
-	std::string result = "";
+	std::string difference = "";
 
 	// Subtract single digits from each other
 	int carrier = 0;
-	for (int i = str1.length() - 1; i >= 0; i--) {
-		int temp = str1[i] - str2[i] - carrier;
+	for (int i = minuend.length() - 1; i >= 0; i--) {
+		int temp = minuend[i] - subtrahend[i] - carrier;
 
 		if (temp < 0) {
-			temp = 10 + str1[i] - str2[i] - carrier;
+			temp = 10 + minuend[i] - subtrahend[i] - carrier;
 			carrier = 1;
 		}
 		else {
 			carrier = 0;
 		}
 
-		result.insert(0, std::to_string(temp));
+		difference.insert(0, std::to_string(temp));
 	}
 
-	for (int i = 0; i < result.length(); i++) {
-		if (result[0] == '0') {
-			result.erase(0, 1);
+	for (int i = 0; i < difference.length(); i++) {
+		if (difference[0] == '0') {
+			difference.erase(0, 1);
 		}
 		else {
 			break;
 		}
 	}
 
-	return result;
+	return difference;
 }
 
-std::string StringCalc::mult(std::string str1, std::string str2) {
+std::string StringCalc::mult(std::string factor1, std::string factor2) {
 	
 	// Input sanitization
-	if (!std::regex_match(str1, std::regex("[0-9]+")) || !std::regex_match(str2, std::regex("[0-9]+"))) {
+	if (!std::regex_match(factor1, std::regex("[0-9]+")) || !std::regex_match(factor2, std::regex("[0-9]+"))) {
 		std::cout << "Error: Strings may only contain positive numbers!" << "\n";
 		return "";
 	}
-	else if (str1.empty() || str1 == "0" || str2.empty() || str2 == "0") {
+	else if (factor1.empty() || factor1 == "0" || factor2.empty() || factor2 == "0") {
 		return "0";
 	}
 
@@ -140,20 +140,20 @@ std::string StringCalc::mult(std::string str1, std::string str2) {
 
 	// Multiply single digits with each other
 	int carrier = 0;
-	for (int i = str1.length() - 1; i >= 0; i--) {
+	for (int i = factor1.length() - 1; i >= 0; i--) {
 		std::string tempStr = "";
 		
-		// Add zeros if i < str1.length() - 1
-		for (int z = 0; z < str1.length() - i - 1; z++) {
+		// Add zeros if i < factor1.length() - 1
+		for (int z = 0; z < factor1.length() - i - 1; z++) {
 			tempStr.insert(0, "0");
 		}
 
-		for (int j = str2.length() - 1; j >= 0; j--) {
+		for (int j = factor2.length() - 1; j >= 0; j--) {
 			
-			int temp = (str1[i] - 48) * (str2[j] - 48) + carrier;
+			int temp = (factor1[i] - 48) * (factor2[j] - 48) + carrier;
 			if (temp > 9) {
 				std::div_t digit = std::div(temp, 10);
-				temp = ((str1[i] - 48) * (str2[j] - 48) + carrier) % 10;
+				temp = ((factor1[i] - 48) * (factor2[j] - 48) + carrier) % 10;
 				carrier = (int) digit.quot;
 			}
 			else {
@@ -179,33 +179,34 @@ std::string StringCalc::mult(std::string str1, std::string str2) {
 		singleResults.erase(it);
 	}
 	
-	std::string result = singleResults.at(0);
-	return result;
+	std::string product = singleResults.at(0);
+	return product;
 }
 
-std::string StringCalc::div(std::string str1, std::string str2) {
+std::string StringCalc::div(std::string dividend, std::string divisor) {
 	
 	// Input sanitization
-	if (!std::regex_match(str1, std::regex("[0-9]+")) || !std::regex_match(str2, std::regex("[0-9]+"))) {
+	if (!std::regex_match(dividend, std::regex("[0-9]+")) || !std::regex_match(divisor, std::regex("[0-9]+"))) {
 		std::cout << "Error: Strings may only contain positive numbers!" << "\n";
 		return "";
 	}
-	else if (str2.empty() || str2 == "0") {
+	else if (divisor.empty() || divisor == "0") {
 		return "Error: Division by 0 not allowed!";
 	}
-	else if (str1.empty() || str1 == "0") {
+	else if (dividend.empty() || dividend == "0") {
 		return "0";
 	}
 
 	int counter = 0;
 
 	// Division
-	while (str1 == StringCalc::max(str1, str2) || StringCalc::max(str1, str2) == "") {
-		str1 = sub(str1, str2);
+	while (dividend == StringCalc::max(dividend, divisor) || StringCalc::max(dividend, divisor) == "") {
+		dividend = sub(dividend, divisor);
 		counter++;
 	}
 
-	return std::to_string(counter);
+	std::string quotient = std::to_string(counter);
+	return quotient;
 }
 
 std::string StringCalc::max(std::string str1, std::string str2) {
