@@ -1,3 +1,7 @@
+// Copyright (c) 2020 The-Last-Cookie
+// Licensed under the MIT Licence.
+// See the LICENCE file for more information.
+
 #include <iostream>
 
 #include "stringcalc.h"
