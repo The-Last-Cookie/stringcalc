@@ -180,7 +180,28 @@ std::string StringCalc::mult(std::string str1, std::string str2) {
 }
 
 std::string StringCalc::div(std::string str1, std::string str2) {
-	return "";
+	
+	// Input sanitization
+	if (!std::regex_match(str1, std::regex("[0-9]+")) || !std::regex_match(str2, std::regex("[0-9]+"))) {
+		std::cout << "Error: Strings may only contain positive numbers!" << "\n";
+		return "";
+	}
+	else if (str2.empty() || str2 == "0") {
+		return "Error: Division by 0 not allowed!";
+	}
+	else if (str1.empty() || str1 == "0") {
+		return "0";
+	}
+
+	int counter = 0;
+
+	// Division
+	while (str1 == StringCalc::max(str1, str2) || StringCalc::max(str1, str2) == "") {
+		str1 = sub(str1, str2);
+		counter++;
+	}
+
+	return std::to_string(counter);
 }
 
 std::string StringCalc::max(std::string str1, std::string str2) {
