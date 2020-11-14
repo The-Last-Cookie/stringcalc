@@ -113,7 +113,62 @@ std::string StringCalc::sub(std::string str1, std::string str2) {
 }
 
 std::string StringCalc::mult(std::string str1, std::string str2) {
-	return "";
+	
+	// Input sanitization
+	if (!std::regex_match(str1, std::regex("[0-9]+")) || !std::regex_match(str2, std::regex("[0-9]+"))) {
+		std::cout << "Error: Strings may only contain numbers!" << "\n";
+		return "";
+	}
+	else if (str1.empty() || str1 == "0" || str2.empty() || str2 == "0") {
+		return "0";
+	}
+
+	// Vector which will store simple multiplication strings
+	std::vector<std::string> singleResults;
+
+	// Multiply single digits with each other
+	int carrier = 0;
+	for (int i = str1.length() - 1; i >= 0; i--) {
+		std::string tempStr = "";
+		
+		// Add zeros if i < str1.length() - 1
+		for (int z = 0; z < str1.length() - i - 1; z++) {
+			tempStr.insert(0, "0");
+		}
+
+		for (int j = str2.length() - 1; j >= 0; j--) {
+			
+			int temp = (str1[i] - 48) * (str2[j] - 48) + carrier;
+			if (temp > 9) {
+				std::div_t digit = std::div(temp, 10);
+				temp = ((str1[i] - 48) * (str2[j] - 48) + carrier) % 10;
+				carrier = (int) digit.quot;
+			}
+			else {
+				carrier = 0;
+			}
+
+			tempStr.insert(0, std::to_string(temp));
+		}
+
+		if (carrier != 0) {
+			tempStr.insert(0, std::to_string(carrier));
+			carrier = 0;
+		}
+		singleResults.push_back(tempStr);
+	}
+	
+	// Add simple multiplication strings together
+	while (singleResults.size() > 1) {
+		singleResults[1] = add(singleResults[0], singleResults[1]);
+
+		std::vector<std::string>::iterator it;
+		it = singleResults.begin();
+		singleResults.erase(it);
+	}
+	
+	std::string result = singleResults.at(0);
+	return result;
 }
 
 std::string StringCalc::div(std::string str1, std::string str2) {
