@@ -174,3 +174,30 @@ std::string StringCalc::mult(std::string str1, std::string str2) {
 std::string StringCalc::div(std::string str1, std::string str2) {
 	return "";
 }
+
+std::string StringCalc::max(std::string str1, std::string str2) {
+	
+	// Input sanitization
+	if (!std::regex_match(str1, std::regex("[0-9]+")) || !std::regex_match(str2, std::regex("[0-9]+"))) {
+		std::cout << "Error: Strings may only contain numbers!";
+		return "";
+	}
+	
+	if (str1.length() > str2.length()) {
+		return str1;
+	}
+	else if (str1.length() < str2.length()) {
+		return str2;
+	}
+
+	for (int i = 0; i < str1.length(); i++) {
+		if (str1[i] > str2[i]) {
+			return str1;
+		}
+		else if (str1[i] < str2[i]) {
+			return str2;
+		}
+	}
+
+	return "";
+}

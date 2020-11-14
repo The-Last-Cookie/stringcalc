@@ -14,4 +14,6 @@ namespace StringCalc {
 
 	std::string div(std::string str1, std::string str2);
 
+	std::string max(std::string str1, std::string str2);
+
 }
