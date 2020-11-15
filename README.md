@@ -24,10 +24,10 @@ std::cout << "10 / 5 = " << StringCalc::div("10", "5") << "\n";
 
 ## Planned features
 
-+ Function for fatorials --> n!
-+ Function for power --> base^exponent
-+ Functionality for calculation of binary strings (maybe even float and hex, not sure yet)
-+ Performance improvements: I want to take another look at the implementation to see if I can optimize some things
+- [x] Function for factorials --> n!
+- [x] Function for power --> base^exponent
+- [ ] Functionality for calculation of binary strings (maybe even float and hex, not sure yet)
+- [ ] Performance improvements: I want to take another look at the implementation to see if I can optimize some things
 
 # Licence
 
