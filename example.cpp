@@ -17,6 +17,8 @@ int main() {
 	std::cout << "8 * 11 = " << StringCalc::mult("8", "11") << "\n";
 
 	std::cout << "10 / 5 = " << StringCalc::div("10", "5") << "\n";
+
+	std::cout << "2 ^ 8 = " << StringCalc::pow("2", "8") << "\n";
 	
 	return 0;
 }

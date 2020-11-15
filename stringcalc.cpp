@@ -209,6 +209,30 @@ std::string StringCalc::div(std::string dividend, std::string divisor) {
 	return quotient;
 }
 
+std::string StringCalc::pow(std::string base, std::string exponent) {
+	
+	// Input sanitization
+	if (!std::regex_match(base, std::regex("[0-9]+")) || !std::regex_match(exponent, std::regex("[0-9]+"))) {
+		std::cout << "Error: Strings may only contain positive numbers!" << "\n";
+		return "";
+	}
+	else if (base == "" || base == "0") {
+		return "0";
+	}
+	else if (exponent == "" || exponent == "0") {
+		return "1";
+	}
+	
+	std::string power = "1";
+
+	while (exponent != "0") {
+		power = StringCalc::mult(power, base);
+		exponent = StringCalc::sub(exponent, "1");
+	}
+	
+	return power;
+}
+
 std::string StringCalc::max(std::string str1, std::string str2) {
 	
 	// Input sanitization

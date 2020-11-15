@@ -22,6 +22,9 @@ namespace StringCalc {
 	// Division (without remainder)
 	std::string div(std::string dividend, std::string divisor);
 
+	// Exponentiation
+	std::string pow(std::string base, std::string exponent);
+
 	// Return string with higher value
 	// If both strings are the same, the function will return an empty string
 	std::string max(std::string str1, std::string str2);
