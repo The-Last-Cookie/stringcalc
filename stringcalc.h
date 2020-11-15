@@ -25,6 +25,9 @@ namespace StringCalc {
 	// Exponentiation
 	std::string pow(std::string base, std::string exponent);
 
+	// Factorial
+	std::string fact(std::string num);
+
 	// Return string with higher value
 	// If both strings are the same, the function will return an empty string
 	std::string max(std::string str1, std::string str2);

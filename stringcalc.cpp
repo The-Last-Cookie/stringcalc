@@ -233,6 +233,27 @@ std::string StringCalc::pow(std::string base, std::string exponent) {
 	return power;
 }
 
+std::string StringCalc::fact(std::string num) {
+
+	// Input sanitization
+	if (!std::regex_match(num, std::regex("[0-9]+"))) {
+		std::cout << "Error: Strings may only contain positive numbers!" << "\n";
+		return "";
+	}
+	else if (num == "" || num == "0") {
+		return "1";
+	}
+
+	std::string factorial = "1";
+
+	while (num != "0") {
+		factorial = StringCalc::mult(factorial, num);
+		num = StringCalc::sub(num, "1");
+	}
+
+	return factorial;
+}
+
 std::string StringCalc::max(std::string str1, std::string str2) {
 	
 	// Input sanitization

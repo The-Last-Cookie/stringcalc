@@ -20,5 +20,7 @@ int main() {
 
 	std::cout << "2 ^ 8 = " << StringCalc::pow("2", "8") << "\n";
 	
+	std::cout << "20! = " << StringCalc::fact("20") << "\n";
+
 	return 0;
 }
