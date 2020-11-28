@@ -10,17 +10,17 @@
 
 int main() {
 	
-	std::cout << "5 + 6 = " << StringCalc::add("5", "6") << "\n";
+	std::cout << "5 + 6 = " << StringCalc::Decimal::add("5", "6") << "\n";
 
-	std::cout << "12 - 7 = " << StringCalc::sub("12", "7") << "\n";
+	std::cout << "12 - 7 = " << StringCalc::Decimal::sub("12", "7") << "\n";
 
-	std::cout << "8 * 11 = " << StringCalc::mult("8", "11") << "\n";
+	std::cout << "8 * 11 = " << StringCalc::Decimal::mult("8", "11") << "\n";
 
-	std::cout << "10 / 5 = " << StringCalc::div("10", "5") << "\n";
+	std::cout << "10 / 5 = " << StringCalc::Decimal::div("10", "5") << "\n";
 
-	std::cout << "2 ^ 8 = " << StringCalc::pow("2", "8") << "\n";
+	std::cout << "2 ^ 8 = " << StringCalc::Decimal::pow("2", "8") << "\n";
 	
-	std::cout << "20! = " << StringCalc::fact("20") << "\n";
+	std::cout << "20! = " << StringCalc::Decimal::fact("20") << "\n";
 
 	return 0;
 }

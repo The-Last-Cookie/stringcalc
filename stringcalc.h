@@ -10,26 +10,56 @@
 
 namespace StringCalc {
 
-	// Addition
-	std::string add(std::string addend1, std::string addend2);
+	namespace Decimal {
 
-	// Sutraction
-	std::string sub(std::string minuend, std::string subtrahend);
+		// Addition
+		std::string add(std::string addend1, std::string addend2);
 
-	// Multiplication
-	std::string mult(std::string factor1, std::string factor2);
+		// Sutraction
+		std::string sub(std::string minuend, std::string subtrahend);
 
-	// Division (without remainder)
-	std::string div(std::string dividend, std::string divisor);
+		// Multiplication
+		std::string mult(std::string factor1, std::string factor2);
 
-	// Exponentiation
-	std::string pow(std::string base, std::string exponent);
+		// Division (without remainder)
+		std::string div(std::string dividend, std::string divisor);
 
-	// Factorial
-	std::string fact(std::string num);
+		// Exponentiation
+		std::string pow(std::string base, std::string exponent);
 
-	// Return string with higher value
-	// If both strings are the same, the function will return an empty string
-	std::string max(std::string str1, std::string str2);
+		// Factorial
+		std::string fact(std::string num);
+
+		// Return string with higher value
+		// If both strings are the same, the function will return an empty string
+		std::string max(std::string str1, std::string str2);
+
+	}
+
+	namespace Binary {
+
+		// Addition
+		std::string add_b(std::string addend1, std::string addend2);
+
+		// Sutraction
+		std::string sub_b(std::string minuend, std::string subtrahend);
+
+		// Multiplication
+		std::string mult_b(std::string factor1, std::string factor2);
+
+		// Division (without remainder)
+		std::string div_b(std::string dividend, std::string divisor);
+
+		// Exponentiation
+		std::string pow_b(std::string base, std::string exponent);
+
+		// Factorial
+		std::string fact_b(std::string num);
+
+		// Return string with higher value
+		// If both strings are the same, the function will return an empty string
+		std::string max_b(std::string str1, std::string str2);
+
+	}
 
 }

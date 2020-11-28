@@ -4,7 +4,9 @@
 
 #include "stringcalc.h"
 
-std::string StringCalc::add(std::string addend1, std::string addend2) {
+using namespace StringCalc;
+
+std::string Decimal::add(std::string addend1, std::string addend2) {
 	
 	// Input sanitization
 	if (!std::regex_match(addend1, std::regex("[0-9]+")) || !std::regex_match(addend2, std::regex("[0-9]+"))) {
@@ -58,7 +60,7 @@ std::string StringCalc::add(std::string addend1, std::string addend2) {
 	return sum;
 }
 
-std::string StringCalc::sub(std::string minuend, std::string subtrahend) {
+std::string Decimal::sub(std::string minuend, std::string subtrahend) {
 	
 	// Input sanitization
 	if (!std::regex_match(minuend, std::regex("[0-9]+")) || !std::regex_match(subtrahend, std::regex("[0-9]+"))) {
@@ -124,7 +126,7 @@ std::string StringCalc::sub(std::string minuend, std::string subtrahend) {
 	return difference;
 }
 
-std::string StringCalc::mult(std::string factor1, std::string factor2) {
+std::string Decimal::mult(std::string factor1, std::string factor2) {
 	
 	// Input sanitization
 	if (!std::regex_match(factor1, std::regex("[0-9]+")) || !std::regex_match(factor2, std::regex("[0-9]+"))) {
@@ -183,7 +185,7 @@ std::string StringCalc::mult(std::string factor1, std::string factor2) {
 	return product;
 }
 
-std::string StringCalc::div(std::string dividend, std::string divisor) {
+std::string Decimal::div(std::string dividend, std::string divisor) {
 	
 	// Input sanitization
 	if (!std::regex_match(dividend, std::regex("[0-9]+")) || !std::regex_match(divisor, std::regex("[0-9]+"))) {
@@ -209,7 +211,7 @@ std::string StringCalc::div(std::string dividend, std::string divisor) {
 	return quotient;
 }
 
-std::string StringCalc::pow(std::string base, std::string exponent) {
+std::string Decimal::pow(std::string base, std::string exponent) {
 	
 	// Input sanitization
 	if (!std::regex_match(base, std::regex("[0-9]+")) || !std::regex_match(exponent, std::regex("[0-9]+"))) {
@@ -233,7 +235,7 @@ std::string StringCalc::pow(std::string base, std::string exponent) {
 	return power;
 }
 
-std::string StringCalc::fact(std::string num) {
+std::string Decimal::fact(std::string num) {
 
 	// Input sanitization
 	if (!std::regex_match(num, std::regex("[0-9]+"))) {
@@ -254,7 +256,7 @@ std::string StringCalc::fact(std::string num) {
 	return factorial;
 }
 
-std::string StringCalc::max(std::string str1, std::string str2) {
+std::string Decimal::max(std::string str1, std::string str2) {
 	
 	// Input sanitization
 	if (!std::regex_match(str1, std::regex("[0-9]+")) || !std::regex_match(str2, std::regex("[0-9]+"))) {
