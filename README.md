@@ -16,7 +16,7 @@ std::cout << "5 + 6 = " << StringCalc::Decimal::add("5", "6") << "\n";
 // Subtraction
 std::cout << "12 - 7 = " << StringCalc::Decimal::sub("12", "7") << "\n";
 
-// Binary addition
+// Binary multiplication
 std::cout << "10111 * 111 = " << StringCalc::Binary::mult_b("10111", "111") << "\n";
 
 // Binary division
