@@ -11,23 +11,24 @@ At the moment, all implemented functions take positive _integers_ and return the
 
 ```cpp
 // Addition
-std::cout << "5 + 6 = " << StringCalc::add("5", "6") << "\n";
+std::cout << "5 + 6 = " << StringCalc::Decimal::add("5", "6") << "\n";
 
 // Subtraction
-std::cout << "12 - 7 = " << StringCalc::sub("12", "7") << "\n";
+std::cout << "12 - 7 = " << StringCalc::Decimal::sub("12", "7") << "\n";
 
-// Multiplication
-std::cout << "8 * 11 = " << StringCalc::mult("8", "11") << "\n";
+// Binary addition
+std::cout << "10111 * 111 = " << StringCalc::Binary::mult_b("10111", "111") << "\n";
 
-// Division
-std::cout << "10 / 5 = " << StringCalc::div("10", "5") << "\n";
+// Binary division
+std::cout << "10110 / 111 = " << StringCalc::Binary::div_b("10110", "111") << "\n";
 ```
 
 ## Planned features
 
 - [x] Function for factorials --> n!
 - [x] Function for power --> base^exponent
-- [ ] Functionality for calculation of binary strings (maybe even float and hex, not sure yet)
+- [x] Functionality for calculation of binary strings
+- [ ] Function for modulo (for decimals) --> m mod n
 - [ ] Performance improvements: I want to take another look at the implementation to see if I can optimize some things
 
 # Licence
