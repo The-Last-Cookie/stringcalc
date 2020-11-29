@@ -20,7 +20,15 @@ int main() {
 
 	std::cout << "2 ^ 8 = " << StringCalc::Decimal::pow("2", "8") << "\n";
 	
-	std::cout << "20! = " << StringCalc::Decimal::fact("20") << "\n";
+	std::cout << "20! = " << StringCalc::Decimal::fact("20") << "\n\n";
+
+	std::cout << "101 + 1001 = " << StringCalc::Binary::add_b("101", "1001") << "\n";
+
+	std::cout << "1101 - 1011 = " << StringCalc::Binary::sub_b("1101", "1011") << "\n";
+
+	std::cout << "10110 * 111 = " << StringCalc::Binary::mult_b("10110", "111") << "\n";
+
+	std::cout << "10110 / 111 = " << StringCalc::Binary::div_b("10110", "111") << "\n";
 
 	return 0;
 }
