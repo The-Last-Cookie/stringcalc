@@ -117,6 +117,9 @@ std::string Decimal::sub(std::string minuend, std::string subtrahend) {
 	for (int i = 0; i < difference.length(); i++) {
 		if (difference[0] == '0') {
 			difference.erase(0, 1);
+			
+			// In case difference contains several zeros
+			i--;
 		}
 		else {
 			break;
@@ -393,6 +396,8 @@ std::string Binary::sub_b(std::string minuend, std::string subtrahend) {
 	for (int i = 0; i < difference.length(); i++) {
 		if (difference[0] == '0') {
 			difference.erase(0, 1);
+
+			// In case difference contains several zeros
 			i--;
 		}
 		else {
