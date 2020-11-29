@@ -28,8 +28,15 @@ std::cout << "10110 / 111 = " << StringCalc::Binary::div_b("10110", "111") << "\
 - [x] Function for factorials --> n!
 - [x] Function for power --> base^exponent
 - [x] Functionality for calculation of binary strings
+- [ ] Functionality for calculation of hexadecimal strings
 - [ ] Function for modulo (for decimals) --> m mod n
+- [ ] Improve code readability and error handling
+    - [ ] Helping functions _isNegative_, _isZero_, _isDecimal_, ...
+    - [ ] Improve error messages
+    - [ ] Don't allow empty strings as input (functions return empty string in case an error occurs)
 - [ ] Performance improvements: I want to take another look at the implementation to see if I can optimize some things
+    - [ ] Use unsigned long long instead of int --> Strings can even be longer
+    - [ ] Faster algorithmic calculation (if possible)
 
 # Licence
 
