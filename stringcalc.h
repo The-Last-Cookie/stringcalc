@@ -50,12 +50,6 @@ namespace StringCalc {
 		// Division (without remainder)
 		std::string div_b(std::string dividend, std::string divisor);
 
-		// Exponentiation
-		std::string pow_b(std::string base, std::string exponent);
-
-		// Factorial
-		std::string fact_b(std::string num);
-
 		// Return string with higher value
 		// If both strings are the same, the function will return an empty string
 		std::string max_b(std::string str1, std::string str2);

@@ -78,7 +78,7 @@ std::string Decimal::sub(std::string minuend, std::string subtrahend) {
 	}
 
 	// In case the difference would be negative, switch numbers
-	if (subtrahend == StringCalc::max(minuend, subtrahend)) {
+	if (subtrahend == StringCalc::Decimal::max(minuend, subtrahend)) {
 		return "-" + sub(subtrahend, minuend);
 	}
 
@@ -174,7 +174,7 @@ std::string Decimal::mult(std::string factor1, std::string factor2) {
 	
 	// Add simple multiplication strings together
 	while (singleResults.size() > 1) {
-		singleResults[1] = StringCalc::add(singleResults[0], singleResults[1]);
+		singleResults[1] = StringCalc::Decimal::add(singleResults[0], singleResults[1]);
 
 		std::vector<std::string>::iterator it;
 		it = singleResults.begin();
@@ -202,7 +202,7 @@ std::string Decimal::div(std::string dividend, std::string divisor) {
 	int counter = 0;
 
 	// Division
-	while (dividend == StringCalc::max(dividend, divisor) || StringCalc::max(dividend, divisor) == "") {
+	while (dividend == StringCalc::Decimal::max(dividend, divisor) || StringCalc::Decimal::max(dividend, divisor) == "") {
 		dividend = sub(dividend, divisor);
 		counter++;
 	}
@@ -228,8 +228,8 @@ std::string Decimal::pow(std::string base, std::string exponent) {
 	std::string power = "1";
 
 	while (exponent != "0") {
-		power = StringCalc::mult(power, base);
-		exponent = StringCalc::sub(exponent, "1");
+		power = StringCalc::Decimal::mult(power, base);
+		exponent = StringCalc::Decimal::sub(exponent, "1");
 	}
 	
 	return power;
@@ -249,8 +249,8 @@ std::string Decimal::fact(std::string num) {
 	std::string factorial = "1";
 
 	while (num != "0") {
-		factorial = StringCalc::mult(factorial, num);
-		num = StringCalc::sub(num, "1");
+		factorial = StringCalc::Decimal::mult(factorial, num);
+		num = StringCalc::Decimal::sub(num, "1");
 	}
 
 	return factorial;
@@ -280,5 +280,25 @@ std::string Decimal::max(std::string str1, std::string str2) {
 		}
 	}
 
+	return "";
+}
+
+std::string Binary::add_b(std::string addend1, std::string addend2) {
+	return "";
+}
+
+std::string Binary::sub_b(std::string minuend, std::string subtrahend) {
+	return "";
+}
+
+std::string Binary::mult_b(std::string factor1, std::string factor2) {
+	return "";
+}
+
+std::string Binary::div_b(std::string dividend, std::string divisor){
+	return "";
+}
+
+std::string Binary::max_b(std::string str1, std::string str2) {
 	return "";
 }
