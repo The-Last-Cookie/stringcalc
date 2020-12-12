@@ -6,16 +6,13 @@
 
 using namespace StringCalc;
 
-bool StringCalc::isNegative(std::string string) {
-	return true;
-}
-
 bool StringCalc::isZero(std::string string) {
-	return true;
-}
+	
+	if (std::regex_match(string, std::regex("[0]+"))) {
+		return true;
+	}
 
-bool Decimal::isDecimal(std::string string) {
-	return true;
+	return false;
 }
 
 std::string Decimal::add(std::string addend1, std::string addend2) {
@@ -298,8 +295,22 @@ std::string Decimal::max(std::string str1, std::string str2) {
 	return "";
 }
 
-bool Binary::isBinary(std::string string) {
-	return true;
+bool Decimal::isNegative(std::string string) {
+
+	if (string[0] == '-') {
+		return true;
+	}
+
+	return false;
+}
+
+bool Decimal::isDecimal(std::string string) {
+
+	if (std::regex_match(string, std::regex("[0-9]+"))) {
+		return true;
+	}
+
+	return false;
 }
 
 std::string Binary::add_b(std::string addend1, std::string addend2) {
@@ -532,4 +543,13 @@ std::string Binary::max_b(std::string str1, std::string str2) {
 	}
 
 	return "";
+}
+
+bool Binary::isBinary(std::string string) {
+	
+	if (std::regex_match(string, std::regex("[0-1]+"))) {
+		return true;
+	}
+
+	return false;
 }

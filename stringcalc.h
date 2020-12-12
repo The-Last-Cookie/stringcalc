@@ -10,13 +10,9 @@
 
 namespace StringCalc {
 
-	bool isNegative(std::string string);
-
 	bool isZero(std::string string);
 
 	namespace Decimal {
-
-		bool isDecimal(std::string string);
 
 		// Addition
 		std::string add(std::string addend1, std::string addend2);
@@ -40,11 +36,13 @@ namespace StringCalc {
 		// If both strings are the same, the function will return an empty string
 		std::string max(std::string str1, std::string str2);
 
+		bool isNegative(std::string string);
+
+		bool isDecimal(std::string string);
+
 	}
 
 	namespace Binary {
-
-		bool isBinary(std::string string);
 
 		// Addition
 		std::string add_b(std::string addend1, std::string addend2);
@@ -61,6 +59,8 @@ namespace StringCalc {
 		// Return string with higher value
 		// If both strings are the same, the function will return an empty string
 		std::string max_b(std::string str1, std::string str2);
+
+		bool isBinary(std::string string);
 
 	}
 
