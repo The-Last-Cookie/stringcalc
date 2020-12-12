@@ -36,8 +36,6 @@ namespace StringCalc {
 		// If both strings are the same, the function will return an empty string
 		std::string max(std::string str1, std::string str2);
 
-		bool isNegative(std::string string);
-
 		bool isDecimal(std::string string);
 
 	}

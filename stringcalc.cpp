@@ -295,15 +295,6 @@ std::string Decimal::max(std::string str1, std::string str2) {
 	return "";
 }
 
-bool Decimal::isNegative(std::string string) {
-
-	if (string[0] == '-') {
-		return true;
-	}
-
-	return false;
-}
-
 bool Decimal::isDecimal(std::string string) {
 
 	if (std::regex_match(string, std::regex("[0-9]+"))) {
