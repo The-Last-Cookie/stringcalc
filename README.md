@@ -6,7 +6,7 @@ Integers and other data types alike have a specific set of values which they can
 
 The maximum size of a string is given by `std::string().max_size()`. In standard C++ it is around 2^32. However, this can vary due to compiler and memory implementation. I will try to optimize the code, so that strings can be as long as possible. An idea might be to use pointers (call-by-reference) or the (rope data structure)[https://en.wikipedia.org/wiki/Rope_(data_structure)]. This will need further investigation though.
 
-At the moment, all implemented functions take positive _integers_ and return the calculated number as a string. The subtraction function will put a negative sign at the start of the string in case the result is negative. The input for all functions needs to be positive.
+At the moment, all implemented functions take positive _integers_ and return the calculated number as a string. The input as well as the output for all functions needs to be positive.
 
 ## Example usage
 
@@ -31,13 +31,14 @@ std::cout << "10110 / 111 = " << StringCalc::Binary::div_b("10110", "111") << "\
 - [x] Functionality for calculation of binary strings
 - [ ] Functionality for calculation of hexadecimal strings
 - [ ] Function for modulo (for decimals) --> m mod n
-- [ ] Improve code readability and error handling
-    - [ ] Helping functions _isNegative_, _isZero_, _isDecimal_, ...
-    - [ ] Improve error messages
-    - [ ] Don't allow empty strings as input (functions return empty string in case an error occurs)
+- [x] Improve code readability and error handling
+    - [x] Helping functions _isZero_, _isDecimal_, ...
+    - [x] Improve error messages
+    - [x] Don't allow empty strings as input (functions return empty string in case an error occurs)
 - [ ] Performance improvements: I want to take another look at the implementation to see if I can optimize some things
     - [ ] Use unsigned long long instead of int --> Strings can even be longer
     - [ ] Faster algorithmic calculation (if possible)
+    - [ ] Check efficiency of _isZero_
 
 # Licence
 
