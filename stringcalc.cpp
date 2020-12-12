@@ -18,14 +18,14 @@ bool StringCalc::isZero(std::string string) {
 std::string Decimal::add(std::string addend1, std::string addend2) {
 	
 	// Input sanitization
-	if (!std::regex_match(addend1, std::regex("[0-9]+")) || !std::regex_match(addend2, std::regex("[0-9]+"))) {
-		std::cout << "Error: Strings may only contain positive numbers!" << "\n";
+	if (!Decimal::isDecimal(addend1) || !Decimal::isDecimal(addend2)) {
+		std::cout << "Error: Strings may only contain positive decimal numbers!" << "\n";
 		return "";
 	}
-	else if (addend1 == "0") {
+	else if (isZero(addend1)) {
 		return addend2;
 	}
-	else if (addend2 == "0") {
+	else if (isZero(addend2)) {
 		return addend1;
 	}
 
@@ -72,14 +72,14 @@ std::string Decimal::add(std::string addend1, std::string addend2) {
 std::string Decimal::sub(std::string minuend, std::string subtrahend) {
 	
 	// Input sanitization
-	if (!std::regex_match(minuend, std::regex("[0-9]+")) || !std::regex_match(subtrahend, std::regex("[0-9]+"))) {
-		std::cout << "Error: Strings may only contain positive numbers!";
+	if (!Decimal::isDecimal(minuend) || !Decimal::isDecimal(subtrahend)) {
+		std::cout << "Error: Strings may only contain positive decimal numbers!" << "\n";
 		return "";
 	}
-	else if (subtrahend == "0") {
+	else if (isZero(subtrahend)) {
 		return minuend;
 	}
-	else if (minuend == "0") {
+	else if (isZero(minuend)) {
 		return "-" + subtrahend;
 	}
 	else if (minuend == subtrahend) {
@@ -141,11 +141,11 @@ std::string Decimal::sub(std::string minuend, std::string subtrahend) {
 std::string Decimal::mult(std::string factor1, std::string factor2) {
 	
 	// Input sanitization
-	if (!std::regex_match(factor1, std::regex("[0-9]+")) || !std::regex_match(factor2, std::regex("[0-9]+"))) {
-		std::cout << "Error: Strings may only contain positive numbers!" << "\n";
+	if (!Decimal::isDecimal(factor1) || !Decimal::isDecimal(factor2)) {
+		std::cout << "Error: Strings may only contain positive decimal numbers!" << "\n";
 		return "";
 	}
-	else if (factor1.empty() || factor1 == "0" || factor2.empty() || factor2 == "0") {
+	else if (isZero(factor1) || isZero(factor2)) {
 		return "0";
 	}
 
@@ -200,14 +200,14 @@ std::string Decimal::mult(std::string factor1, std::string factor2) {
 std::string Decimal::div(std::string dividend, std::string divisor) {
 	
 	// Input sanitization
-	if (!std::regex_match(dividend, std::regex("[0-9]+")) || !std::regex_match(divisor, std::regex("[0-9]+"))) {
-		std::cout << "Error: Strings may only contain positive numbers!" << "\n";
+	if (!Decimal::isDecimal(dividend) || !Decimal::isDecimal(divisor)) {
+		std::cout << "Error: Strings may only contain positive decimal numbers!" << "\n";
 		return "";
 	}
-	else if (divisor.empty() || divisor == "0") {
+	else if (isZero(divisor)) {
 		return "Error: Division by 0 not allowed!";
 	}
-	else if (dividend.empty() || dividend == "0") {
+	else if (isZero(dividend)) {
 		return "0";
 	}
 
@@ -226,14 +226,14 @@ std::string Decimal::div(std::string dividend, std::string divisor) {
 std::string Decimal::pow(std::string base, std::string exponent) {
 	
 	// Input sanitization
-	if (!std::regex_match(base, std::regex("[0-9]+")) || !std::regex_match(exponent, std::regex("[0-9]+"))) {
-		std::cout << "Error: Strings may only contain positive numbers!" << "\n";
+	if (!Decimal::isDecimal(base) || !Decimal::isDecimal(exponent)) {
+		std::cout << "Error: Strings may only contain positive decimal numbers!" << "\n";
 		return "";
 	}
-	else if (base == "" || base == "0") {
+	else if (isZero(base)) {
 		return "0";
 	}
-	else if (exponent == "" || exponent == "0") {
+	else if (isZero(exponent)) {
 		return "1";
 	}
 	
@@ -250,11 +250,11 @@ std::string Decimal::pow(std::string base, std::string exponent) {
 std::string Decimal::fact(std::string num) {
 
 	// Input sanitization
-	if (!std::regex_match(num, std::regex("[0-9]+"))) {
-		std::cout << "Error: Strings may only contain positive numbers!" << "\n";
+	if (!Decimal::isDecimal(num)) {
+		std::cout << "Error: Strings may only contain positive decimal numbers!" << "\n";
 		return "";
 	}
-	else if (num == "" || num == "0") {
+	else if (isZero(num)) {
 		return "1";
 	}
 
@@ -271,8 +271,8 @@ std::string Decimal::fact(std::string num) {
 std::string Decimal::max(std::string str1, std::string str2) {
 	
 	// Input sanitization
-	if (!std::regex_match(str1, std::regex("[0-9]+")) || !std::regex_match(str2, std::regex("[0-9]+"))) {
-		std::cout << "Error: Strings may only contain positive numbers!";
+	if (!Decimal::isDecimal(str1) || !Decimal::isDecimal(str2)) {
+		std::cout << "Error: Strings may only contain positive decimal numbers!" << "\n";
 		return "";
 	}
 	
@@ -307,14 +307,14 @@ bool Decimal::isDecimal(std::string string) {
 std::string Binary::add_b(std::string addend1, std::string addend2) {
 	
 	// Input sanitization
-	if (!std::regex_match(addend1, std::regex("[0-1]+")) || !std::regex_match(addend2, std::regex("[0-1]+"))) {
-		std::cout << "Error: Strings may only contain positive numbers!" << "\n";
+	if (!Binary::isBinary(addend1) || !Binary::isBinary(addend2)) {
+		std::cout << "Error: Strings may only contain positive binary numbers!" << "\n";
 		return "";
 	}
-	else if (addend1 == "0") {
+	else if (isZero(addend1)) {
 		return addend2;
 	}
-	else if (addend2 == "0") {
+	else if (isZero(addend2)) {
 		return addend1;
 	}
 
@@ -361,19 +361,16 @@ std::string Binary::add_b(std::string addend1, std::string addend2) {
 std::string Binary::sub_b(std::string minuend, std::string subtrahend) {
 	
 	// Input sanitization
-	if (!std::regex_match(minuend, std::regex("[0-1]+")) || !std::regex_match(subtrahend, std::regex("[0-1]+"))) {
-		std::cout << "Error: Strings may only contain positive numbers!";
+	if (!Binary::isBinary(minuend) || !Binary::isBinary(subtrahend)) {
+		std::cout << "Error: Strings may only contain positive binary numbers!" << "\n";
 		return "";
 	}
-	else if (subtrahend == "0") {
+	else if (isZero(subtrahend)) {
 		return minuend;
-	}
-	else if (minuend == subtrahend) {
-		return "0";
 	}
 
 	// Negative difference
-	if (subtrahend == StringCalc::Decimal::max(minuend, subtrahend)) {
+	if (subtrahend == StringCalc::Binary::max_b(minuend, subtrahend)) {
 		std::cout << "Error: Negative results not allowed.";
 		return "";
 	}
@@ -429,11 +426,11 @@ std::string Binary::sub_b(std::string minuend, std::string subtrahend) {
 std::string Binary::mult_b(std::string factor1, std::string factor2) {
 	
 	// Input sanitization
-	if (!std::regex_match(factor1, std::regex("[0-1]+")) || !std::regex_match(factor2, std::regex("[0-1]+"))) {
-		std::cout << "Error: Strings may only contain positive numbers!" << "\n";
+	if (!Binary::isBinary(factor1) || !Binary::isBinary(factor2)) {
+		std::cout << "Error: Strings may only contain positive binary numbers!" << "\n";
 		return "";
 	}
-	else if (factor1.empty() || factor1 == "0" || factor2.empty() || factor2 == "0") {
+	else if (isZero(factor1) || isZero(factor2)) {
 		return "0";
 	}
 
@@ -487,14 +484,14 @@ std::string Binary::mult_b(std::string factor1, std::string factor2) {
 std::string Binary::div_b(std::string dividend, std::string divisor){
 	
 	// Input sanitization
-	if (!std::regex_match(dividend, std::regex("[0-1]+")) || !std::regex_match(divisor, std::regex("[0-1]+"))) {
-		std::cout << "Error: Strings may only contain positive numbers!" << "\n";
+	if (!Binary::isBinary(dividend) || !Binary::isBinary(divisor)) {
+		std::cout << "Error: Strings may only contain positive binary numbers!" << "\n";
 		return "";
 	}
-	else if (divisor.empty() || divisor == "0") {
+	else if (isZero(divisor)) {
 		return "Error: Division by 0 not allowed!";
 	}
-	else if (dividend.empty() || dividend == "0") {
+	else if (isZero(dividend)) {
 		return "0";
 	}
 
@@ -512,8 +509,8 @@ std::string Binary::div_b(std::string dividend, std::string divisor){
 std::string Binary::max_b(std::string str1, std::string str2) {
 	
 	// Input sanitization
-	if (!std::regex_match(str1, std::regex("[0-1]+")) || !std::regex_match(str2, std::regex("[0-1]+"))) {
-		std::cout << "Error: Strings may only contain positive numbers!";
+	if (!Binary::isBinary(str1) || !Binary::isBinary(str2)) {
+		std::cout << "Error: Strings may only contain positive binary numbers!" << "\n";
 		return "";
 	}
 
