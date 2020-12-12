@@ -6,6 +6,18 @@
 
 using namespace StringCalc;
 
+bool StringCalc::isNegative(std::string string) {
+	return true;
+}
+
+bool StringCalc::isZero(std::string string) {
+	return true;
+}
+
+bool Decimal::isDecimal(std::string string) {
+	return true;
+}
+
 std::string Decimal::add(std::string addend1, std::string addend2) {
 	
 	// Input sanitization
@@ -284,6 +296,10 @@ std::string Decimal::max(std::string str1, std::string str2) {
 	}
 
 	return "";
+}
+
+bool Binary::isBinary(std::string string) {
+	return true;
 }
 
 std::string Binary::add_b(std::string addend1, std::string addend2) {

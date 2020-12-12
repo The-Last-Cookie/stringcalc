@@ -10,7 +10,13 @@
 
 namespace StringCalc {
 
+	bool isNegative(std::string string);
+
+	bool isZero(std::string string);
+
 	namespace Decimal {
+
+		bool isDecimal(std::string string);
 
 		// Addition
 		std::string add(std::string addend1, std::string addend2);
@@ -37,6 +43,8 @@ namespace StringCalc {
 	}
 
 	namespace Binary {
+
+		bool isBinary(std::string string);
 
 		// Addition
 		std::string add_b(std::string addend1, std::string addend2);
