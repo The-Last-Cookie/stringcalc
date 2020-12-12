@@ -79,16 +79,14 @@ std::string Decimal::sub(std::string minuend, std::string subtrahend) {
 	else if (isZero(subtrahend)) {
 		return minuend;
 	}
-	else if (isZero(minuend)) {
-		return "-" + subtrahend;
-	}
 	else if (minuend == subtrahend) {
 		return "0";
 	}
 
-	// In case the difference would be negative, switch numbers
+	// Negative difference
 	if (subtrahend == StringCalc::Decimal::max(minuend, subtrahend)) {
-		return "-" + sub(subtrahend, minuend);
+		std::cout << "Error: Result may only be positive!";
+		return "";
 	}
 
 	// Add zeros, so both strings have the same length
@@ -371,7 +369,7 @@ std::string Binary::sub_b(std::string minuend, std::string subtrahend) {
 
 	// Negative difference
 	if (subtrahend == StringCalc::Binary::max_b(minuend, subtrahend)) {
-		std::cout << "Error: Negative results not allowed.";
+		std::cout << "Error: Result may only be positive!";
 		return "";
 	}
 
