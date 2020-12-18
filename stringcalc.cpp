@@ -566,9 +566,9 @@ int Hexadecimal::letterToInt(char c) {
 	if (c >= 48 && c <= 57) {
 		return c - 48;
 	}
-	// A to F
-	else if (c >= 65 && c <= 70) {
-		return c - 55;
+	// A to F and a to f
+	else if ((c >= 65 && c <= 70) || (c >= 97 && c <= 102)) {
+		return (c % 16) + 9;
 	}
 	
 	std::cout << "Error: Couldn't convert char correctly to int.";
@@ -581,7 +581,7 @@ std::string Hexadecimal::intToLetter(int num) {
 	if (num >= 0 && num <= 9) {
 		return std::to_string(num);
 	}
-	// A to F	
+	// A to F
 	else if (num >= 10 && num <= 15) {
 		char c = num + 55;
 		std::string s;
@@ -595,7 +595,7 @@ std::string Hexadecimal::intToLetter(int num) {
 
 bool Hexadecimal::isHexadecimal(std::string string) {
 
-	if (std::regex_match(string, std::regex("[0-9A-F]+"))) {
+	if (std::regex_match(string, std::regex("[0-9A-Fa-f]+"))) {
 		return true;
 	}
 
