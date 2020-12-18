@@ -594,5 +594,10 @@ std::string Hexadecimal::intToLetter(int num) {
 }
 
 bool Hexadecimal::isHexadecimal(std::string string) {
-	return true;
+
+	if (std::regex_match(string, std::regex("[0-9A-F]+"))) {
+		return true;
+	}
+
+	return false;
 }
