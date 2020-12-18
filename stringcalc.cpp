@@ -561,10 +561,35 @@ std::string Hexadecimal::max_h(std::string str1, std::string str2) {
 }
 
 int Hexadecimal::letterToInt(char c) {
-	return 0;
+	
+	// 0 to 9
+	if (c >= 48 && c <= 57) {
+		return c - 48;
+	}
+	// A to F
+	else if (c >= 65 && c <= 70) {
+		return c - 55;
+	}
+	
+	std::cout << "Error: Couldn't convert char correctly to int.";
+	return -1;
 }
 
 std::string Hexadecimal::intToLetter(int num) {
+	
+	// 0 to 9
+	if (num >= 0 && num <= 9) {
+		return std::to_string(num);
+	}
+	// A to F	
+	else if (num >= 10 && num <= 15) {
+		char c = num + 55;
+		std::string s;
+		s += c;
+		return s;
+	}
+	
+	std::cout << "Error: Couldn't convert int correctly to string.";
 	return "";
 }
 
