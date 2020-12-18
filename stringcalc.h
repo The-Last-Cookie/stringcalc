@@ -62,4 +62,31 @@ namespace StringCalc {
 
 	}
 
+	namespace Hexadecimal {
+
+		// Addition
+		std::string add_h(std::string addend1, std::string addend2);
+
+		// Sutraction
+		std::string sub_h(std::string minuend, std::string subtrahend);
+
+		// Multiplication
+		std::string mult_h(std::string factor1, std::string factor2);
+
+		// Division (without remainder)
+		std::string div_h(std::string dividend, std::string divisor);
+
+		// Return string with higher value
+		// If both strings are the same, the function will return an empty string
+		std::string max_h(std::string str1, std::string str2);
+
+		// Convert letter to corresponding int
+		int letterToInt(char c);
+
+		// Convert int into corresponding letter
+		std::string intToLetter(int num);
+
+		bool isHexadecimal(std::string string);
+
+	}
 }

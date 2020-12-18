@@ -539,3 +539,35 @@ bool Binary::isBinary(std::string string) {
 
 	return false;
 }
+
+std::string Hexadecimal::add_h(std::string addend1, std::string addend2) {
+	return "";
+}
+
+std::string Hexadecimal::sub_h(std::string minuend, std::string subtrahend) {
+	return "";
+}
+
+std::string Hexadecimal::mult_h(std::string factor1, std::string factor2) {
+	return "";
+}
+
+std::string Hexadecimal::div_h(std::string dividend, std::string divisor) {
+	return "";
+}
+
+std::string Hexadecimal::max_h(std::string str1, std::string str2) {
+	return "";
+}
+
+int Hexadecimal::letterToInt(char c) {
+	return 0;
+}
+
+std::string Hexadecimal::intToLetter(int num) {
+	return "";
+}
+
+bool Hexadecimal::isHexadecimal(std::string string) {
+	return true;
+}
