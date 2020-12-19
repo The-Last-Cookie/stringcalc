@@ -541,7 +541,56 @@ bool Binary::isBinary(std::string string) {
 }
 
 std::string Hexadecimal::add_h(std::string addend1, std::string addend2) {
-	return "";
+
+	// Input sanitization
+	if (!Hexadecimal::isHexadecimal(addend1) || !Hexadecimal::isHexadecimal(addend2)) {
+		std::cout << "Error: Strings may only contain positive hexadecimal numbers!" << "\n";
+		return "";
+	}
+	else if (isZero(addend1)) {
+		return addend2;
+	}
+	else if (isZero(addend2)) {
+		return addend1;
+	}
+
+	// Add zeros, so both strings have the same length
+	if (addend1.length() > addend2.length()) {
+		int len = addend1.length() - addend2.length();
+		for (int i = 0; i < len; i++) {
+			addend2.insert(0, "0");
+		}
+	}
+	else if (addend1.length() < addend2.length()) {
+		int len = addend2.length() - addend1.length();
+		for (int i = 0; i < len; i++) {
+			addend1.insert(0, "0");
+		}
+	}
+
+	std::string sum = "";
+
+	// Add single digits together
+	int carrier = 0;
+	for (int i = addend1.length() - 1; i >= 0; i--) {
+		int temp = Hexadecimal::letterToInt(addend1[i]) + Hexadecimal::letterToInt(addend2[i]) + carrier;
+
+		if (temp > 9) {
+			carrier = 1;
+			temp = temp % 16;
+		}
+		else {
+			carrier = 0;
+		}
+
+		sum.insert(0, Hexadecimal::intToLetter(temp));
+	}
+
+	if (carrier == 1) {
+		sum.insert(0, std::to_string(carrier));
+	}
+
+	return sum;
 }
 
 std::string Hexadecimal::sub_h(std::string minuend, std::string subtrahend) {
