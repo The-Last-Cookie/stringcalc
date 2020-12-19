@@ -594,7 +594,68 @@ std::string Hexadecimal::add_h(std::string addend1, std::string addend2) {
 }
 
 std::string Hexadecimal::sub_h(std::string minuend, std::string subtrahend) {
-	return "";
+
+	// Input sanitization
+	if (!Hexadecimal::isHexadecimal(minuend) || !Hexadecimal::isHexadecimal(subtrahend)) {
+		std::cout << "Error: Strings may only contain positive hexadecimal numbers!" << "\n";
+		return "";
+	}
+	else if (isZero(subtrahend)) {
+		return minuend;
+	}
+
+	// Negative difference
+	if (subtrahend == StringCalc::Hexadecimal::max_h(minuend, subtrahend)) {
+		std::cout << "Error: Result may only be positive!";
+		return "";
+	}
+
+	// Add zeros, so both strings have the same length
+	if (minuend.length() > subtrahend.length()) {
+		int len = minuend.length() - subtrahend.length();
+		for (int i = 0; i < len; i++) {
+			subtrahend.insert(0, "0");
+		}
+	}
+	else if (minuend.length() < subtrahend.length()) {
+		int len = subtrahend.length() - minuend.length();
+		for (int i = 0; i < len; i++) {
+			minuend.insert(0, "0");
+		}
+	}
+
+	std::string difference = "";
+
+	// Subtract single digits from each other
+	int carrier = 0;
+	for (int i = minuend.length() - 1; i >= 0; i--) {
+		int temp = Hexadecimal::letterToInt(minuend[i]) - Hexadecimal::letterToInt(subtrahend[i]) - carrier;
+
+		if (temp < 0) {
+			temp = (temp % 16) * (-1);
+			carrier = 1;
+		}
+		else {
+			carrier = 0;
+		}
+
+		difference.insert(0, Hexadecimal::intToLetter(temp));
+	}
+
+	// Remove leading zeros
+	for (int i = 0; i < difference.length(); i++) {
+		if (difference[0] == '0') {
+			difference.erase(0, 1);
+
+			// In case difference contains several zeros
+			i--;
+		}
+		else {
+			break;
+		}
+	}
+
+	return difference;
 }
 
 std::string Hexadecimal::mult_h(std::string factor1, std::string factor2) {
