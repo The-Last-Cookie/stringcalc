@@ -575,7 +575,7 @@ std::string Hexadecimal::add_h(std::string addend1, std::string addend2) {
 	for (int i = addend1.length() - 1; i >= 0; i--) {
 		int temp = Hexadecimal::letterToInt(addend1[i]) + Hexadecimal::letterToInt(addend2[i]) + carrier;
 
-		if (temp > 9) {
+		if (temp > 15) {
 			carrier = 1;
 			temp = temp % 16;
 		}
