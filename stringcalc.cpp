@@ -659,7 +659,61 @@ std::string Hexadecimal::sub_h(std::string minuend, std::string subtrahend) {
 }
 
 std::string Hexadecimal::mult_h(std::string factor1, std::string factor2) {
-	return "";
+
+	// Input sanitization
+	if (!Hexadecimal::isHexadecimal(factor1) || !Hexadecimal::isHexadecimal(factor2)) {
+		std::cout << "Error: Strings may only contain positive hexadecimal numbers!" << "\n";
+		return "";
+	}
+	else if (isZero(factor1) || isZero(factor2)) {
+		return "0";
+	}
+
+	// Vector which will store simple multiplication strings
+	std::vector<std::string> singleResults;
+
+	// Multiply single digits with each other
+	int carrier = 0;
+	for (int i = factor1.length() - 1; i >= 0; i--) {
+		std::string tempStr = "";
+
+		// Add zeros if i < factor1.length() - 1
+		for (int z = 0; z < factor1.length() - i - 1; z++) {
+			tempStr.insert(0, "0");
+		}
+
+		for (int j = factor2.length() - 1; j >= 0; j--) {
+
+			int temp = Hexadecimal::letterToInt(factor1[i]) * Hexadecimal::letterToInt(factor2[j]) + carrier;
+			if (temp > 16) {
+				carrier = (temp - (temp % 16)) / 16;
+				temp = temp % 16;
+			}
+			else {
+				carrier = 0;
+			}
+
+			tempStr.insert(0, Hexadecimal::intToLetter(temp));
+		}
+
+		if (carrier != 0) {
+			tempStr.insert(0, Hexadecimal::intToLetter(carrier));
+			carrier = 0;
+		}
+		singleResults.push_back(tempStr);
+	}
+
+	// Add simple multiplication strings together
+	while (singleResults.size() > 1) {
+		singleResults[1] = StringCalc::Hexadecimal::add_h(singleResults[0], singleResults[1]);
+
+		std::vector<std::string>::iterator it;
+		it = singleResults.begin();
+		singleResults.erase(it);
+	}
+
+	std::string product = singleResults.at(0);
+	return product;
 }
 
 std::string Hexadecimal::div_h(std::string dividend, std::string divisor) {
