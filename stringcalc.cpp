@@ -717,7 +717,28 @@ std::string Hexadecimal::mult_h(std::string factor1, std::string factor2) {
 }
 
 std::string Hexadecimal::div_h(std::string dividend, std::string divisor) {
-	return "";
+
+	// Input sanitization
+	if (!Hexadecimal::isHexadecimal(dividend) || !Hexadecimal::isHexadecimal(divisor)) {
+		std::cout << "Error: Strings may only contain positive hexadecimal numbers!" << "\n";
+		return "";
+	}
+	else if (isZero(divisor)) {
+		return "Error: Division by 0 not allowed!";
+	}
+	else if (isZero(dividend)) {
+		return "0";
+	}
+
+	std::string quotient = "0";
+
+	// Division
+	while (dividend == StringCalc::Hexadecimal::max_h(dividend, divisor) || StringCalc::Hexadecimal::max_h(dividend, divisor) == "") {
+		dividend = sub_h(dividend, divisor);
+		quotient = StringCalc::Hexadecimal::add_h(quotient, "1");
+	}
+
+	return quotient;
 }
 
 std::string Hexadecimal::max_h(std::string str1, std::string str2) {
