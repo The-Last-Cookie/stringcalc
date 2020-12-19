@@ -606,6 +606,29 @@ std::string Hexadecimal::div_h(std::string dividend, std::string divisor) {
 }
 
 std::string Hexadecimal::max_h(std::string str1, std::string str2) {
+
+	// Input sanitization
+	if (!Hexadecimal::isHexadecimal(str1) || !Hexadecimal::isHexadecimal(str2)) {
+		std::cout << "Error: Strings may only contain positive hexadecimal numbers!" << "\n";
+		return "";
+	}
+
+	if (str1.length() > str2.length()) {
+		return str1;
+	}
+	else if (str1.length() < str2.length()) {
+		return str2;
+	}
+
+	for (int i = 0; i < str1.length(); i++) {
+		if (Hexadecimal::letterToInt(str1[i]) > Hexadecimal::letterToInt(str2[i])) {
+			return str1;
+		}
+		else if (Hexadecimal::letterToInt(str1[i]) < Hexadecimal::letterToInt(str2[i])) {
+			return str2;
+		}
+	}
+
 	return "";
 }
 
