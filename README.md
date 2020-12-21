@@ -29,7 +29,7 @@ std::cout << "10110 / 111 = " << StringCalc::Binary::div_b("10110", "111") << "\
 - [x] Function for factorials --> n!
 - [x] Function for power --> base^exponent
 - [x] Functionality for calculation of binary strings
-- [ ] Functionality for calculation of hexadecimal strings
+- [x] Functionality for calculation of hexadecimal strings
 - [ ] Function for modulo (for decimals) --> m mod n
 - [x] Improve code readability and error handling
     - [x] Helping functions _isZero_, _isDecimal_, ...
