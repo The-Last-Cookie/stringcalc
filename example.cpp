@@ -28,7 +28,12 @@ int main() {
 
 	std::cout << "10110 * 111 = " << StringCalc::Binary::mult_b("10110", "111") << "\n";
 
-	std::cout << "10110 / 111 = " << StringCalc::Binary::div_b("10110", "111") << "\n";
+	std::cout << "10110 / 111 = " << StringCalc::Binary::div_b("10110", "111") << "\n\n";
+
+	std::cout << "10 + 90 = " << StringCalc::Hexadecimal::add_h("10", "90") << "\n";
+	std::cout << "52 - 3 = " << StringCalc::Hexadecimal::sub_h("52", "3") << "\n";
+	std::cout << "4F2 * 200 = " << StringCalc::Hexadecimal::mult_h("4F2", "200") << "\n";
+	std::cout << "5B / 3 = " << StringCalc::Hexadecimal::div_h("5B", "3") << "\n";
 
 	return 0;
 }
