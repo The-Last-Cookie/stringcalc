@@ -406,7 +406,7 @@ std::string Binary::sub_b(std::string minuend, std::string subtrahend) {
 	}
 
 	// Remove leading zeros
-	for (int i = 0; i < difference.length(); i++) {
+	for (int i = 0; i < difference.length()- 1; i++) {
 		if (difference[0] == '0') {
 			difference.erase(0, 1);
 
