@@ -137,18 +137,7 @@ std::string Decimal::sub(std::string minuend, std::string subtrahend) {
 		difference.insert(0, std::to_string(temp));
 	}
 
-	for (int i = 0; i < difference.length(); i++) {
-		if (difference[0] == '0') {
-			difference.erase(0, 1);
-			
-			// In case difference contains several zeros
-			i--;
-		}
-		else {
-			break;
-		}
-	}
-
+	difference = removeLeadingZeros(difference);
 	return difference;
 }
 
@@ -292,29 +281,8 @@ std::string Decimal::max(std::string str1, std::string str2) {
 	}
 
 	// Remove leading zeros on both strings
-	for (int i = 0; i < str1.length() - 1; i++) {
-		if (str1[0] == '0') {
-			str1.erase(0, 1);
-
-			// In case difference contains several zeros
-			i--;
-		}
-		else {
-			break;
-		}
-	}
-
-	for (int i = 0; i < str2.length() - 1; i++) {
-		if (str2[0] == '0') {
-			str2.erase(0, 1);
-
-			// In case difference contains several zeros
-			i--;
-		}
-		else {
-			break;
-		}
-	}
+	str1 = removeLeadingZeros(str1);
+	str2 = removeLeadingZeros(str2);
 	
 	if (str1.length() > str2.length()) {
 		return str1;
@@ -447,19 +415,7 @@ std::string Binary::sub_b(std::string minuend, std::string subtrahend) {
 		difference.insert(0, std::to_string(temp));
 	}
 
-	// Remove leading zeros
-	for (int i = 0; i < difference.length()- 1; i++) {
-		if (difference[0] == '0') {
-			difference.erase(0, 1);
-
-			// In case difference contains several zeros
-			i--;
-		}
-		else {
-			break;
-		}
-	}
-
+	difference = removeLeadingZeros(difference);
 	return difference;
 }
 
@@ -555,29 +511,8 @@ std::string Binary::max_b(std::string str1, std::string str2) {
 	}
 
 	// Remove leading zeros on both strings
-	for (int i = 0; i < str1.length() - 1; i++) {
-		if (str1[0] == '0') {
-			str1.erase(0, 1);
-
-			// In case difference contains several zeros
-			i--;
-		}
-		else {
-			break;
-		}
-	}
-
-	for (int i = 0; i < str2.length() - 1; i++) {
-		if (str2[0] == '0') {
-			str2.erase(0, 1);
-
-			// In case difference contains several zeros
-			i--;
-		}
-		else {
-			break;
-		}
-	}
+	str1 = removeLeadingZeros(str1);
+	str2 = removeLeadingZeros(str2);
 
 	if (str1.length() > str2.length()) {
 		return str1;
@@ -709,19 +644,7 @@ std::string Hexadecimal::sub_h(std::string minuend, std::string subtrahend) {
 		difference.insert(0, Hexadecimal::intToLetter(temp));
 	}
 
-	// Remove leading zeros
-	for (int i = 0; i < difference.length() - 1; i++) {
-		if (difference[0] == '0') {
-			difference.erase(0, 1);
-
-			// In case difference contains several zeros
-			i--;
-		}
-		else {
-			break;
-		}
-	}
-
+	difference = removeLeadingZeros(difference);
 	return difference;
 }
 
