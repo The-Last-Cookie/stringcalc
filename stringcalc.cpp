@@ -395,7 +395,7 @@ std::string Binary::sub_b(std::string minuend, std::string subtrahend) {
 		int temp = minuend[i] - subtrahend[i] - carrier;
 
 		if (temp < 0) {
-			temp = (temp % 2) * (-1);
+			temp = temp + 2;
 			carrier = 1;
 		}
 		else {
@@ -632,7 +632,7 @@ std::string Hexadecimal::sub_h(std::string minuend, std::string subtrahend) {
 		int temp = Hexadecimal::letterToInt(minuend[i]) - Hexadecimal::letterToInt(subtrahend[i]) - carrier;
 
 		if (temp < 0) {
-			temp = (temp % 16) * (-1);
+			temp = temp + 16;
 			carrier = 1;
 		}
 		else {
