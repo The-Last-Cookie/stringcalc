@@ -95,9 +95,6 @@ std::string Decimal::sub(std::string minuend, std::string subtrahend) {
 	else if (isZero(subtrahend)) {
 		return minuend;
 	}
-	else if (minuend == subtrahend) {
-		return "0";
-	}
 
 	// Negative difference
 	if (subtrahend == StringCalc::Decimal::max(minuend, subtrahend)) {
