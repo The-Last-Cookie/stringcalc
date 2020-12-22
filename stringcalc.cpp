@@ -228,11 +228,12 @@ std::string Decimal::pow(std::string base, std::string exponent) {
 		std::cout << "Error: Strings may only contain positive decimal numbers!" << "\n";
 		return "";
 	}
+	else if (isZero(base) && isZero(exponent)) {
+		std::cout << "Error: 0 ^ 0 is not defined!";
+		return "";
+	}
 	else if (isZero(base)) {
 		return "0";
-	}
-	else if (isZero(exponent)) {
-		return "1";
 	}
 	
 	std::string power = "1";
