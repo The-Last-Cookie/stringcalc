@@ -12,6 +12,8 @@ namespace StringCalc {
 
 	bool isZero(std::string string);
 
+	std::string removeLeadingZeros(std::string str);
+
 	namespace Decimal {
 
 		// Addition

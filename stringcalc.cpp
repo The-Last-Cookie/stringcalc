@@ -15,6 +15,22 @@ bool StringCalc::isZero(std::string string) {
 	return false;
 }
 
+std::string StringCalc::removeLeadingZeros(std::string str) {
+
+	int counter = 0;
+	for (int i = 0; i < str.length() - 1; i++) {
+		if (str[i] == '0') {
+			counter++;
+		}
+		else {
+			break;
+		}
+	}
+
+	str.erase(0, counter);
+	return str;
+}
+
 std::string Decimal::add(std::string addend1, std::string addend2) {
 	
 	// Input sanitization
