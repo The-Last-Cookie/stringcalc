@@ -737,29 +737,8 @@ std::string Hexadecimal::max_h(std::string str1, std::string str2) {
 	}
 
 	// Remove leading zeros on both strings
-	for (int i = 0; i < str1.length() - 1; i++) {
-		if (str1[0] == '0') {
-			str1.erase(0, 1);
-
-			// In case difference contains several zeros
-			i--;
-		}
-		else {
-			break;
-		}
-	}
-
-	for (int i = 0; i < str2.length() - 1; i++) {
-		if (str2[0] == '0') {
-			str2.erase(0, 1);
-
-			// In case difference contains several zeros
-			i--;
-		}
-		else {
-			break;
-		}
-	}
+	str1 = removeLeadingZeros(str1);
+	str2 = removeLeadingZeros(str2);
 
 	if (str1.length() > str2.length()) {
 		return str1;
