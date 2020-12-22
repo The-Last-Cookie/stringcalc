@@ -274,6 +274,31 @@ std::string Decimal::max(std::string str1, std::string str2) {
 		std::cout << "Error: Strings may only contain positive decimal numbers!" << "\n";
 		return "";
 	}
+
+	// Remove leading zeros on both strings
+	for (int i = 0; i < str1.length() - 1; i++) {
+		if (str1[0] == '0') {
+			str1.erase(0, 1);
+
+			// In case difference contains several zeros
+			i--;
+		}
+		else {
+			break;
+		}
+	}
+
+	for (int i = 0; i < str2.length() - 1; i++) {
+		if (str2[0] == '0') {
+			str2.erase(0, 1);
+
+			// In case difference contains several zeros
+			i--;
+		}
+		else {
+			break;
+		}
+	}
 	
 	if (str1.length() > str2.length()) {
 		return str1;
@@ -513,6 +538,31 @@ std::string Binary::max_b(std::string str1, std::string str2) {
 		return "";
 	}
 
+	// Remove leading zeros on both strings
+	for (int i = 0; i < str1.length() - 1; i++) {
+		if (str1[0] == '0') {
+			str1.erase(0, 1);
+
+			// In case difference contains several zeros
+			i--;
+		}
+		else {
+			break;
+		}
+	}
+
+	for (int i = 0; i < str2.length() - 1; i++) {
+		if (str2[0] == '0') {
+			str2.erase(0, 1);
+
+			// In case difference contains several zeros
+			i--;
+		}
+		else {
+			break;
+		}
+	}
+
 	if (str1.length() > str2.length()) {
 		return str1;
 	}
@@ -748,6 +798,31 @@ std::string Hexadecimal::max_h(std::string str1, std::string str2) {
 	if (!Hexadecimal::isHexadecimal(str1) || !Hexadecimal::isHexadecimal(str2)) {
 		std::cout << "Error: Strings may only contain positive hexadecimal numbers!" << "\n";
 		return "";
+	}
+
+	// Remove leading zeros on both strings
+	for (int i = 0; i < str1.length() - 1; i++) {
+		if (str1[0] == '0') {
+			str1.erase(0, 1);
+
+			// In case difference contains several zeros
+			i--;
+		}
+		else {
+			break;
+		}
+	}
+
+	for (int i = 0; i < str2.length() - 1; i++) {
+		if (str2[0] == '0') {
+			str2.erase(0, 1);
+
+			// In case difference contains several zeros
+			i--;
+		}
+		else {
+			break;
+		}
 	}
 
 	if (str1.length() > str2.length()) {
