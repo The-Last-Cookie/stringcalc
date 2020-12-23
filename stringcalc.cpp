@@ -203,15 +203,14 @@ std::string Decimal::div(std::string dividend, std::string divisor) {
 	dividend = removeLeadingZeros(dividend);
 	divisor = removeLeadingZeros(divisor);
 
-	std::string counter = "0";
+	std::string quotient = "0";
 
 	// Division
 	while (dividend == max(dividend, divisor) || max(dividend, divisor) == "") {
 		dividend = sub(dividend, divisor);
-		counter = add(counter, "1");
+		quotient = add(quotient, "1");
 	}
 
-	std::string quotient = counter;
 	return quotient;
 }
 
