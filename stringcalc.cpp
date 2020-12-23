@@ -48,15 +48,11 @@ std::string Decimal::add(std::string addend1, std::string addend2) {
 	// Add zeros, so both strings have the same length
 	if (addend1.length() > addend2.length()) {
 		int len = addend1.length() - addend2.length();
-		for (int i = 0; i < len; i++) {
-			addend2.insert(0, "0");
-		}
+		addend2.insert(0, len, '0');
 	}
 	else if (addend1.length() < addend2.length()) {
 		int len = addend2.length() - addend1.length();
-		for (int i = 0; i < len; i++) {
-			addend1.insert(0, "0");
-		}
+		addend1.insert(0, len, '0');
 	}
 
 	std::string sum = "";
@@ -106,15 +102,11 @@ std::string Decimal::sub(std::string minuend, std::string subtrahend) {
 	// Add zeros, so both strings have the same length
 	if (minuend.length() > subtrahend.length()) {
 		int len = minuend.length() - subtrahend.length();
-		for (int i = 0; i < len; i++) {
-			subtrahend.insert(0, "0");
-		}
+		subtrahend.insert(0, len, '0');
 	}
 	else if (minuend.length() < subtrahend.length()) {
 		int len = subtrahend.length() - minuend.length();
-		for (int i = 0; i < len; i++) {
-			minuend.insert(0, "0");
-		}
+		minuend.insert(0, len, '0');
 	}
 
 	std::string difference = "";
@@ -331,15 +323,11 @@ std::string Binary::add_b(std::string addend1, std::string addend2) {
 	// Add zeros, so both strings have the same length
 	if (addend1.length() > addend2.length()) {
 		int len = addend1.length() - addend2.length();
-		for (int i = 0; i < len; i++) {
-			addend2.insert(0, "0");
-		}
+		addend2.insert(0, len, '0');
 	}
 	else if (addend1.length() < addend2.length()) {
 		int len = addend2.length() - addend1.length();
-		for (int i = 0; i < len; i++) {
-			addend1.insert(0, "0");
-		}
+		addend1.insert(0, len, '0');
 	}
 
 	std::string sum = "";
@@ -389,15 +377,11 @@ std::string Binary::sub_b(std::string minuend, std::string subtrahend) {
 	// Add zeros, so both strings have the same length
 	if (minuend.length() > subtrahend.length()) {
 		int len = minuend.length() - subtrahend.length();
-		for (int i = 0; i < len; i++) {
-			subtrahend.insert(0, "0");
-		}
+		subtrahend.insert(0, len, '0');
 	}
 	else if (minuend.length() < subtrahend.length()) {
 		int len = subtrahend.length() - minuend.length();
-		for (int i = 0; i < len; i++) {
-			minuend.insert(0, "0");
-		}
+		minuend.insert(0, len, '0');
 	}
 
 	std::string difference = "";
