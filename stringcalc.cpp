@@ -177,15 +177,11 @@ std::string Decimal::mult(std::string factor1, std::string factor2) {
 	}
 	
 	// Add simple multiplication strings together
-	while (singleResults.size() > 1) {
-		singleResults[1] = StringCalc::Decimal::add(singleResults[0], singleResults[1]);
-
-		std::vector<std::string>::iterator it;
-		it = singleResults.begin();
-		singleResults.erase(it);
+	std::string product = "0";
+	for (int i = 0; i < singleResults.size(); i++) {
+		product = Decimal::add(product, singleResults[i]);
 	}
 	
-	std::string product = removeLeadingZeros(singleResults.at(0));
 	return product;
 }
 
@@ -451,15 +447,11 @@ std::string Binary::mult_b(std::string factor1, std::string factor2) {
 	}
 
 	// Add simple multiplication strings together
-	while (singleResults.size() > 1) {
-		singleResults[1] = StringCalc::Binary::add_b(singleResults[0], singleResults[1]);
-
-		std::vector<std::string>::iterator it;
-		it = singleResults.begin();
-		singleResults.erase(it);
+	std::string product = "0";
+	for (int i = 0; i < singleResults.size(); i++) {
+		product = Binary::add_b(product, singleResults[i]);
 	}
 
-	std::string product = removeLeadingZeros(singleResults.at(0));
 	return product;
 }
 
@@ -685,15 +677,11 @@ std::string Hexadecimal::mult_h(std::string factor1, std::string factor2) {
 	}
 
 	// Add simple multiplication strings together
-	while (singleResults.size() > 1) {
-		singleResults[1] = StringCalc::Hexadecimal::add_h(singleResults[0], singleResults[1]);
-
-		std::vector<std::string>::iterator it;
-		it = singleResults.begin();
-		singleResults.erase(it);
+	std::string product = "0";
+	for (int i = 0; i < singleResults.size(); i++) {
+		product = Hexadecimal::add_h(product, singleResults[i]);
 	}
 
-	std::string product = removeLeadingZeros(singleResults.at(0));
 	return product;
 }
 
