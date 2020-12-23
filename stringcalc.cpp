@@ -34,7 +34,7 @@ std::string StringCalc::removeLeadingZeros(std::string str) {
 std::string Decimal::add(std::string addend1, std::string addend2) {
 	
 	// Input sanitization
-	if (!Decimal::isDecimal(addend1) || !Decimal::isDecimal(addend2)) {
+	if (!isDecimal(addend1) || !isDecimal(addend2)) {
 		std::cout << "Error: Strings may only contain positive decimal numbers!" << "\n";
 		return "";
 	}
@@ -85,7 +85,7 @@ std::string Decimal::add(std::string addend1, std::string addend2) {
 std::string Decimal::sub(std::string minuend, std::string subtrahend) {
 	
 	// Input sanitization
-	if (!Decimal::isDecimal(minuend) || !Decimal::isDecimal(subtrahend)) {
+	if (!isDecimal(minuend) || !isDecimal(subtrahend)) {
 		std::cout << "Error: Strings may only contain positive decimal numbers!" << "\n";
 		return "";
 	}
@@ -94,7 +94,7 @@ std::string Decimal::sub(std::string minuend, std::string subtrahend) {
 	}
 
 	// Negative difference
-	if (subtrahend == StringCalc::Decimal::max(minuend, subtrahend)) {
+	if (subtrahend == max(minuend, subtrahend)) {
 		std::cout << "Error: Result may only be positive!";
 		return "";
 	}
@@ -134,7 +134,7 @@ std::string Decimal::sub(std::string minuend, std::string subtrahend) {
 std::string Decimal::mult(std::string factor1, std::string factor2) {
 	
 	// Input sanitization
-	if (!Decimal::isDecimal(factor1) || !Decimal::isDecimal(factor2)) {
+	if (!isDecimal(factor1) || !isDecimal(factor2)) {
 		std::cout << "Error: Strings may only contain positive decimal numbers!" << "\n";
 		return "";
 	}
@@ -179,7 +179,7 @@ std::string Decimal::mult(std::string factor1, std::string factor2) {
 	// Add simple multiplication strings together
 	std::string product = "0";
 	for (int i = 0; i < singleResults.size(); i++) {
-		product = Decimal::add(product, singleResults[i]);
+		product = add(product, singleResults[i]);
 	}
 	
 	return product;
@@ -188,7 +188,7 @@ std::string Decimal::mult(std::string factor1, std::string factor2) {
 std::string Decimal::div(std::string dividend, std::string divisor) {
 	
 	// Input sanitization
-	if (!Decimal::isDecimal(dividend) || !Decimal::isDecimal(divisor)) {
+	if (!isDecimal(dividend) || !isDecimal(divisor)) {
 		std::cout << "Error: Strings may only contain positive decimal numbers!" << "\n";
 		return "";
 	}
@@ -206,7 +206,7 @@ std::string Decimal::div(std::string dividend, std::string divisor) {
 	std::string counter = "0";
 
 	// Division
-	while (dividend == StringCalc::Decimal::max(dividend, divisor) || StringCalc::Decimal::max(dividend, divisor) == "") {
+	while (dividend == max(dividend, divisor) || max(dividend, divisor) == "") {
 		dividend = sub(dividend, divisor);
 		counter = add(counter, "1");
 	}
@@ -218,7 +218,7 @@ std::string Decimal::div(std::string dividend, std::string divisor) {
 std::string Decimal::pow(std::string base, std::string exponent) {
 	
 	// Input sanitization
-	if (!Decimal::isDecimal(base) || !Decimal::isDecimal(exponent)) {
+	if (!isDecimal(base) || !isDecimal(exponent)) {
 		std::cout << "Error: Strings may only contain positive decimal numbers!" << "\n";
 		return "";
 	}
@@ -233,8 +233,8 @@ std::string Decimal::pow(std::string base, std::string exponent) {
 	std::string power = "1";
 
 	while (exponent != "0") {
-		power = StringCalc::Decimal::mult(power, base);
-		exponent = StringCalc::Decimal::sub(exponent, "1");
+		power = mult(power, base);
+		exponent = sub(exponent, "1");
 	}
 	
 	return power;
@@ -243,7 +243,7 @@ std::string Decimal::pow(std::string base, std::string exponent) {
 std::string Decimal::fact(std::string num) {
 
 	// Input sanitization
-	if (!Decimal::isDecimal(num)) {
+	if (!isDecimal(num)) {
 		std::cout << "Error: Strings may only contain positive decimal numbers!" << "\n";
 		return "";
 	}
@@ -254,8 +254,8 @@ std::string Decimal::fact(std::string num) {
 	std::string factorial = "1";
 
 	while (num != "0") {
-		factorial = StringCalc::Decimal::mult(factorial, num);
-		num = StringCalc::Decimal::sub(num, "1");
+		factorial = mult(factorial, num);
+		num = sub(num, "1");
 	}
 
 	return factorial;
@@ -264,7 +264,7 @@ std::string Decimal::fact(std::string num) {
 std::string Decimal::max(std::string str1, std::string str2) {
 	
 	// Input sanitization
-	if (!Decimal::isDecimal(str1) || !Decimal::isDecimal(str2)) {
+	if (!isDecimal(str1) || !isDecimal(str2)) {
 		std::cout << "Error: Strings may only contain positive decimal numbers!" << "\n";
 		return "";
 	}
@@ -304,7 +304,7 @@ bool Decimal::isDecimal(std::string string) {
 std::string Binary::add_b(std::string addend1, std::string addend2) {
 	
 	// Input sanitization
-	if (!Binary::isBinary(addend1) || !Binary::isBinary(addend2)) {
+	if (!isBinary(addend1) || !isBinary(addend2)) {
 		std::cout << "Error: Strings may only contain positive binary numbers!" << "\n";
 		return "";
 	}
@@ -355,7 +355,7 @@ std::string Binary::add_b(std::string addend1, std::string addend2) {
 std::string Binary::sub_b(std::string minuend, std::string subtrahend) {
 	
 	// Input sanitization
-	if (!Binary::isBinary(minuend) || !Binary::isBinary(subtrahend)) {
+	if (!isBinary(minuend) || !isBinary(subtrahend)) {
 		std::cout << "Error: Strings may only contain positive binary numbers!" << "\n";
 		return "";
 	}
@@ -364,7 +364,7 @@ std::string Binary::sub_b(std::string minuend, std::string subtrahend) {
 	}
 
 	// Negative difference
-	if (subtrahend == StringCalc::Binary::max_b(minuend, subtrahend)) {
+	if (subtrahend == max_b(minuend, subtrahend)) {
 		std::cout << "Error: Result may only be positive!";
 		return "";
 	}
@@ -404,7 +404,7 @@ std::string Binary::sub_b(std::string minuend, std::string subtrahend) {
 std::string Binary::mult_b(std::string factor1, std::string factor2) {
 	
 	// Input sanitization
-	if (!Binary::isBinary(factor1) || !Binary::isBinary(factor2)) {
+	if (!isBinary(factor1) || !isBinary(factor2)) {
 		std::cout << "Error: Strings may only contain positive binary numbers!" << "\n";
 		return "";
 	}
@@ -449,7 +449,7 @@ std::string Binary::mult_b(std::string factor1, std::string factor2) {
 	// Add simple multiplication strings together
 	std::string product = "0";
 	for (int i = 0; i < singleResults.size(); i++) {
-		product = Binary::add_b(product, singleResults[i]);
+		product = add_b(product, singleResults[i]);
 	}
 
 	return product;
@@ -458,7 +458,7 @@ std::string Binary::mult_b(std::string factor1, std::string factor2) {
 std::string Binary::div_b(std::string dividend, std::string divisor){
 	
 	// Input sanitization
-	if (!Binary::isBinary(dividend) || !Binary::isBinary(divisor)) {
+	if (!isBinary(dividend) || !isBinary(divisor)) {
 		std::cout << "Error: Strings may only contain positive binary numbers!" << "\n";
 		return "";
 	}
@@ -476,9 +476,9 @@ std::string Binary::div_b(std::string dividend, std::string divisor){
 	std::string quotient = "0";
 
 	// Division
-	while (dividend == StringCalc::Binary::max_b(dividend, divisor) || StringCalc::Binary::max_b(dividend, divisor) == "") {
+	while (dividend == max_b(dividend, divisor) || max_b(dividend, divisor) == "") {
 		dividend = sub_b(dividend, divisor);
-		quotient = StringCalc::Binary::add_b(quotient, "1");
+		quotient = add_b(quotient, "1");
 	}
 
 	return quotient;
@@ -487,7 +487,7 @@ std::string Binary::div_b(std::string dividend, std::string divisor){
 std::string Binary::max_b(std::string str1, std::string str2) {
 	
 	// Input sanitization
-	if (!Binary::isBinary(str1) || !Binary::isBinary(str2)) {
+	if (!isBinary(str1) || !isBinary(str2)) {
 		std::cout << "Error: Strings may only contain positive binary numbers!" << "\n";
 		return "";
 	}
@@ -527,7 +527,7 @@ bool Binary::isBinary(std::string string) {
 std::string Hexadecimal::add_h(std::string addend1, std::string addend2) {
 
 	// Input sanitization
-	if (!Hexadecimal::isHexadecimal(addend1) || !Hexadecimal::isHexadecimal(addend2)) {
+	if (!isHexadecimal(addend1) || !isHexadecimal(addend2)) {
 		std::cout << "Error: Strings may only contain positive hexadecimal numbers!" << "\n";
 		return "";
 	}
@@ -581,7 +581,7 @@ std::string Hexadecimal::add_h(std::string addend1, std::string addend2) {
 std::string Hexadecimal::sub_h(std::string minuend, std::string subtrahend) {
 
 	// Input sanitization
-	if (!Hexadecimal::isHexadecimal(minuend) || !Hexadecimal::isHexadecimal(subtrahend)) {
+	if (!isHexadecimal(minuend) || !isHexadecimal(subtrahend)) {
 		std::cout << "Error: Strings may only contain positive hexadecimal numbers!" << "\n";
 		return "";
 	}
@@ -590,7 +590,7 @@ std::string Hexadecimal::sub_h(std::string minuend, std::string subtrahend) {
 	}
 
 	// Negative difference
-	if (subtrahend == StringCalc::Hexadecimal::max_h(minuend, subtrahend)) {
+	if (subtrahend == max_h(minuend, subtrahend)) {
 		std::cout << "Error: Result may only be positive!";
 		return "";
 	}
@@ -634,7 +634,7 @@ std::string Hexadecimal::sub_h(std::string minuend, std::string subtrahend) {
 std::string Hexadecimal::mult_h(std::string factor1, std::string factor2) {
 
 	// Input sanitization
-	if (!Hexadecimal::isHexadecimal(factor1) || !Hexadecimal::isHexadecimal(factor2)) {
+	if (!isHexadecimal(factor1) || !isHexadecimal(factor2)) {
 		std::cout << "Error: Strings may only contain positive hexadecimal numbers!" << "\n";
 		return "";
 	}
@@ -679,7 +679,7 @@ std::string Hexadecimal::mult_h(std::string factor1, std::string factor2) {
 	// Add simple multiplication strings together
 	std::string product = "0";
 	for (int i = 0; i < singleResults.size(); i++) {
-		product = Hexadecimal::add_h(product, singleResults[i]);
+		product = add_h(product, singleResults[i]);
 	}
 
 	return product;
@@ -688,7 +688,7 @@ std::string Hexadecimal::mult_h(std::string factor1, std::string factor2) {
 std::string Hexadecimal::div_h(std::string dividend, std::string divisor) {
 
 	// Input sanitization
-	if (!Hexadecimal::isHexadecimal(dividend) || !Hexadecimal::isHexadecimal(divisor)) {
+	if (!isHexadecimal(dividend) || !isHexadecimal(divisor)) {
 		std::cout << "Error: Strings may only contain positive hexadecimal numbers!" << "\n";
 		return "";
 	}
@@ -706,9 +706,9 @@ std::string Hexadecimal::div_h(std::string dividend, std::string divisor) {
 	std::string quotient = "0";
 
 	// Division
-	while (dividend == StringCalc::Hexadecimal::max_h(dividend, divisor) || StringCalc::Hexadecimal::max_h(dividend, divisor) == "") {
+	while (dividend == max_h(dividend, divisor) || max_h(dividend, divisor) == "") {
 		dividend = sub_h(dividend, divisor);
-		quotient = StringCalc::Hexadecimal::add_h(quotient, "1");
+		quotient = add_h(quotient, "1");
 	}
 
 	return quotient;
@@ -717,7 +717,7 @@ std::string Hexadecimal::div_h(std::string dividend, std::string divisor) {
 std::string Hexadecimal::max_h(std::string str1, std::string str2) {
 
 	// Input sanitization
-	if (!Hexadecimal::isHexadecimal(str1) || !Hexadecimal::isHexadecimal(str2)) {
+	if (!isHexadecimal(str1) || !isHexadecimal(str2)) {
 		std::cout << "Error: Strings may only contain positive hexadecimal numbers!" << "\n";
 		return "";
 	}
