@@ -117,7 +117,7 @@ std::string Decimal::sub(std::string minuend, std::string subtrahend) {
 		int temp = minuend[i] - subtrahend[i] - carrier;
 
 		if (temp < 0) {
-			temp = 10 + minuend[i] - subtrahend[i] - carrier;
+			temp = temp + 10;
 			carrier = 1;
 		}
 		else {
