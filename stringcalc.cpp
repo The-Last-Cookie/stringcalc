@@ -82,6 +82,7 @@ std::string Decimal::add(std::string addend1, std::string addend2) {
 		sum.insert(0, std::to_string(carrier));
 	}
 
+	sum = removeLeadingZeros(sum);
 	return sum;
 }
 
@@ -193,7 +194,7 @@ std::string Decimal::mult(std::string factor1, std::string factor2) {
 		singleResults.erase(it);
 	}
 	
-	std::string product = singleResults.at(0);
+	std::string product = removeLeadingZeros(singleResults.at(0));
 	return product;
 }
 
@@ -210,6 +211,10 @@ std::string Decimal::div(std::string dividend, std::string divisor) {
 	else if (isZero(dividend)) {
 		return "0";
 	}
+
+	// Remove leading zeros on both strings
+	dividend = removeLeadingZeros(dividend);
+	divisor = removeLeadingZeros(divisor);
 
 	int counter = 0;
 
@@ -360,6 +365,7 @@ std::string Binary::add_b(std::string addend1, std::string addend2) {
 		sum.insert(0, std::to_string(carrier));
 	}
 
+	sum = removeLeadingZeros(sum);
 	return sum;
 }
 
@@ -470,7 +476,7 @@ std::string Binary::mult_b(std::string factor1, std::string factor2) {
 		singleResults.erase(it);
 	}
 
-	std::string product = singleResults.at(0);
+	std::string product = removeLeadingZeros(singleResults.at(0));
 	return product;
 }
 
@@ -487,6 +493,10 @@ std::string Binary::div_b(std::string dividend, std::string divisor){
 	else if (isZero(dividend)) {
 		return "0";
 	}
+
+	// Remove leading zeros on both strings
+	dividend = removeLeadingZeros(dividend);
+	divisor = removeLeadingZeros(divisor);
 
 	std::string quotient = "0";
 
@@ -589,6 +599,7 @@ std::string Hexadecimal::add_h(std::string addend1, std::string addend2) {
 		sum.insert(0, std::to_string(carrier));
 	}
 
+	sum = removeLeadingZeros(sum);
 	return sum;
 }
 
@@ -699,7 +710,7 @@ std::string Hexadecimal::mult_h(std::string factor1, std::string factor2) {
 		singleResults.erase(it);
 	}
 
-	std::string product = singleResults.at(0);
+	std::string product = removeLeadingZeros(singleResults.at(0));
 	return product;
 }
 
@@ -716,6 +727,10 @@ std::string Hexadecimal::div_h(std::string dividend, std::string divisor) {
 	else if (isZero(dividend)) {
 		return "0";
 	}
+
+	// Remove leading zeros on both strings
+	dividend = removeLeadingZeros(dividend);
+	divisor = removeLeadingZeros(divisor);
 
 	std::string quotient = "0";
 
