@@ -159,9 +159,8 @@ std::string Decimal::mult(std::string factor1, std::string factor2) {
 			
 			int temp = (factor1[i] - 48) * (factor2[j] - 48) + carrier;
 			if (temp > 9) {
-				std::div_t digit = std::div(temp, 10);
-				temp = ((factor1[i] - 48) * (factor2[j] - 48) + carrier) % 10;
-				carrier = (int) digit.quot;
+				carrier = temp / 10;
+				temp = temp % 10;
 			}
 			else {
 				carrier = 0;
