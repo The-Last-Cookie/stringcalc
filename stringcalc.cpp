@@ -208,15 +208,15 @@ std::string Decimal::div(std::string dividend, std::string divisor) {
 	dividend = removeLeadingZeros(dividend);
 	divisor = removeLeadingZeros(divisor);
 
-	int counter = 0;
+	std::string counter = "0";
 
 	// Division
 	while (dividend == StringCalc::Decimal::max(dividend, divisor) || StringCalc::Decimal::max(dividend, divisor) == "") {
 		dividend = sub(dividend, divisor);
-		counter++;
+		counter = add(counter, "1");
 	}
 
-	std::string quotient = std::to_string(counter);
+	std::string quotient = counter;
 	return quotient;
 }
 
