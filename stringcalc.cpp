@@ -38,12 +38,6 @@ std::string Decimal::add(std::string addend1, std::string addend2) {
 		std::cout << "Error: Strings may only contain positive decimal numbers!" << "\n";
 		return "";
 	}
-	else if (isZero(addend1)) {
-		return addend2;
-	}
-	else if (isZero(addend2)) {
-		return addend1;
-	}
 
 	// Add zeros, so both strings have the same length
 	if (addend1.length() > addend2.length()) {
@@ -88,9 +82,6 @@ std::string Decimal::sub(std::string minuend, std::string subtrahend) {
 	if (!isDecimal(minuend) || !isDecimal(subtrahend)) {
 		std::cout << "Error: Strings may only contain positive decimal numbers!" << "\n";
 		return "";
-	}
-	else if (isZero(subtrahend)) {
-		return minuend;
 	}
 
 	// Negative difference
@@ -137,9 +128,6 @@ std::string Decimal::mult(std::string factor1, std::string factor2) {
 	if (!isDecimal(factor1) || !isDecimal(factor2)) {
 		std::cout << "Error: Strings may only contain positive decimal numbers!" << "\n";
 		return "";
-	}
-	else if (isZero(factor1) || isZero(factor2)) {
-		return "0";
 	}
 
 	// Vector which will store simple multiplication strings
@@ -225,9 +213,6 @@ std::string Decimal::pow(std::string base, std::string exponent) {
 		std::cout << "Error: 0 ^ 0 is not defined!";
 		return "";
 	}
-	else if (isZero(base)) {
-		return "0";
-	}
 	
 	std::string power = "1";
 
@@ -245,9 +230,6 @@ std::string Decimal::fact(std::string num) {
 	if (!isDecimal(num)) {
 		std::cout << "Error: Strings may only contain positive decimal numbers!" << "\n";
 		return "";
-	}
-	else if (isZero(num)) {
-		return "1";
 	}
 
 	std::string factorial = "1";
@@ -307,12 +289,6 @@ std::string Binary::add_b(std::string addend1, std::string addend2) {
 		std::cout << "Error: Strings may only contain positive binary numbers!" << "\n";
 		return "";
 	}
-	else if (isZero(addend1)) {
-		return addend2;
-	}
-	else if (isZero(addend2)) {
-		return addend1;
-	}
 
 	// Add zeros, so both strings have the same length
 	if (addend1.length() > addend2.length()) {
@@ -357,9 +333,6 @@ std::string Binary::sub_b(std::string minuend, std::string subtrahend) {
 	if (!isBinary(minuend) || !isBinary(subtrahend)) {
 		std::cout << "Error: Strings may only contain positive binary numbers!" << "\n";
 		return "";
-	}
-	else if (isZero(subtrahend)) {
-		return minuend;
 	}
 
 	// Negative difference
@@ -406,9 +379,6 @@ std::string Binary::mult_b(std::string factor1, std::string factor2) {
 	if (!isBinary(factor1) || !isBinary(factor2)) {
 		std::cout << "Error: Strings may only contain positive binary numbers!" << "\n";
 		return "";
-	}
-	else if (isZero(factor1) || isZero(factor2)) {
-		return "0";
 	}
 
 	// Vector which will store simple multiplication strings
@@ -530,12 +500,6 @@ std::string Hexadecimal::add_h(std::string addend1, std::string addend2) {
 		std::cout << "Error: Strings may only contain positive hexadecimal numbers!" << "\n";
 		return "";
 	}
-	else if (isZero(addend1)) {
-		return addend2;
-	}
-	else if (isZero(addend2)) {
-		return addend1;
-	}
 
 	// Add zeros, so both strings have the same length
 	if (addend1.length() > addend2.length()) {
@@ -583,9 +547,6 @@ std::string Hexadecimal::sub_h(std::string minuend, std::string subtrahend) {
 	if (!isHexadecimal(minuend) || !isHexadecimal(subtrahend)) {
 		std::cout << "Error: Strings may only contain positive hexadecimal numbers!" << "\n";
 		return "";
-	}
-	else if (isZero(subtrahend)) {
-		return minuend;
 	}
 
 	// Negative difference
@@ -636,9 +597,6 @@ std::string Hexadecimal::mult_h(std::string factor1, std::string factor2) {
 	if (!isHexadecimal(factor1) || !isHexadecimal(factor2)) {
 		std::cout << "Error: Strings may only contain positive hexadecimal numbers!" << "\n";
 		return "";
-	}
-	else if (isZero(factor1) || isZero(factor2)) {
-		return "0";
 	}
 
 	// Vector which will store simple multiplication strings
