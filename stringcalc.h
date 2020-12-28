@@ -8,6 +8,9 @@
 #include <string>
 #include <regex>
 
+typedef unsigned long long uint64;
+typedef long long int64;
+
 namespace StringCalc {
 
 	bool isZero(std::string string);
