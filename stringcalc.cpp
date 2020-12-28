@@ -17,8 +17,8 @@ bool StringCalc::isZero(std::string string) {
 
 std::string StringCalc::removeLeadingZeros(std::string str) {
 
-	int counter = 0;
-	for (int i = 0; i < str.length() - 1; i++) {
+	unsigned long long counter = 0;
+	for (unsigned long long i = 0; i < str.length() - 1; i++) {
 		if (str[i] == '0') {
 			counter++;
 		}
@@ -41,11 +41,11 @@ std::string Decimal::add(std::string addend1, std::string addend2) {
 
 	// Add zeros, so both strings have the same length
 	if (addend1.length() > addend2.length()) {
-		int len = addend1.length() - addend2.length();
+		long long len = addend1.length() - addend2.length();
 		addend2.insert(0, len, '0');
 	}
 	else if (addend1.length() < addend2.length()) {
-		int len = addend2.length() - addend1.length();
+		long long len = addend2.length() - addend1.length();
 		addend1.insert(0, len, '0');
 	}
 
@@ -53,7 +53,7 @@ std::string Decimal::add(std::string addend1, std::string addend2) {
 
 	// Add single digits together
 	int carrier = 0;
-	for (int i = addend1.length() - 1; i >= 0; i--) {
+	for (long long i = addend1.length() - 1; i >= 0; i--) {
 		// ASCII value convertion
 		int temp = addend1[i] + addend2[i] + carrier - 96;
 
@@ -93,11 +93,11 @@ std::string Decimal::sub(std::string minuend, std::string subtrahend) {
 
 	// Add zeros, so both strings have the same length
 	if (minuend.length() > subtrahend.length()) {
-		int len = minuend.length() - subtrahend.length();
+		long long len = minuend.length() - subtrahend.length();
 		subtrahend.insert(0, len, '0');
 	}
 	else if (minuend.length() < subtrahend.length()) {
-		int len = subtrahend.length() - minuend.length();
+		long long len = subtrahend.length() - minuend.length();
 		minuend.insert(0, len, '0');
 	}
 
@@ -105,7 +105,7 @@ std::string Decimal::sub(std::string minuend, std::string subtrahend) {
 
 	// Subtract single digits from each other
 	int carrier = 0;
-	for (int i = minuend.length() - 1; i >= 0; i--) {
+	for (long long i = minuend.length() - 1; i >= 0; i--) {
 		int temp = minuend[i] - subtrahend[i] - carrier;
 
 		if (temp < 0) {
@@ -136,15 +136,15 @@ std::string Decimal::mult(std::string factor1, std::string factor2) {
 
 	// Multiply single digits with each other
 	int carrier = 0;
-	for (int i = factor1.length() - 1; i >= 0; i--) {
+	for (long long i = factor1.length() - 1; i >= 0; i--) {
 		std::string tempStr = "";
 		
 		// Add zeros if i < factor1.length() - 1
-		for (int z = 0; z < factor1.length() - i - 1; z++) {
+		for (long long z = 0; z < factor1.length() - i - 1; z++) {
 			tempStr.insert(0, "0");
 		}
 
-		for (int j = factor2.length() - 1; j >= 0; j--) {
+		for (long long j = factor2.length() - 1; j >= 0; j--) {
 			
 			int temp = (factor1[i] - 48) * (factor2[j] - 48) + carrier;
 			if (temp > 9) {
@@ -168,7 +168,7 @@ std::string Decimal::mult(std::string factor1, std::string factor2) {
 	
 	// Add simple multiplication strings together
 	std::string product = "0";
-	for (int i = 0; i < resultSet.size(); i++) {
+	for (long long i = 0; i < resultSet.size(); i++) {
 		product = add(product, resultSet[i]);
 	}
 	
@@ -263,7 +263,7 @@ std::string Decimal::max(std::string str1, std::string str2) {
 		return str2;
 	}
 
-	for (int i = 0; i < str1.length(); i++) {
+	for (unsigned long long i = 0; i < str1.length(); i++) {
 		if (str1[i] > str2[i]) {
 			return str1;
 		}
@@ -294,11 +294,11 @@ std::string Binary::add_b(std::string addend1, std::string addend2) {
 
 	// Add zeros, so both strings have the same length
 	if (addend1.length() > addend2.length()) {
-		int len = addend1.length() - addend2.length();
+		long long len = addend1.length() - addend2.length();
 		addend2.insert(0, len, '0');
 	}
 	else if (addend1.length() < addend2.length()) {
-		int len = addend2.length() - addend1.length();
+		long long len = addend2.length() - addend1.length();
 		addend1.insert(0, len, '0');
 	}
 
@@ -306,7 +306,7 @@ std::string Binary::add_b(std::string addend1, std::string addend2) {
 
 	// Add single digits together
 	int carrier = 0;
-	for (int i = addend1.length() - 1; i >= 0; i--) {
+	for (long long i = addend1.length() - 1; i >= 0; i--) {
 		// ASCII value convertion
 		int temp = addend1[i] + addend2[i] + carrier - 96;
 
@@ -346,11 +346,11 @@ std::string Binary::sub_b(std::string minuend, std::string subtrahend) {
 
 	// Add zeros, so both strings have the same length
 	if (minuend.length() > subtrahend.length()) {
-		int len = minuend.length() - subtrahend.length();
+		long long len = minuend.length() - subtrahend.length();
 		subtrahend.insert(0, len, '0');
 	}
 	else if (minuend.length() < subtrahend.length()) {
-		int len = subtrahend.length() - minuend.length();
+		long long len = subtrahend.length() - minuend.length();
 		minuend.insert(0, len, '0');
 	}
 
@@ -358,7 +358,7 @@ std::string Binary::sub_b(std::string minuend, std::string subtrahend) {
 
 	// Subtract single digits from each other
 	int carrier = 0;
-	for (int i = minuend.length() - 1; i >= 0; i--) {
+	for (long long i = minuend.length() - 1; i >= 0; i--) {
 		int temp = minuend[i] - subtrahend[i] - carrier;
 
 		if (temp < 0) {
@@ -389,15 +389,15 @@ std::string Binary::mult_b(std::string factor1, std::string factor2) {
 
 	// Multiply single digits with each other
 	int carrier = 0;
-	for (int i = factor1.length() - 1; i >= 0; i--) {
+	for (long long i = factor1.length() - 1; i >= 0; i--) {
 		std::string tempStr = "";
 
 		// Add zeros if i < factor1.length() - 1
-		for (int z = 0; z < factor1.length() - i - 1; z++) {
+		for (long long z = 0; z < factor1.length() - i - 1; z++) {
 			tempStr.insert(0, "0");
 		}
 
-		for (int j = factor2.length() - 1; j >= 0; j--) {
+		for (long long j = factor2.length() - 1; j >= 0; j--) {
 
 			int temp = (factor1[i] - 48) * (factor2[j] - 48) + carrier;
 			if (temp > 1) {
@@ -421,7 +421,7 @@ std::string Binary::mult_b(std::string factor1, std::string factor2) {
 
 	// Add simple multiplication strings together
 	std::string product = "0";
-	for (int i = 0; i < resultSet.size(); i++) {
+	for (long long i = 0; i < resultSet.size(); i++) {
 		product = add_b(product, resultSet[i]);
 	}
 
@@ -476,7 +476,7 @@ std::string Binary::max_b(std::string str1, std::string str2) {
 		return str2;
 	}
 
-	for (int i = 0; i < str1.length(); i++) {
+	for (unsigned long long i = 0; i < str1.length(); i++) {
 		if (str1[i] > str2[i]) {
 			return str1;
 		}
@@ -507,11 +507,11 @@ std::string Hexadecimal::add_h(std::string addend1, std::string addend2) {
 
 	// Add zeros, so both strings have the same length
 	if (addend1.length() > addend2.length()) {
-		int len = addend1.length() - addend2.length();
+		long long len = addend1.length() - addend2.length();
 		addend2.insert(0, len, '0');
 	}
 	else if (addend1.length() < addend2.length()) {
-		int len = addend2.length() - addend1.length();
+		long long len = addend2.length() - addend1.length();
 		addend1.insert(0, len, '0');
 	}
 
@@ -519,7 +519,7 @@ std::string Hexadecimal::add_h(std::string addend1, std::string addend2) {
 
 	// Add single digits together
 	int carrier = 0;
-	for (int i = addend1.length() - 1; i >= 0; i--) {
+	for (long long i = addend1.length() - 1; i >= 0; i--) {
 		int temp = Hexadecimal::letterToInt(addend1[i]) + Hexadecimal::letterToInt(addend2[i]) + carrier;
 
 		if (temp > 15) {
@@ -558,11 +558,11 @@ std::string Hexadecimal::sub_h(std::string minuend, std::string subtrahend) {
 
 	// Add zeros, so both strings have the same length
 	if (minuend.length() > subtrahend.length()) {
-		int len = minuend.length() - subtrahend.length();
+		long long len = minuend.length() - subtrahend.length();
 		subtrahend.insert(0, len, '0');
 	}
 	else if (minuend.length() < subtrahend.length()) {
-		int len = subtrahend.length() - minuend.length();
+		long long len = subtrahend.length() - minuend.length();
 		minuend.insert(0, len, '0');
 	}
 
@@ -570,7 +570,7 @@ std::string Hexadecimal::sub_h(std::string minuend, std::string subtrahend) {
 
 	// Subtract single digits from each other
 	int carrier = 0;
-	for (int i = minuend.length() - 1; i >= 0; i--) {
+	for (long long i = minuend.length() - 1; i >= 0; i--) {
 		int temp = Hexadecimal::letterToInt(minuend[i]) - Hexadecimal::letterToInt(subtrahend[i]) - carrier;
 
 		if (temp < 0) {
@@ -601,15 +601,15 @@ std::string Hexadecimal::mult_h(std::string factor1, std::string factor2) {
 
 	// Multiply single digits with each other
 	int carrier = 0;
-	for (int i = factor1.length() - 1; i >= 0; i--) {
+	for (long long i = factor1.length() - 1; i >= 0; i--) {
 		std::string tempStr = "";
 
 		// Add zeros if i < factor1.length() - 1
-		for (int z = 0; z < factor1.length() - i - 1; z++) {
+		for (long long z = 0; z < factor1.length() - i - 1; z++) {
 			tempStr.insert(0, "0");
 		}
 
-		for (int j = factor2.length() - 1; j >= 0; j--) {
+		for (long long j = factor2.length() - 1; j >= 0; j--) {
 
 			int temp = Hexadecimal::letterToInt(factor1[i]) * Hexadecimal::letterToInt(factor2[j]) + carrier;
 			if (temp > 16) {
@@ -633,7 +633,7 @@ std::string Hexadecimal::mult_h(std::string factor1, std::string factor2) {
 
 	// Add simple multiplication strings together
 	std::string product = "0";
-	for (int i = 0; i < resultSet.size(); i++) {
+	for (long long i = 0; i < resultSet.size(); i++) {
 		product = add_h(product, resultSet[i]);
 	}
 
@@ -688,7 +688,7 @@ std::string Hexadecimal::max_h(std::string str1, std::string str2) {
 		return str2;
 	}
 
-	for (int i = 0; i < str1.length(); i++) {
+	for (unsigned long long i = 0; i < str1.length(); i++) {
 		if (Hexadecimal::letterToInt(str1[i]) > Hexadecimal::letterToInt(str2[i])) {
 			return str1;
 		}
