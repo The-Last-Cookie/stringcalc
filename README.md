@@ -24,7 +24,31 @@ std::cout << "10111 * 111 = " << StringCalc::Binary::mult_b("10111", "111") << "
 std::cout << "10110 / 111 = " << StringCalc::Binary::div_b("10110", "111") << "\n";
 ```
 
+## Overview over the library
+
+- namespace Decimal:
+    - function _add_
+    - function _sub_
+    - function _mult_
+    - function _div_
+    - function _pow_
+    - function _fact_
+
+- namespace Binary:
+    - function _add\_b_
+    - function _sub\_b_
+    - function _mult\_b_
+    - function _div\_b_
+
+- namespace Hexadecimal:
+    - function _add\_h_
+    - function _sub\_h_
+    - function _mult\_h_
+    - function _div\_h_
+
 ## Planned features
+
+### Major release v1
 
 - [x] Function for factorials --> n!
 - [x] Function for power --> base^exponent

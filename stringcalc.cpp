@@ -68,6 +68,7 @@ std::string Decimal::add(std::string addend1, std::string addend2) {
 		sum.insert(0, std::to_string(temp));
 	}
 
+	// Insert carrier
 	if (carrier == 1) {
 		sum.insert(0, std::to_string(carrier));
 	}
@@ -157,6 +158,7 @@ std::string Decimal::mult(std::string factor1, std::string factor2) {
 			tempStr.insert(0, std::to_string(temp));
 		}
 
+		// Insert carrier
 		if (carrier != 0) {
 			tempStr.insert(0, std::to_string(carrier));
 			carrier = 0;
@@ -319,6 +321,7 @@ std::string Binary::add_b(std::string addend1, std::string addend2) {
 		sum.insert(0, std::to_string(temp));
 	}
 
+	// Insert carrier
 	if (carrier == 1) {
 		sum.insert(0, std::to_string(carrier));
 	}
@@ -408,6 +411,7 @@ std::string Binary::mult_b(std::string factor1, std::string factor2) {
 			tempStr.insert(0, std::to_string(temp));
 		}
 
+		// Insert carrier
 		if (carrier == 1) {
 			tempStr.insert(0, std::to_string(carrier));
 			carrier = 0;
@@ -529,6 +533,7 @@ std::string Hexadecimal::add_h(std::string addend1, std::string addend2) {
 		sum.insert(0, Hexadecimal::intToLetter(temp));
 	}
 
+	// Insert carrier
 	if (carrier == 1) {
 		sum.insert(0, std::to_string(carrier));
 	}
@@ -618,6 +623,7 @@ std::string Hexadecimal::mult_h(std::string factor1, std::string factor2) {
 			tempStr.insert(0, Hexadecimal::intToLetter(temp));
 		}
 
+		// Insert carrier
 		if (carrier != 0) {
 			tempStr.insert(0, Hexadecimal::intToLetter(carrier));
 			carrier = 0;
