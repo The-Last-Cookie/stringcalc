@@ -131,7 +131,7 @@ std::string Decimal::mult(std::string factor1, std::string factor2) {
 	}
 
 	// Vector which will store simple multiplication strings
-	std::vector<std::string> singleResults;
+	std::vector<std::string> resultSet;
 
 	// Multiply single digits with each other
 	int carrier = 0;
@@ -161,13 +161,13 @@ std::string Decimal::mult(std::string factor1, std::string factor2) {
 			tempStr.insert(0, std::to_string(carrier));
 			carrier = 0;
 		}
-		singleResults.push_back(tempStr);
+		resultSet.push_back(tempStr);
 	}
 	
 	// Add simple multiplication strings together
 	std::string product = "0";
-	for (int i = 0; i < singleResults.size(); i++) {
-		product = add(product, singleResults[i]);
+	for (int i = 0; i < resultSet.size(); i++) {
+		product = add(product, resultSet[i]);
 	}
 	
 	return product;
@@ -382,7 +382,7 @@ std::string Binary::mult_b(std::string factor1, std::string factor2) {
 	}
 
 	// Vector which will store simple multiplication strings
-	std::vector<std::string> singleResults;
+	std::vector<std::string> resultSet;
 
 	// Multiply single digits with each other
 	int carrier = 0;
@@ -412,13 +412,13 @@ std::string Binary::mult_b(std::string factor1, std::string factor2) {
 			tempStr.insert(0, std::to_string(carrier));
 			carrier = 0;
 		}
-		singleResults.push_back(tempStr);
+		resultSet.push_back(tempStr);
 	}
 
 	// Add simple multiplication strings together
 	std::string product = "0";
-	for (int i = 0; i < singleResults.size(); i++) {
-		product = add_b(product, singleResults[i]);
+	for (int i = 0; i < resultSet.size(); i++) {
+		product = add_b(product, resultSet[i]);
 	}
 
 	return product;
@@ -592,7 +592,7 @@ std::string Hexadecimal::mult_h(std::string factor1, std::string factor2) {
 	}
 
 	// Vector which will store simple multiplication strings
-	std::vector<std::string> singleResults;
+	std::vector<std::string> resultSet;
 
 	// Multiply single digits with each other
 	int carrier = 0;
@@ -622,13 +622,13 @@ std::string Hexadecimal::mult_h(std::string factor1, std::string factor2) {
 			tempStr.insert(0, Hexadecimal::intToLetter(carrier));
 			carrier = 0;
 		}
-		singleResults.push_back(tempStr);
+		resultSet.push_back(tempStr);
 	}
 
 	// Add simple multiplication strings together
 	std::string product = "0";
-	for (int i = 0; i < singleResults.size(); i++) {
-		product = add_h(product, singleResults[i]);
+	for (int i = 0; i < resultSet.size(); i++) {
+		product = add_h(product, resultSet[i]);
 	}
 
 	return product;
