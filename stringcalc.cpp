@@ -8,6 +8,11 @@ using namespace StringCalc;
 
 bool StringCalc::isZero(std::string string) {
 
+	if (string.empty()) {
+		std::cout << "Error: Strings may not be empty!";
+		return false;
+	}
+
 	for (uint64 i = 0; i < string.length(); i++) {
 		if (string[i] != '0') {
 			return false;
@@ -18,6 +23,11 @@ bool StringCalc::isZero(std::string string) {
 }
 
 std::string StringCalc::removeLeadingZeros(std::string str) {
+
+	if (str.empty()) {
+		std::cout << "Error: Strings may not be empty!";
+		return false;
+	}
 
 	uint64 counter = 0;
 	for (uint64 i = 0; i < str.length() - 1; i++) {
@@ -279,8 +289,13 @@ std::string Decimal::max(std::string str1, std::string str2) {
 
 bool Decimal::isDecimal(std::string string) {
 
+	if (string.empty()) {
+		std::cout << "Error: Strings may not be empty!";
+		return false;
+	}
+
 	for (uint64 i = 0; i < string.length(); i++) {
-		if (string[i] < 48 || string[i] > 57) {
+		if (string[i] < '0' || string[i] > '9') {
 			return false;
 		}
 	}
@@ -493,9 +508,14 @@ std::string Binary::max_b(std::string str1, std::string str2) {
 }
 
 bool Binary::isBinary(std::string string) {
-	
+
+	if (string.empty()) {
+		std::cout << "Error: Strings may not be empty!";
+		return false;
+	}
+
 	for (uint64 i = 0; i < string.length(); i++) {
-		if (string[i] < 48 || string[i] > 49) {
+		if (string[i] < '0' || string[i] > '1') {
 			return false;
 		}
 	}
@@ -707,13 +727,11 @@ std::string Hexadecimal::max_h(std::string str1, std::string str2) {
 }
 
 int Hexadecimal::letterToInt(char c) {
-	
-	// 0 to 9
-	if (c >= 48 && c <= 57) {
+
+	if (c >= '0' && c <= '9') {
 		return c - 48;
 	}
-	// A to F and a to f
-	else if ((c >= 65 && c <= 70) || (c >= 97 && c <= 102)) {
+	else if ((c >= 'A' && c <= 'F') || (c >= 'a' && c <= 'f')) {
 		return (c % 16) + 9;
 	}
 	
@@ -734,17 +752,22 @@ std::string Hexadecimal::intToLetter(int num) {
 		s += c;
 		return s;
 	}
-	
+
 	std::cout << "Error: Couldn't convert int correctly to string.";
 	return "";
 }
 
 bool Hexadecimal::isHexadecimal(std::string string) {
 
+	if (string.empty()) {
+		std::cout << "Error: Strings may not be empty!";
+		return false;
+	}
+
 	for (uint64 i = 0; i < string.length(); i++) {
-		if ((string[i] < 48 || string[i] > 57) &&
-			(string[i] < 65 || string[i] > 70) &&
-			(string[i] < 97 || string[i] > 102)) {
+		if ((string[i] < '0' || string[i] > '9') &&
+			(string[i] < 'A' || string[i] > 'F') &&
+			(string[i] < 'a' || string[i] > 'f')) {
 			return false;
 		}
 	}
