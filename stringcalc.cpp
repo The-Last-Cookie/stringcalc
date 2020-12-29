@@ -132,7 +132,7 @@ std::string Decimal::mult(std::string factor1, std::string factor2) {
 	}
 
 	// Vector which will store simple multiplication strings
-	std::vector<std::string> resultSet;
+	std::vector<std::string> resultSet(factor1.length());
 
 	// Multiply single digits with each other
 	int carrier = 0;
@@ -163,7 +163,7 @@ std::string Decimal::mult(std::string factor1, std::string factor2) {
 			tempStr.insert(0, std::to_string(carrier));
 			carrier = 0;
 		}
-		resultSet.push_back(tempStr);
+		resultSet[factor1.length() - i - 1] = tempStr;
 	}
 	
 	// Add simple multiplication strings together
@@ -385,7 +385,7 @@ std::string Binary::mult_b(std::string factor1, std::string factor2) {
 	}
 
 	// Vector which will store simple multiplication strings
-	std::vector<std::string> resultSet;
+	std::vector<std::string> resultSet(factor1.length());
 
 	// Multiply single digits with each other
 	int carrier = 0;
@@ -416,7 +416,7 @@ std::string Binary::mult_b(std::string factor1, std::string factor2) {
 			tempStr.insert(0, std::to_string(carrier));
 			carrier = 0;
 		}
-		resultSet.push_back(tempStr);
+		resultSet[factor1.length() - i - 1] = tempStr;
 	}
 
 	// Add simple multiplication strings together
@@ -597,7 +597,7 @@ std::string Hexadecimal::mult_h(std::string factor1, std::string factor2) {
 	}
 
 	// Vector which will store simple multiplication strings
-	std::vector<std::string> resultSet;
+	std::vector<std::string> resultSet(factor1.length());
 
 	// Multiply single digits with each other
 	int carrier = 0;
@@ -628,7 +628,7 @@ std::string Hexadecimal::mult_h(std::string factor1, std::string factor2) {
 			tempStr.insert(0, Hexadecimal::intToLetter(carrier));
 			carrier = 0;
 		}
-		resultSet.push_back(tempStr);
+		resultSet[factor1.length() - i - 1] = tempStr;
 	}
 
 	// Add simple multiplication strings together
