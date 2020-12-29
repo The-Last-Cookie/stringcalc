@@ -7,12 +7,14 @@
 using namespace StringCalc;
 
 bool StringCalc::isZero(std::string string) {
-	
-	if (std::regex_match(string, std::regex("[0]+"))) {
-		return true;
+
+	for (uint64 i = 0; i < string.length(); i++) {
+		if (string[i] != '0') {
+			return false;
+		}
 	}
 
-	return false;
+	return true;
 }
 
 std::string StringCalc::removeLeadingZeros(std::string str) {
@@ -277,11 +279,13 @@ std::string Decimal::max(std::string str1, std::string str2) {
 
 bool Decimal::isDecimal(std::string string) {
 
-	if (std::regex_match(string, std::regex("[0-9]+"))) {
-		return true;
+	for (uint64 i = 0; i < string.length(); i++) {
+		if (string[i] < 48 || string[i] > 57) {
+			return false;
+		}
 	}
 
-	return false;
+	return true;
 }
 
 std::string Binary::add_b(std::string addend1, std::string addend2) {
@@ -490,11 +494,13 @@ std::string Binary::max_b(std::string str1, std::string str2) {
 
 bool Binary::isBinary(std::string string) {
 	
-	if (std::regex_match(string, std::regex("[0-1]+"))) {
-		return true;
+	for (uint64 i = 0; i < string.length(); i++) {
+		if (string[i] < 48 || string[i] > 49) {
+			return false;
+		}
 	}
 
-	return false;
+	return true;
 }
 
 std::string Hexadecimal::add_h(std::string addend1, std::string addend2) {
@@ -735,9 +741,13 @@ std::string Hexadecimal::intToLetter(int num) {
 
 bool Hexadecimal::isHexadecimal(std::string string) {
 
-	if (std::regex_match(string, std::regex("[0-9A-Fa-f]+"))) {
-		return true;
+	for (uint64 i = 0; i < string.length(); i++) {
+		if ((string[i] < 48 || string[i] > 57) &&
+			(string[i] < 65 || string[i] > 70) &&
+			(string[i] < 97 || string[i] > 102)) {
+			return false;
+		}
 	}
 
-	return false;
+	return true;
 }
