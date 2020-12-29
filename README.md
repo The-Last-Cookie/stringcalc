@@ -33,18 +33,21 @@ std::cout << "10110 / 111 = " << StringCalc::Binary::div_b("10110", "111") << "\
     - function _div_
     - function _pow_
     - function _fact_
+    - funtion _max_
 
 - namespace Binary:
     - function _add\_b_
     - function _sub\_b_
     - function _mult\_b_
     - function _div\_b_
+    - funtion _max\_b_
 
 - namespace Hexadecimal:
     - function _add\_h_
     - function _sub\_h_
     - function _mult\_h_
     - function _div\_h_
+    - funtion _max\_b_
 
 ## Planned features
 
