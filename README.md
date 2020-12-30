@@ -2,9 +2,9 @@
 
 ## Description
 
-Integers and other data types alike have a specific set of values which they can have. If you want to use bigger numbers than these data types offer, you will need a workaround. Strings can theoretically be infinite (practically they are limited by the maximum available memory space). This C++ library offers the ability to use strings and calculate equations with them as if they were numbers.
+Integers and other data types alike have a specific set of values which they can have. If you want to use bigger numbers than these data types offer, you will need a workaround. Strings can theoretically be infinite (practically, they are limited by the maximum available memory space). This C++ library offers the ability to use strings and calculate equations with them as if they were numbers.
 
-The maximum size of a string is given by `std::string().max_size()`. In standard C++ it is around 2^32. However, this can vary due to compiler and memory implementation. I will try to optimize the code, so that strings can be as long as possible. An idea might be to use pointers (call-by-reference) or the [rope data structure](https://en.wikipedia.org/wiki/Rope_(data_structure)). This will need further investigation though.
+The maximum size of a string is given by `std::string().max_size()`. In standard C++ it is around 2^32 most of the times. However, this can vary due to compiler and memory implementation. I will try to optimize the code, so that strings can be as long as possible. An idea might be to use pointers (call-by-reference) or the [rope data structure](https://en.wikipedia.org/wiki/Rope_(data_structure)). This will need further investigation though.
 
 At the moment, all implemented functions take positive _integers_ and return the calculated number as a string. The input as well as the output for all functions needs to be positive.
 
@@ -62,10 +62,10 @@ std::cout << "10110 / 111 = " << StringCalc::Binary::div_b("10110", "111") << "\
     - [x] Helping functions _isZero_, _isDecimal_, ...
     - [x] Improve error messages
     - [x] Don't allow empty strings as input (functions return empty string in case an error occurs)
-- [ ] Performance improvements: I want to take another look at the implementation to see if I can optimize some things
-    - [ ] Use unsigned long long instead of int --> Strings can even be longer
-    - [ ] Faster algorithmic calculation (if possible)
-    - [ ] Check efficiency of _isZero_
+- [x] Performance improvements: I want to take another look at the implementation to see if I can optimize some things
+    - [x] Use unsigned long long instead of int --> Strings can even be longer
+    - [x] Faster algorithmic calculation (if possible)
+    - [x] Check efficiency of _isZero_
 
 # Licence
 
