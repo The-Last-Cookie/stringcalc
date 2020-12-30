@@ -25,8 +25,7 @@ bool StringCalc::isZero(std::string string) {
 std::string StringCalc::removeLeadingZeros(std::string str) {
 
 	if (str.empty()) {
-		std::cout << "Error: Strings may not be empty!";
-		return false;
+		return "0";
 	}
 
 	uint64 counter = 0;
