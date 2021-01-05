@@ -179,6 +179,10 @@ std::string Binary::div_b(std::string dividend, std::string divisor) {
 	return quotient;
 }
 
+std::string min_b(std::string str1, std::string str2) {
+	return "";
+}
+
 std::string Binary::max_b(std::string str1, std::string str2) {
 
 	// Input sanitization

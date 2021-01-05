@@ -219,6 +219,10 @@ std::string Decimal::fact(std::string num) {
 	return factorial;
 }
 
+std::string min(std::string str1, std::string str2) {
+	return "";
+}
+
 std::string Decimal::max(std::string str1, std::string str2) {
 
 	// Input sanitization

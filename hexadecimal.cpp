@@ -178,6 +178,10 @@ std::string Hexadecimal::div_h(std::string dividend, std::string divisor) {
 	return quotient;
 }
 
+std::string min_h(std::string str1, std::string str2) {
+	return "";
+}
+
 std::string Hexadecimal::max_h(std::string str1, std::string str2) {
 
 	// Input sanitization
