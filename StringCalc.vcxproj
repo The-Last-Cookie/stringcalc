@@ -139,7 +139,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="binary.cpp" />
+    <ClCompile Include="decimal.cpp" />
     <ClCompile Include="example.cpp" />
+    <ClCompile Include="hexadecimal.cpp" />
     <ClCompile Include="stringcalc.cpp" />
   </ItemGroup>
   <ItemGroup>
