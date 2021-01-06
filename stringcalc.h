@@ -37,8 +37,12 @@ namespace StringCalc {
 		// Factorial
 		std::string fact(std::string num);
 
+		// Return string with fewer value
+		// If both strings are the same, return an empty string
+		std::string min(std::string str1, std::string str2);
+
 		// Return string with higher value
-		// If both strings are the same, the function will return an empty string
+		// If both strings are the same, return an empty string
 		std::string max(std::string str1, std::string str2);
 
 		bool isDecimal(std::string string);
@@ -59,8 +63,12 @@ namespace StringCalc {
 		// Division (without remainder)
 		std::string div_b(std::string dividend, std::string divisor);
 
+		// Return string with fewer value
+		// If both strings are the same, return an empty string
+		std::string min_b(std::string str1, std::string str2);
+
 		// Return string with higher value
-		// If both strings are the same, the function will return an empty string
+		// If both strings are the same, return an empty string
 		std::string max_b(std::string str1, std::string str2);
 
 		bool isBinary(std::string string);
@@ -81,8 +89,12 @@ namespace StringCalc {
 		// Division (without remainder)
 		std::string div_h(std::string dividend, std::string divisor);
 
+		// Return string with fewer value
+		// If both strings are the same, return an empty string
+		std::string min_h(std::string str1, std::string str2);
+
 		// Return string with higher value
-		// If both strings are the same, the function will return an empty string
+		// If both strings are the same, return an empty string
 		std::string max_h(std::string str1, std::string str2);
 
 		// Convert letter to corresponding int

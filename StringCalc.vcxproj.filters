@@ -21,6 +21,15 @@
     <ClCompile Include="example.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="decimal.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="binary.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="hexadecimal.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stringcalc.h">

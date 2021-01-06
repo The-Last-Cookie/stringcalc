@@ -9,7 +9,7 @@
 // This file is for demonstration purposes
 
 int main() {
-	
+
 	std::cout << "5 + 6 = " << StringCalc::Decimal::add("5", "6") << "\n";
 	std::cout << "12 - 7 = " << StringCalc::Decimal::sub("12", "7") << "\n";
 	std::cout << "8 * 11 = " << StringCalc::Decimal::mult("8", "11") << "\n";
