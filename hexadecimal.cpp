@@ -178,7 +178,34 @@ std::string Hexadecimal::div_h(std::string dividend, std::string divisor) {
 	return quotient;
 }
 
-std::string min_h(std::string str1, std::string str2) {
+std::string Hexadecimal::min_h(std::string str1, std::string str2) {
+
+	// Input sanitization
+	if (!isHexadecimal(str1) || !isHexadecimal(str2)) {
+		std::cout << "Error: Strings may only contain positive hexadecimal numbers!" << "\n";
+		return "";
+	}
+
+	// Remove leading zeros on both strings
+	str1 = removeLeadingZeros(str1);
+	str2 = removeLeadingZeros(str2);
+
+	if (str1.length() < str2.length()) {
+		return str1;
+	}
+	else if (str1.length() > str2.length()) {
+		return str2;
+	}
+
+	for (uint64 i = 0; i < str1.length(); i++) {
+		if (Hexadecimal::letterToInt(str1[i]) < Hexadecimal::letterToInt(str2[i])) {
+			return str1;
+		}
+		else if (Hexadecimal::letterToInt(str1[i]) > Hexadecimal::letterToInt(str2[i])) {
+			return str2;
+		}
+	}
+
 	return "";
 }
 

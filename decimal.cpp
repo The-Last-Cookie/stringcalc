@@ -219,7 +219,34 @@ std::string Decimal::fact(std::string num) {
 	return factorial;
 }
 
-std::string min(std::string str1, std::string str2) {
+std::string Decimal::min(std::string str1, std::string str2) {
+
+	// Input sanitization
+	if (!isDecimal(str1) || !isDecimal(str2)) {
+		std::cout << "Error: Strings may only contain positive decimal numbers!" << "\n";
+		return "";
+	}
+
+	// Remove leading zeros on both strings
+	str1 = removeLeadingZeros(str1);
+	str2 = removeLeadingZeros(str2);
+
+	if (str1.length() < str2.length()) {
+		return str1;
+	}
+	else if (str1.length() > str2.length()) {
+		return str2;
+	}
+
+	for (uint64 i = 0; i < str1.length(); i++) {
+		if (str1[i] < str2[i]) {
+			return str1;
+		}
+		else if (str1[i] > str2[i]) {
+			return str2;
+		}
+	}
+
 	return "";
 }
 
