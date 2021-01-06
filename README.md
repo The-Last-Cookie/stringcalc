@@ -33,21 +33,24 @@ std::cout << "10110 / 111 = " << StringCalc::Binary::div_b("10110", "111") << "\
     - function _div_
     - function _pow_
     - function _fact_
-    - funtion _max_
+    - function _min_
+    - function _max_
 
 - namespace Binary:
     - function _add\_b_
     - function _sub\_b_
     - function _mult\_b_
     - function _div\_b_
-    - funtion _max\_b_
+    - function _min\_b_
+    - function _max\_b_
 
 - namespace Hexadecimal:
     - function _add\_h_
     - function _sub\_h_
     - function _mult\_h_
     - function _div\_h_
-    - funtion _max\_h_
+    - function _min\_h_
+    - function _max\_h_
 
 ## Planned features
 
@@ -57,15 +60,11 @@ std::cout << "10110 / 111 = " << StringCalc::Binary::div_b("10110", "111") << "\
 - [x] Function for power --> base^exponent
 - [x] Functionality for calculation of binary strings
 - [x] Functionality for calculation of hexadecimal strings
-- [ ] Function for modulo (for decimals) --> m mod n
 - [x] Improve code readability and error handling
-    - [x] Helping functions _isZero_, _isDecimal_, ...
-    - [x] Improve error messages
-    - [x] Don't allow empty strings as input (functions return empty string in case an error occurs)
-- [x] Performance improvements: I want to take another look at the implementation to see if I can optimize some things
-    - [x] Use unsigned long long instead of int --> Strings can even be longer
-    - [x] Faster algorithmic calculation (if possible)
-    - [x] Check efficiency of _isZero_
+- [x] Performance improvements
+- [x] Function for determining the string with a fewer value
+- [ ] Function for modulo (for decimals) --> m mod n
+- [ ] Converter for converting numbers between the (implemented) number systems
 
 # Licence
 
