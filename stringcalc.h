@@ -31,6 +31,9 @@ namespace StringCalc {
 		// Division (without remainder)
 		std::string div(std::string dividend, std::string divisor);
 
+		// Modulo
+		std::string mod(std::string dividend, std::string divisor);
+
 		// Exponentiation
 		std::string pow(std::string base, std::string exponent);
 

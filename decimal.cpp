@@ -179,6 +179,10 @@ std::string Decimal::div(std::string dividend, std::string divisor) {
 	return quotient;
 }
 
+std::string Decimal::mod(std::string dividend, std::string divisor) {
+	return "";
+}
+
 std::string Decimal::pow(std::string base, std::string exponent) {
 
 	// Input sanitization
