@@ -8,6 +8,8 @@
 #include <string>
 #include <vector>
 
+#include "converter.h"
+
 typedef unsigned long long uint64;
 typedef long long int64;
 
