@@ -31,6 +31,7 @@ std::cout << "10110 / 111 = " << StringCalc::Binary::div_b("10110", "111") << "\
     - function _sub_
     - function _mult_
     - function _div_
+    - function _mod_
     - function _pow_
     - function _fact_
     - function _min_
@@ -63,7 +64,7 @@ std::cout << "10110 / 111 = " << StringCalc::Binary::div_b("10110", "111") << "\
 - [x] Improve code readability and error handling
 - [x] Performance improvements
 - [x] Function for determining the string with a fewer value
-- [ ] Function for modulo (for decimals) --> m mod n
+- [x] Function for modulo (for decimals) --> m mod n
 - [ ] Converter for converting numbers between the (implemented) number systems
 
 # Licence
