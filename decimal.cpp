@@ -180,7 +180,21 @@ std::string Decimal::div(std::string dividend, std::string divisor) {
 }
 
 std::string Decimal::mod(std::string dividend, std::string divisor) {
-	return "";
+
+	// Input sanitization
+	if (!isDecimal(dividend) || !isDecimal(divisor)) {
+		std::cout << "Error: Strings may only contain positive decimal numbers!" << "\n";
+		return "";
+	}
+	else if (isZero(divisor)) {
+		std::cout << "Error: Modular arithmetic with 0 not allowed!";
+		return "";
+	}
+
+	std::string quotient = div(dividend, divisor);
+	std::string remainder = sub(dividend, mult(divisor, quotient));
+
+	return remainder;
 }
 
 std::string Decimal::pow(std::string base, std::string exponent) {
