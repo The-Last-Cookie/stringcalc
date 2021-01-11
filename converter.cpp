@@ -7,8 +7,8 @@
 using namespace StringCalc;
 
 Converter::Converter() {
-	this->currentBase = 0;
-	this->value = "";
+	currentBase = 0;
+	value = "";
 }
 
 Converter::~Converter() {
