@@ -140,12 +140,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="binary.cpp" />
+    <ClCompile Include="converter.cpp" />
     <ClCompile Include="decimal.cpp" />
     <ClCompile Include="example.cpp" />
     <ClCompile Include="hexadecimal.cpp" />
     <ClCompile Include="stringcalc.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="converter.h" />
     <ClInclude Include="stringcalc.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

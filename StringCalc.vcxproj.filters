@@ -30,9 +30,15 @@
     <ClCompile Include="hexadecimal.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="converter.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stringcalc.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="converter.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>

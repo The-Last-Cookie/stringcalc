@@ -15,7 +15,7 @@ Converter::~Converter() {
 
 }
 
-void Converter::parse(std::string num, int base) {
+void Converter::parse(std::string num, unsigned int base) {
 
 }
 
