@@ -11,7 +11,7 @@ namespace StringCalc {
 			Converter();
 			~Converter();
 			void parse(std::string num, unsigned int base);
-			std::string convertTo(int base);
+			std::string convertTo(unsigned int base);
 
 		private:
 			int currentBase;

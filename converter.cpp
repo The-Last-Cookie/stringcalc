@@ -32,6 +32,6 @@ void Converter::parse(std::string num, unsigned int base) {
 	value = num;
 }
 
-std::string Converter::convertTo(int base) {
+std::string Converter::convertTo(unsigned int base) {
 	return "";
 }
