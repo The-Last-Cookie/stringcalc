@@ -17,6 +17,10 @@ namespace StringCalc {
 
 	std::string removeLeadingZeros(std::string str);
 
+	std::string intToString(int num);
+
+	int charToInt(char c);
+
 	namespace Decimal {
 
 		// Addition
