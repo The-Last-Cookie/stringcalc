@@ -52,7 +52,7 @@ std::string StringCalc::intToString(int num) {
 	else if (num >= 10 && num <= 35) {
 		char c = num + 55;
 		std::string s;
-		s += c;
+		s = c;
 		return s;
 	}
 
