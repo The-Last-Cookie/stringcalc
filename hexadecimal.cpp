@@ -29,7 +29,7 @@ std::string Hexadecimal::add_h(std::string addend1, std::string addend2) {
 	// Add single digits together
 	int carrier = 0;
 	for (int64 i = addend1.length() - 1; i >= 0; i--) {
-		int temp = Hexadecimal::letterToInt(addend1[i]) + Hexadecimal::letterToInt(addend2[i]) + carrier;
+		int temp = charToInt(addend1[i]) + charToInt(addend2[i]) + carrier;
 
 		if (temp > 15) {
 			carrier = 1;
@@ -39,7 +39,7 @@ std::string Hexadecimal::add_h(std::string addend1, std::string addend2) {
 			carrier = 0;
 		}
 
-		sum.insert(0, Hexadecimal::intToLetter(temp));
+		sum.insert(0, intToString(temp));
 	}
 
 	// Insert carrier
@@ -80,7 +80,7 @@ std::string Hexadecimal::sub_h(std::string minuend, std::string subtrahend) {
 	// Subtract single digits from each other
 	int carrier = 0;
 	for (int64 i = minuend.length() - 1; i >= 0; i--) {
-		int temp = Hexadecimal::letterToInt(minuend[i]) - Hexadecimal::letterToInt(subtrahend[i]) - carrier;
+		int temp = charToInt(minuend[i]) - charToInt(subtrahend[i]) - carrier;
 
 		if (temp < 0) {
 			temp = temp + 16;
@@ -90,7 +90,7 @@ std::string Hexadecimal::sub_h(std::string minuend, std::string subtrahend) {
 			carrier = 0;
 		}
 
-		difference.insert(0, Hexadecimal::intToLetter(temp));
+		difference.insert(0, intToString(temp));
 	}
 
 	difference = removeLeadingZeros(difference);
@@ -120,7 +120,7 @@ std::string Hexadecimal::mult_h(std::string factor1, std::string factor2) {
 
 		for (int64 j = factor2.length() - 1; j >= 0; j--) {
 
-			int temp = Hexadecimal::letterToInt(factor1[i]) * Hexadecimal::letterToInt(factor2[j]) + carrier;
+			int temp = charToInt(factor1[i]) * charToInt(factor2[j]) + carrier;
 			if (temp > 16) {
 				carrier = (temp - (temp % 16)) / 16;
 				temp = temp % 16;
@@ -129,12 +129,12 @@ std::string Hexadecimal::mult_h(std::string factor1, std::string factor2) {
 				carrier = 0;
 			}
 
-			tempStr.insert(0, Hexadecimal::intToLetter(temp));
+			tempStr.insert(0, intToString(temp));
 		}
 
 		// Insert carrier
 		if (carrier != 0) {
-			tempStr.insert(0, Hexadecimal::intToLetter(carrier));
+			tempStr.insert(0, intToString(carrier));
 			carrier = 0;
 		}
 		resultSet[factor1.length() - i - 1] = tempStr;
@@ -198,10 +198,10 @@ std::string Hexadecimal::min_h(std::string str1, std::string str2) {
 	}
 
 	for (uint64 i = 0; i < str1.length(); i++) {
-		if (Hexadecimal::letterToInt(str1[i]) < Hexadecimal::letterToInt(str2[i])) {
+		if (charToInt(str1[i]) < charToInt(str2[i])) {
 			return str1;
 		}
-		else if (Hexadecimal::letterToInt(str1[i]) > Hexadecimal::letterToInt(str2[i])) {
+		else if (charToInt(str1[i]) > charToInt(str2[i])) {
 			return str2;
 		}
 	}
@@ -229,10 +229,10 @@ std::string Hexadecimal::max_h(std::string str1, std::string str2) {
 	}
 
 	for (uint64 i = 0; i < str1.length(); i++) {
-		if (Hexadecimal::letterToInt(str1[i]) > Hexadecimal::letterToInt(str2[i])) {
+		if (charToInt(str1[i]) > charToInt(str2[i])) {
 			return str1;
 		}
-		else if (Hexadecimal::letterToInt(str1[i]) < Hexadecimal::letterToInt(str2[i])) {
+		else if (charToInt(str1[i]) < charToInt(str2[i])) {
 			return str2;
 		}
 	}
