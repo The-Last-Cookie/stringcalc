@@ -104,9 +104,11 @@ namespace StringCalc {
 		// If both strings are the same, return an empty string
 		std::string max_h(std::string str1, std::string str2);
 
+		// DEPRECATED
 		// Convert letter to corresponding int
 		int letterToInt(char c);
 
+		// DEPRECATED
 		// Convert int into corresponding letter
 		std::string intToLetter(int num);
 
