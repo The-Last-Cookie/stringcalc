@@ -10,7 +10,7 @@ namespace StringCalc {
 		public:
 			Converter();
 			~Converter();
-			void parse(std::string num, unsigned int base);
+			void parse(std::string str, unsigned int base);
 			std::string convertTo(unsigned int base);
 
 		private:

@@ -15,21 +15,21 @@ Converter::~Converter() {
 
 }
 
-void Converter::parse(std::string num, unsigned int base) {
+void Converter::parse(std::string str, unsigned int base) {
 
 	// Input sanitization
 	if (base < 2 || base > 36) {
 		std::cout << "Error: Only the bases from 2 to 36 are allowed!";
 		return;
 	}
-	else if (num.empty()) {
+	else if (str.empty()) {
 		std::cout << "Error: Number can't be empty!";
 		return;
 	}
 
 	// Add number to converter
 	currentBase = base;
-	value = num;
+	value = str;
 }
 
 std::string Converter::convertTo(unsigned int base) {
