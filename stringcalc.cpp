@@ -41,3 +41,37 @@ std::string StringCalc::removeLeadingZeros(std::string str) {
 	str.erase(0, counter);
 	return str;
 }
+
+std::string StringCalc::intToString(int num) {
+
+	// 0 to 9
+	if (num >= 0 && num <= 9) {
+		return std::to_string(num);
+	}
+	// A to Z
+	else if (num >= 10 && num <= 35) {
+		char c = num + 55;
+		std::string s;
+		s = c;
+		return s;
+	}
+
+	std::cout << "Error: Couldn't convert int correctly to string.";
+	return "";
+}
+
+int StringCalc::charToInt(char c) {
+
+	if (c >= '0' && c <= '9') {
+		return c - 48;
+	}
+	else if (c >= 'A' && c <= 'Z') {
+		return c - 55;
+	}
+	else if (c >= 'a' && c <= 'z') {
+		return c - 87;
+	}
+
+	std::cout << "Error: Couldn't convert char correctly to int.";
+	return -1;
+}
