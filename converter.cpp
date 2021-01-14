@@ -25,6 +25,10 @@ void Converter::parse(std::string str, unsigned int base) {
 		std::cout << "Error: Number can't be empty!";
 		return;
 	}
+	else if (!isInBase(str, base)) {
+		std::cout << "Error: Number is not in given base!";
+		return;
+	}
 
 	std::string number = "0";
 
