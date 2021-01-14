@@ -23,6 +23,8 @@ namespace StringCalc {
 
 	int charToInt(char c);
 
+	bool isInBase(std::string str, unsigned int base);
+
 	namespace Decimal {
 
 		// Addition

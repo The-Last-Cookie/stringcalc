@@ -75,3 +75,7 @@ int StringCalc::charToInt(char c) {
 	std::cout << "Error: Couldn't convert char correctly to int.";
 	return -1;
 }
+
+bool StringCalc::isInBase(std::string str, unsigned int base) {
+	return true;
+}
