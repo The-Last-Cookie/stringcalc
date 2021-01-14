@@ -52,23 +52,17 @@ std::string Converter::convertTo(unsigned int base) {
 	}
 
 	std::string result = "";
-	std::string decimal = "0";
+	std::string quotient = value;
 
 	// Decimal to base
-	for (int i = 0; decimal != "0"; i++) {
-		std::string quotient = Decimal::div(decimal, std::to_string(base));
-		std::string remainder = Decimal::sub(decimal, Decimal::mult(std::to_string(base), quotient));
-		decimal = quotient;
+	while (quotient != "0") {
+		std::string temp = quotient;
+		quotient = Decimal::div(quotient, std::to_string(base));
+		std::string remainder = Decimal::sub(temp, Decimal::mult(std::to_string(base), quotient));
 
-		// 0 to 9
-		if (remainder.length() == 1) {
-			result.insert(0, remainder);
-		}
-		else {
-			// A to Z
-			remainder = StringCalc::intToString(std::atoi(remainder.c_str()));
-			result.insert(0, remainder);
-		}
+		// Insert next remainder into first position
+		remainder = StringCalc::intToString(std::atoi(remainder.c_str()));
+		result.insert(0, remainder);
 	}
 
 	return result;
