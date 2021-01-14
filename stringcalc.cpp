@@ -77,5 +77,23 @@ int StringCalc::charToInt(char c) {
 }
 
 bool StringCalc::isInBase(std::string str, unsigned int base) {
+
+	// Input sanitization
+	if (str.empty()) {
+		std::cout << "Error: Strings may not be empty!";
+		return false;
+	}
+	else if (base < 2 || base > 36) {
+		std::cout << "Error: Only the bases from 2 to 36 are allowed!";
+		return false;
+	}
+
+	for (uint64 i = 0; i < str.length(); i++) {
+		if (charToInt(str[i]) == -1 ||
+			charToInt(str[i]) >= base) {
+			return false;
+		}
+	}
+
 	return true;
 }
