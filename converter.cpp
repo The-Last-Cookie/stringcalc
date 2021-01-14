@@ -27,8 +27,18 @@ void Converter::parse(std::string str, unsigned int base) {
 		return;
 	}
 
+	std::string str = "";
+
+	// Calculate decimal
+	for (uint64 i = 0; i < value.length(); i++) {
+		std::string index = std::to_string(value.length() - i - 1);
+		std::string coefficient = std::to_string(charToInt(value[i]));
+		std::string temp = Decimal::mult(coefficient, Decimal::pow(std::to_string(10), index));
+		str = Decimal::add(str, temp);
+	}
+
 	// Add number to converter
-	currentBase = base;
+	currentBase = 10;
 	value = str;
 }
 
@@ -45,14 +55,6 @@ std::string Converter::convertTo(unsigned int base) {
 
 	std::string result = "";
 	std::string decimal = "0";
-
-	// Calculate decimal
-	for (uint64 i = 0; i < value.length(); i++) {
-		std::string index = std::to_string(value.length() - i - 1);
-		std::string coefficient = std::to_string(charToInt(value[i]));
-		std::string temp = Decimal::mult(coefficient, Decimal::pow(std::to_string(currentBase), index));
-		decimal = Decimal::add(decimal, temp);
-	}
 
 	// Decimal to base
 	for (int i = 0; decimal != "0"; i++) {
