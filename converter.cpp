@@ -51,6 +51,10 @@ std::string Converter::convertTo(unsigned int base) {
 		std::cout << "Error: Only the bases from 2 to 36 are allowed!";
 		return "";
 	}
+	else if (value == "") {
+		std::cout << "Error: Nothing got parsed into the converter.";
+		return "";
+	}
 	else if (base == 10) {
 		return value;
 	}
