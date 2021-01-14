@@ -26,7 +26,11 @@ int main() {
 	std::cout << "10 + 90 = " << StringCalc::Hexadecimal::add_h("10", "90") << "\n";
 	std::cout << "52 - 3 = " << StringCalc::Hexadecimal::sub_h("52", "3") << "\n";
 	std::cout << "4F2 * 200 = " << StringCalc::Hexadecimal::mult_h("4F2", "200") << "\n";
-	std::cout << "5B / 3 = " << StringCalc::Hexadecimal::div_h("5B", "3") << "\n";
+	std::cout << "5B / 3 = " << StringCalc::Hexadecimal::div_h("5B", "3") << "\n\n";
+
+	StringCalc::Converter conv;
+	conv.parse("1679615", 10);
+	std::cout << "1679615 Base 10 in Base 16 is: " << conv.convertTo(16);
 
 	return 0;
 }
