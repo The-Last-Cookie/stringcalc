@@ -7,7 +7,6 @@
 using namespace StringCalc;
 
 Converter::Converter() {
-	currentBase = 0;
 	value = "";
 }
 
@@ -27,19 +26,18 @@ void Converter::parse(std::string str, unsigned int base) {
 		return;
 	}
 
-	std::string str = "";
+	std::string number = "0";
 
 	// Calculate decimal
-	for (uint64 i = 0; i < value.length(); i++) {
-		std::string index = std::to_string(value.length() - i - 1);
-		std::string coefficient = std::to_string(charToInt(value[i]));
-		std::string temp = Decimal::mult(coefficient, Decimal::pow(std::to_string(10), index));
-		str = Decimal::add(str, temp);
+	for (uint64 i = 0; i < str.length(); i++) {
+		std::string index = std::to_string(str.length() - i - 1);
+		std::string coefficient = std::to_string(charToInt(str[i]));
+		std::string temp = Decimal::mult(coefficient, Decimal::pow(std::to_string(base), index));
+		number = Decimal::add(number, temp);
 	}
 
 	// Add number to converter
-	currentBase = 10;
-	value = str;
+	value = number;
 }
 
 std::string Converter::convertTo(unsigned int base) {
@@ -49,7 +47,7 @@ std::string Converter::convertTo(unsigned int base) {
 		std::cout << "Error: Only the bases from 2 to 36 are allowed!";
 		return "";
 	}
-	else if (base == currentBase) {
+	else if (base == 10) {
 		return value;
 	}
 
