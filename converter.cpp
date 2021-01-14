@@ -56,9 +56,10 @@ std::string Converter::convertTo(unsigned int base) {
 
 	// Decimal to base
 	for (int i = 0; decimal != "0"; i++) {
-		std::string remainder = Decimal::mod(decimal, std::to_string(base));
-		decimal = Decimal::div(decimal, std::to_string(base));
-		
+		std::string quotient = Decimal::div(decimal, std::to_string(base));
+		std::string remainder = Decimal::sub(decimal, Decimal::mult(std::to_string(base), quotient));
+		decimal = quotient;
+
 		// 0 to 9
 		if (remainder.length() == 1) {
 			result.insert(0, remainder);
