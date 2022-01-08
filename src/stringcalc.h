@@ -15,24 +15,6 @@ typedef long long int64;
 
 namespace StringCalc {
 
-	bool isZero(std::string string);
-
-	std::string removeLeadingZeros(std::string str);
-
-	std::string intToString(int num);
-
-	int charToInt(char c);
-
-	bool isInBase(std::string str, unsigned int base);
-
-	// Return string with fewer value
-	// If both strings are the same, return an empty string
-	std::string min(std::string str1, std::string str2);
-
-	// Return string with higher value
-	// If both strings are the same, return an empty string
-	std::string max(std::string str1, std::string str2);
-
 	// Addition
 	std::string add(std::string addend1, std::string addend2);
 

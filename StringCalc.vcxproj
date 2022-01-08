@@ -19,15 +19,16 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="helper.h" />
+    <ClInclude Include="number.h" />
     <ClInclude Include="src\converter.h" />
     <ClInclude Include="src\stringcalc.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\binary.cpp" />
+    <ClCompile Include="number.cpp" />
     <ClCompile Include="src\converter.cpp" />
-    <ClCompile Include="src\decimal.cpp" />
+    <ClCompile Include="src\helper.cpp" />
     <ClCompile Include="src\example.cpp" />
-    <ClCompile Include="src\hexadecimal.cpp" />
     <ClCompile Include="src\stringcalc.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
