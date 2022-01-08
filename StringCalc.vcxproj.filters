@@ -21,24 +21,27 @@
     <ClInclude Include="src\stringcalc.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="src\helper.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="src\number.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\binary.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
     <ClCompile Include="src\converter.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="src\decimal.cpp">
+    <ClCompile Include="src\helper.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="src\example.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="src\hexadecimal.cpp">
+    <ClCompile Include="src\stringcalc.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="src\stringcalc.cpp">
+    <ClCompile Include="src\number.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
