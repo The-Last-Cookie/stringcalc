@@ -16,9 +16,10 @@ namespace StringCalc {
 			void removeLeadingZeros();
 
 		private:
-			bool isInBase(std::string str, unsigned int base);
+			bool isInBase(unsigned int base);
 
 			std::string m_value;
 			unsigned int m_base;
+			bool isValid;
 	};
 }
