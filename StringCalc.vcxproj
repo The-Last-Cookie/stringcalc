@@ -18,6 +18,18 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\converter.h" />
+    <ClInclude Include="src\stringcalc.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\binary.cpp" />
+    <ClCompile Include="src\converter.cpp" />
+    <ClCompile Include="src\decimal.cpp" />
+    <ClCompile Include="src\example.cpp" />
+    <ClCompile Include="src\hexadecimal.cpp" />
+    <ClCompile Include="src\stringcalc.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -138,18 +150,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="binary.cpp" />
-    <ClCompile Include="converter.cpp" />
-    <ClCompile Include="decimal.cpp" />
-    <ClCompile Include="example.cpp" />
-    <ClCompile Include="hexadecimal.cpp" />
-    <ClCompile Include="stringcalc.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="converter.h" />
-    <ClInclude Include="stringcalc.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
