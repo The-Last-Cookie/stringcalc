@@ -21,10 +21,10 @@
     <ClInclude Include="src\stringcalc.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="helper.h">
+    <ClInclude Include="src\helper.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="number.h">
+    <ClInclude Include="src\number.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
@@ -41,7 +41,7 @@
     <ClCompile Include="src\stringcalc.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="number.cpp">
+    <ClCompile Include="src\number.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
