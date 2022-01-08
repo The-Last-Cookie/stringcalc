@@ -1,4 +1,4 @@
-// Copyright (c) 2021 The-Last-Cookie
+// Copyright (c) 2022 The-Last-Cookie
 // Licensed under the MIT Licence.
 // See the LICENCE file for more information.
 
