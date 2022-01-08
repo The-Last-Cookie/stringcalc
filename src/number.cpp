@@ -6,17 +6,17 @@
 #include "helper.h"
 
 StringCalc::Number::Number(unsigned int base, std::string value) {
-	this->m_base = 0;
-	this->m_value = value;
-	this->isValid = false;
+	m_base = 0;
+	m_value = value;
+	isValid = false;
 
 	if (!isInBase(base)) {
-		this->m_value = "";
+		m_value = "";
 		return;
 	}
 
-	this->m_base = base;
-	this->isValid = true;
+	m_base = base;
+	isValid = true;
 }
 
 StringCalc::Number::~Number() {
