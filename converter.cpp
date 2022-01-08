@@ -7,6 +7,7 @@
 using namespace StringCalc;
 
 Converter::Converter() {
+	// Always in base 10
 	value = "";
 }
 
