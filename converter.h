@@ -18,7 +18,6 @@ namespace StringCalc {
 			std::string convertTo(unsigned int base);
 
 		private:
-			int currentBase;
 			std::string value;
 	};
 }
