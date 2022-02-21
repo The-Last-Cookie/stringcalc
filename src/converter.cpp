@@ -16,18 +16,8 @@ Converter::~Converter() {
 }
 
 void Converter::parse(std::string str, unsigned int base) {
-
-	// Input sanitization
 	if (base < 2 || base > 36) {
 		std::cout << "Error: Only the bases from 2 to 36 are allowed!";
-		return;
-	}
-	else if (str.empty()) {
-		std::cout << "Error: Number can't be empty!";
-		return;
-	}
-	else if (!isInBase(str, base)) {
-		std::cout << "Error: Number is not in given base!";
 		return;
 	}
 
@@ -36,12 +26,20 @@ void Converter::parse(std::string str, unsigned int base) {
 	// Calculate decimal
 	for (uint64 i = 0; i < str.length(); i++) {
 		std::string index = std::to_string(str.length() - i - 1);
-		std::string coefficient = std::to_string(charToInt(str[i]));
-		std::string temp = Decimal::mult(coefficient, Decimal::pow(std::to_string(base), index));
-		number = Decimal::add(number, temp);
+
+		int coefficientValue = StringCalc::Helper::charToInt(str[i]);
+		if (coefficientValue == -1) {
+			return;
+		}
+
+		std::string coefficient = std::to_string(coefficientValue);
+		std::string temp = StringCalc::Helper::h_mult(
+			base,
+			coefficient,
+			StringCalc::Helper::h_pow(base, std::to_string(base), index));
+		number = StringCalc::Helper::h_add(base, number, temp);
 	}
 
-	// Add number to converter
 	value = number;
 }
 
