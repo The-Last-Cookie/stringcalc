@@ -6,6 +6,9 @@
 
 #include <iostream>
 
+typedef unsigned long long uint64;
+typedef long long int64;
+
 namespace StringCalc {
 	namespace Helper {
 		std::string intToString(int num);
@@ -22,18 +25,18 @@ namespace StringCalc {
 		// Both numbers need to be in the same base
 		std::string max(std::string str1, std::string str2);
 
-		std::string p_add(std::string addend1, std::string addend2);
+		std::string h_add(unsigned int base, std::string addend1, std::string addend2);
 
-		std::string p_sub(std::string minuend, std::string subtrahend);
+		std::string h_sub(unsigned int base, std::string minuend, std::string subtrahend);
 
-		std::string p_mult(std::string factor1, std::string factor2);
+		std::string h_mult(unsigned int base, std::string factor1, std::string factor2);
 
-		std::string p_div(std::string dividend, std::string divisor);
+		std::string h_div(unsigned int base, std::string dividend, std::string divisor);
 
-		std::string p_mod(std::string dividend, std::string divisor);
+		std::string h_mod(unsigned int base, std::string dividend, std::string divisor);
 
-		std::string p_pow(std::string base, std::string exponent);
+		std::string h_pow(unsigned int base, std::string baseExp, std::string exponent);
 
-		std::string p_fact(std::string num);
+		std::string h_fact(unsigned int base, std::string num);
 	}
 }
