@@ -16,16 +16,15 @@ namespace StringCalc {
 			~Number();
 
 			bool isZero();
-			void removeLeadingZeros();
 			void addZeros(uint64 count);
 			bool isValid();
-			std::string getValue();
+			
+			std::string value;
+			unsigned int base;
 
 		private:
 			bool isInBase(unsigned int base);
 
-			std::string m_value;
-			unsigned int m_base;
 			bool m_isValid;
 	};
 }

@@ -25,6 +25,8 @@ namespace StringCalc {
 		// Both numbers need to be in the same base
 		std::string max(std::string str1, std::string str2);
 
+		std::string removeLeadingZeros(std::string str);
+
 		std::string h_add(unsigned int base, std::string addend1, std::string addend2);
 
 		std::string h_sub(unsigned int base, std::string minuend, std::string subtrahend);

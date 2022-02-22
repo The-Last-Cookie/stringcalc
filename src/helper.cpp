@@ -82,6 +82,21 @@ std::string StringCalc::Helper::max(std::string str1, std::string str2) {
 	return "";
 }
 
+std::string StringCalc::Helper::removeLeadingZeros(std::string str) {
+	uint64 counter = 0;
+	for (uint64 i = 0; i < str.length() - 1; i++) {
+		if (str[i] == '0') {
+			counter++;
+		}
+		else {
+			break;
+		}
+	}
+
+	str.erase(0, counter);
+	return str;
+}
+
 std::string StringCalc::Helper::h_add(unsigned int base, std::string addend1, std::string addend2) {
 	std::string sum = "";
 
