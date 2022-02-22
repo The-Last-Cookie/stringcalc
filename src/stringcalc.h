@@ -8,15 +8,14 @@
 #include <string>
 #include <vector>
 
+#include "helper.h"
 #include "converter.h"
-
-typedef unsigned long long uint64;
-typedef long long int64;
+#include "number.h"
 
 namespace StringCalc {
 
 	// Addition
-	std::string add(std::string addend1, std::string addend2);
+	std::string add(unsigned int base, std::string addend1, std::string addend2);
 
 	// Sutraction
 	std::string sub(std::string minuend, std::string subtrahend);

@@ -16,23 +16,19 @@ Converter::~Converter() {
 }
 
 void Converter::parse(std::string str, unsigned int base) {
-	if (base < 2 || base > 36) {
-		std::cout << "Error: Only the bases from 2 to 36 are allowed!";
+	Number num = Number(base, str);
+
+	if (!num.isValid()) {
 		return;
 	}
 
 	std::string number = "0";
 
-	// Calculate decimal
+	// Calculate decimal value
+	// Take the highest exponent first
 	for (uint64 i = 0; i < str.length(); i++) {
 		std::string index = std::to_string(str.length() - i - 1);
-
-		int coefficientValue = StringCalc::Helper::charToInt(str[i]);
-		if (coefficientValue == -1) {
-			return;
-		}
-
-		std::string coefficient = std::to_string(coefficientValue);
+		std::string coefficient = std::to_string(StringCalc::Helper::charToInt(str[i]));
 		std::string temp = StringCalc::Helper::h_mult(
 			base,
 			coefficient,
@@ -64,12 +60,12 @@ std::string Converter::convertTo(unsigned int base) {
 	// Decimal to base
 	while (quotient != "0") {
 		std::string temp = quotient;
-		quotient = Decimal::div(quotient, std::to_string(base));
-		std::string remainder = Decimal::sub(temp, Decimal::mult(std::to_string(base), quotient));
+		quotient = StringCalc::div(quotient, StringCalc::Helper::intToString(base));
+		std::string remainder = StringCalc::sub(temp, StringCalc::mult(std::to_string(base), quotient));
 
-		// Insert next remainder into first position
-		remainder = StringCalc::intToString(std::atoi(remainder.c_str()));
-		result.insert(0, remainder);
+		// Convert numbers over 9 to letters
+		remainder = StringCalc::Helper::intToString(std::atoi(remainder.c_str()));
+		result.insert(0, remainder); //TODO: use reverse something
 	}
 
 	return result;
