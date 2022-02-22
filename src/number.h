@@ -6,6 +6,9 @@
 
 #include <iostream>
 
+#include "stringcalc.h"
+#include "helper.h"
+
 namespace StringCalc {
 	class Number {
 		public:
@@ -14,12 +17,15 @@ namespace StringCalc {
 
 			bool isZero();
 			void removeLeadingZeros();
+			void addZeros(uint64 count);
+			bool isValid();
+			std::string getValue();
 
 		private:
 			bool isInBase(unsigned int base);
 
 			std::string m_value;
 			unsigned int m_base;
-			bool isValid;
+			bool m_isValid;
 	};
 }

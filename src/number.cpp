@@ -3,12 +3,11 @@
 // See the LICENCE file for more information.
 
 #include "number.h"
-#include "helper.h"
 
 StringCalc::Number::Number(unsigned int base, std::string value) {
 	m_base = 0;
 	m_value = value;
-	isValid = false;
+	m_isValid = false;
 
 	if (!isInBase(base)) {
 		m_value = "";
@@ -16,7 +15,7 @@ StringCalc::Number::Number(unsigned int base, std::string value) {
 	}
 
 	m_base = base;
-	isValid = true;
+	m_isValid = true;
 }
 
 StringCalc::Number::~Number() {
@@ -44,6 +43,18 @@ void StringCalc::Number::removeLeadingZeros() {
 	}
 
 	m_value.erase(0, counter);
+}
+
+void StringCalc::Number::addZeros(uint64 count) {
+	m_value.insert(0, count, '0');
+}
+
+bool StringCalc::Number::isValid() {
+	return m_isValid;
+}
+
+std::string StringCalc::Number::getValue() {
+	return m_value;
 }
 
 bool StringCalc::Number::isInBase(unsigned int base) {
