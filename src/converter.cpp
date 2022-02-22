@@ -2,6 +2,8 @@
 // Licensed under the MIT Licence.
 // See the LICENCE file for more information.
 
+#include <string>
+
 #include "stringcalc.h"
 
 using namespace StringCalc;
@@ -65,8 +67,9 @@ std::string Converter::convertTo(unsigned int base) {
 
 		// Convert numbers over 9 to letters
 		remainder = StringCalc::Helper::intToString(std::atoi(remainder.c_str()));
-		result.insert(0, remainder); //TODO: use reverse something
+		result += remainder;
 	}
 
+	reverse(result.begin(), result.end());
 	return result;
 }
