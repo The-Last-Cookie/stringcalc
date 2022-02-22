@@ -18,20 +18,20 @@ namespace StringCalc {
 	std::string add(unsigned int base, std::string addend1, std::string addend2);
 
 	// Sutraction
-	std::string sub(std::string minuend, std::string subtrahend);
+	std::string sub(unsigned int base, std::string minuend, std::string subtrahend);
 
 	// Multiplication
-	std::string mult(std::string factor1, std::string factor2);
+	std::string mult(unsigned int base, std::string factor1, std::string factor2);
 
 	// Division (without remainder)
-	std::string div(std::string dividend, std::string divisor);
+	std::string div(unsigned int base, std::string dividend, std::string divisor);
 
 	// Modulo
-	std::string mod(std::string dividend, std::string divisor);
+	std::string mod(unsigned int base, std::string dividend, std::string divisor);
 
 	// Exponentiation
-	std::string pow(std::string base, std::string exponent);
+	std::string pow(unsigned int base, std::string baseExp, std::string exponent);
 
 	// Factorial
-	std::string fact(std::string num);
+	std::string fact(unsigned int base, std::string num);
 }
