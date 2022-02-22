@@ -119,6 +119,7 @@ std::string StringCalc::Helper::h_add(unsigned int base, std::string addend1, st
 		sum.insert(0, intToString(carrier));
 	}
 
+	sum = removeLeadingZeros(sum);
 	return sum;
 }
 
@@ -141,6 +142,7 @@ std::string StringCalc::Helper::h_sub(unsigned int base, std::string minuend, st
 		difference.insert(0, intToString(temp));
 	}
 
+	difference = removeLeadingZeros(difference);
 	return difference;
 }
 
@@ -182,7 +184,7 @@ std::string StringCalc::Helper::h_mult(unsigned int base, std::string factor1, s
 	// Add simple multiplication strings together
 	std::string product = "0";
 	for (uint64 i = 0; i < resultSet.size(); i++) {
-		product = h_add(base, product, resultSet[i]);
+		product = add(base, product, resultSet[i]);
 	}
 
 	return product;
@@ -192,16 +194,16 @@ std::string StringCalc::Helper::h_div(unsigned int base, std::string dividend, s
 	std::string quotient = "0";
 
 	while (dividend == max(dividend, divisor) || max(dividend, divisor) == "") {
-		dividend = h_sub(base, dividend, divisor);
-		quotient = h_add(base, quotient, "1");
+		dividend = sub(base, dividend, divisor);
+		quotient = add(base, quotient, "1");
 	}
 
 	return quotient;
 }
 
 std::string StringCalc::Helper::h_mod(unsigned int base, std::string dividend, std::string divisor) {
-	std::string quotient = h_div(base, dividend, divisor);
-	std::string remainder = h_sub(base, dividend, h_mult(base, divisor, quotient));
+	std::string quotient = div(base, dividend, divisor);
+	std::string remainder = sub(base, dividend, h_mult(base, divisor, quotient));
 	return remainder;
 }
 
@@ -209,8 +211,8 @@ std::string StringCalc::Helper::h_pow(unsigned int base, std::string baseExp, st
 	std::string power = "1";
 
 	while (exponent != "0") {
-		power = h_mult(base, power, baseExp);
-		exponent = h_sub(base, exponent, "1");
+		power = mult(base, power, baseExp);
+		exponent = sub(base, exponent, "1");
 	}
 
 	return power;
@@ -220,8 +222,8 @@ std::string StringCalc::Helper::h_fact(unsigned int base, std::string num) {
 	std::string factorial = "1";
 
 	while (num != "0") {
-		factorial = h_mult(base, factorial, num);
-		num = h_sub(base, num, "1");
+		factorial = mult(base, factorial, num);
+		num = sub(base, num, "1");
 	}
 
 	return factorial;
