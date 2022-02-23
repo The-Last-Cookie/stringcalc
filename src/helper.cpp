@@ -194,7 +194,7 @@ std::string StringCalc::Helper::h_mult(unsigned int base, std::string factor1, s
 std::string StringCalc::Helper::h_div(unsigned int base, std::string dividend, std::string divisor) {
 	std::string quotient = "0";
 
-	while (dividend == max(dividend, divisor) || max(dividend, divisor) == "") {
+	while (dividend == StringCalc::Helper::max(dividend, divisor) || StringCalc::Helper::max(dividend, divisor) == "") {
 		dividend = sub(base, dividend, divisor);
 		quotient = add(base, quotient, "1");
 	}
