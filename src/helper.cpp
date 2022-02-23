@@ -51,10 +51,10 @@ std::string StringCalc::Helper::min(std::string str1, std::string str2) {
 	}
 
 	for (uint64 i = 0; i < str1.length(); i++) {
-		if (str1[i] < str2[i]) {
+		if (charToInt(str1[i]) < charToInt(str2[i])) {
 			return str1;
 		}
-		else if (str1[i] > str2[i]) {
+		else if (charToInt(str1[i]) > charToInt(str2[i])) {
 			return str2;
 		}
 	}
@@ -71,10 +71,10 @@ std::string StringCalc::Helper::max(std::string str1, std::string str2) {
 	}
 
 	for (uint64 i = 0; i < str1.length(); i++) {
-		if (str1[i] > str2[i]) {
+		if (charToInt(str1[i]) > charToInt(str2[i])) {
 			return str1;
 		}
-		else if (str1[i] < str2[i]) {
+		else if (charToInt(str1[i]) < charToInt(str2[i])) {
 			return str2;
 		}
 	}
