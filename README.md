@@ -40,7 +40,7 @@ std::cout << "1679615 Base 10 in Base 16 is: " << conv.convertTo(16);
 
 ## Technical documentation
 
-*Note: There are more functions available in the library, but they aren't listed here. These functions are used for internal calculations and therefore shouldn't be used when implementing this library. They are marked as `h_` (h as in private).*
+*Note: There are more functions available in the library, but they aren't listed here. These functions are used for internal calculations and therefore shouldn't be used when implementing this library. They are marked as `h_` (h as in helper).*
 
 - Main functions:
     - function _add_: Addition
