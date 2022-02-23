@@ -45,7 +45,7 @@ std::string StringCalc::sub(unsigned int base, std::string minuend, std::string 
 	}
 
 	// TODO: implement negativity
-	if (subtrahend == max(minuend, subtrahend)) {
+	if (subtrahend == StringCalc::Helper::max(minuend, subtrahend)) {
 		std::cout << "Error: Result may only be positive!";
 		return "";
 	}
@@ -74,11 +74,11 @@ std::string StringCalc::div(unsigned int base, std::string dividend, std::string
 		return "";
 	}
 
-	if (y.isZero()) {
-		return "Error: Division by 0 not allowed!";
-	}
-	else if (x.isZero()) {
+	if (x.isZero()) {
 		return "0";
+	}
+	else if (y.isZero()) {
+		return "Error: Division by 0 not allowed!";
 	}
 
 	std::string quotient = StringCalc::Helper::h_div(base, x.value, y.value);
@@ -98,7 +98,7 @@ std::string StringCalc::mod(unsigned int base, std::string dividend, std::string
 		return "";
 	}
 
-	std::string remainder = StringCalc::Helper::h_mod(base, dividend, divisor);
+	std::string remainder = StringCalc::Helper::h_mod(base, x.value, y.value);
 	return remainder;
 }
 
@@ -115,7 +115,7 @@ std::string StringCalc::pow(unsigned int base, std::string baseExp, std::string 
 		return "";
 	}
 
-	std::string power = StringCalc::Helper::h_pow(base, baseExp, exponent);
+	std::string power = StringCalc::Helper::h_pow(base, x.value, y.value);
 	return power;
 }
 
@@ -126,6 +126,6 @@ std::string StringCalc::fact(unsigned int base, std::string num) {
 		return "";
 	}
 
-	std::string factorial = StringCalc::Helper::h_fact(base, num);
+	std::string factorial = StringCalc::Helper::h_fact(base, x.value);
 	return factorial;
 }
