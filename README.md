@@ -40,6 +40,8 @@ std::cout << "1679615 Base 10 in Base 16 is: " << conv.convertTo(16);
 
 ## Technical documentation
 
+### Overview
+
 *Note: There are more functions available in the library, but they aren't listed here. These functions are used for internal calculations and therefore shouldn't be used when implementing this library. They are marked as `h_` (h as in helper). Additionally, using them without prior caution can lead to unexpected behavior.*
 
 - Main functions:
@@ -62,6 +64,31 @@ std::cout << "1679615 Base 10 in Base 16 is: " << conv.convertTo(16);
     - function _charToInt_: Convert a string value to its integer value (e.g. A will be converted to 10)
     - function _removeLeadingZeros_: Removes zeros in front of a string (for example, "00" will be converted to "0")
 
+### Testing
+
+This library uses [doctest](https://github.com/doctest/doctest) for testing its functionalities. All tests can be found in the [`tests`](testing/tests) folder.
+
+However, there is one problem while executing tests. Since I decided to not use custom exceptions, the program will print out errors for every test (only if there are any of course). I'm not sure at the moment how to deactivate/activate these error messages depending on the context, so I will leave it like this for now (I'm aware that you can define a global variable for such things, but I'm not fond of this approach).
+
+To add new tests, you need to create a header file (`.h`) in the `tests` subfolder. Every file in there has the following structure:
+
+```cpp
+// Test.h
+#pragma once
+
+#include "../doctest.h"
+
+TEST_SUITE("test") {
+    // Your test cases
+}
+```
+
+As a final step, you need to include the header file in the `main.cpp` file in the testing directory, like so:
+
+```cpp
+#include "tests/Test.h"
+```
+
 ## Planned features
 
 ### Major release v2
@@ -69,6 +96,10 @@ std::cout << "1679615 Base 10 in Base 16 is: " << conv.convertTo(16);
 - [x] Merge all number categories into one namespace and use base as indicator
 - [ ] Support for negative numbers
 - [ ] Use more pointers (call-by-reference)
+
+## Links
+
+- [doctest](https://github.com/doctest/doctest) ([v2.4.8](https://github.com/doctest/doctest/releases/tag/v2.4.8))
 
 ## Licence
 
