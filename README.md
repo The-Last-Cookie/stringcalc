@@ -40,7 +40,7 @@ std::cout << "1679615 Base 10 in Base 16 is: " << conv.convertTo(16);
 
 ## Technical documentation
 
-*Note: There are more functions available in the library, but they aren't listed here. These functions are used for internal calculations and therefore shouldn't be used when implementing this library. They are marked as `h_` (h as in helper).*
+*Note: There are more functions available in the library, but they aren't listed here. These functions are used for internal calculations and therefore shouldn't be used when implementing this library. They are marked as `h_` (h as in helper). Additionally, using them without prior caution can lead to unexpected behavior.*
 
 - Main functions:
     - function _add_: Addition
@@ -52,15 +52,15 @@ std::cout << "1679615 Base 10 in Base 16 is: " << conv.convertTo(16);
     - function _fact_: Factorial
 
 - Class Converter:
-    - method parse
-    - method convertTo
+    - method _parse_: Parse a number into the converter
+    - method _convertTo_: Convert the number which was given via `parse` to a specific base
 
 - Namespace Helper:
-    - function _min_
-    - function _max_
-    - function _intToString_
-    - function _charToInt_
-    - function _removeLeadingZeros_
+    - function _min_: Find the string with the smaller value
+    - function _max_: Find the string with the higher value
+    - function _intToString_: Convert the given number to its string value (10 and higher will be converted to A, B, etc. respectively)
+    - function _charToInt_: Convert a string value to its integer value (e.g. A will be converted to 10)
+    - function _removeLeadingZeros_: Removes zeros in front of a string (for example, "00" will be converted to "0")
 
 ## Planned features
 
