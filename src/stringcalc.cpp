@@ -46,7 +46,7 @@ std::string StringCalc::sub(unsigned int base, std::string minuend, std::string 
 
 	// TODO: implement negativity
 	if (subtrahend == StringCalc::Helper::max(minuend, subtrahend)) {
-		std::cout << "Error: Result may only be positive!";
+		std::cout << "Error: Result may only be positive!\n";
 		return "";
 	}
 
@@ -78,7 +78,7 @@ std::string StringCalc::div(unsigned int base, std::string dividend, std::string
 		return "0";
 	}
 	else if (y.isZero()) {
-		return "Error: Division by 0 not allowed!";
+		return "Error: Division by 0 not allowed!\n";
 	}
 
 	std::string quotient = StringCalc::Helper::h_div(base, x.value, y.value);
@@ -94,7 +94,7 @@ std::string StringCalc::mod(unsigned int base, std::string dividend, std::string
 	}
 
 	if (y.isZero()) {
-		std::cout << "Error: Modular arithmetic with 0 not allowed!";
+		std::cout << "Error: Modular arithmetic with 0 not allowed!\n";
 		return "";
 	}
 
@@ -111,7 +111,7 @@ std::string StringCalc::pow(unsigned int base, std::string baseExp, std::string 
 	}
 
 	else if (x.isZero() && y.isZero()) {
-		std::cout << "Error: 0 ^ 0 is not defined!";
+		std::cout << "Error: 0 ^ 0 is not defined!\n";
 		return "";
 	}
 

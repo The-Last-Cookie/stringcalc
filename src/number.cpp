@@ -44,11 +44,11 @@ bool StringCalc::Number::isValid() {
 
 bool StringCalc::Number::isInBase(unsigned int base) {
 	if (this->value.empty()) {
-		std::cout << "Error: Strings may not be empty!";
+		std::cout << "Error: Strings may not be empty!\n";
 		return false;
 	}
 	else if (base < 2 || base > 36) {
-		std::cout << "Error: Only the bases from 2 to 36 are allowed!";
+		std::cout << "Error: Only the bases from 2 to 36 are allowed!\n";
 		return false;
 	}
 

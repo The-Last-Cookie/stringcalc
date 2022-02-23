@@ -45,11 +45,11 @@ std::string Converter::convertTo(unsigned int base) {
 
 	// Input sanitization
 	if (base < 2 || base > 36) {
-		std::cout << "Error: Only the bases from 2 to 36 are allowed!";
+		std::cout << "Error: Only the bases from 2 to 36 are allowed!\n";
 		return "";
 	}
 	else if (value == "") {
-		std::cout << "Error: Nothing got parsed into the converter.";
+		std::cout << "Error: Nothing got parsed into the converter.\n";
 		return "";
 	}
 	else if (base == 10) {

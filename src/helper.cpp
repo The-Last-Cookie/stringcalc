@@ -23,7 +23,7 @@ std::string StringCalc::Helper::intToString(int num) {
 		return s;
 	}
 
-	std::cout << "Error: Couldn't convert int correctly to string.";
+	std::cout << "Error: Couldn't convert int correctly to string.\n";
 	return "";
 }
 
@@ -38,7 +38,7 @@ int StringCalc::Helper::charToInt(char c) {
 		return c - 87;
 	}
 
-	std::cout << "Error: Couldn't convert char correctly to int.";
+	std::cout << "Error: Couldn't convert char correctly to int.\n";
 	return -1;
 }
 
