@@ -5,16 +5,19 @@
 #include "number.h"
 
 StringCalc::Number::Number(unsigned int base, std::string value) {
-	base = 0;
-	value = "";
+	this->base = 0;
 	m_isValid = false;
 
+	// Has to be set here because the parameter will be accessed for checks
+	this->value = value;
+
 	if (!isInBase(base)) {
+		this->value = "";
 		return;
 	}
 
-	base = base;
-	value = StringCalc::Helper::removeLeadingZeros(value);
+	this->base = base;
+
 	m_isValid = true;
 }
 
@@ -22,8 +25,8 @@ StringCalc::Number::~Number() {
 }
 
 bool StringCalc::Number::isZero() {
-	for (uint64 i = 0; i < value.length(); i++) {
-		if (value[i] != '0') {
+	for (uint64 i = 0; i < this->value.length(); i++) {
+		if (this->value[i] != '0') {
 			return false;
 		}
 	}
@@ -32,7 +35,7 @@ bool StringCalc::Number::isZero() {
 }
 
 void StringCalc::Number::addZeros(uint64 count) {
-	value.insert(0, count, '0');
+	this->value.insert(0, count, '0');
 }
 
 bool StringCalc::Number::isValid() {
@@ -40,7 +43,7 @@ bool StringCalc::Number::isValid() {
 }
 
 bool StringCalc::Number::isInBase(unsigned int base) {
-	if (value.empty()) {
+	if (this->value.empty()) {
 		std::cout << "Error: Strings may not be empty!";
 		return false;
 	}
@@ -49,8 +52,8 @@ bool StringCalc::Number::isInBase(unsigned int base) {
 		return false;
 	}
 
-	for (uint64 i = 0; i < value.length(); i++) {
-		int c = Helper::charToInt(value[i]);
+	for (uint64 i = 0; i < this->value.length(); i++) {
+		int c = Helper::charToInt(this->value[i]);
 		if (c == -1 || c >= base) {
 			return false;
 		}
