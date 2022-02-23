@@ -115,8 +115,9 @@ std::string StringCalc::Helper::h_add(unsigned int base, std::string addend1, st
 		sum.insert(0, intToString(temp));
 	}
 
+	// Add carrier
 	if (carrier == 1) {
-		sum.insert(0, intToString(carrier));
+		sum.insert(0, "1");
 	}
 
 	sum = removeLeadingZeros(sum);
