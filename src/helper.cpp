@@ -10,7 +10,7 @@ using namespace StringCalc;
 std::string StringCalc::Helper::intToString(int num) {
 	// 0 to 9
 	if (num >= 0 && num <= 9) {
-		char c = num;
+		char c = num + 48;
 		std::string s;
 		s = c;
 		return s;
