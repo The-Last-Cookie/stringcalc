@@ -74,11 +74,13 @@ std::string StringCalc::div(unsigned int base, std::string dividend, std::string
 		return "";
 	}
 
-	if (x.isZero()) {
-		return "0";
+	// Divisor needs to be checked first, in case divisor and dividend are both zero
+	if (y.isZero()) {
+		std::cout << "Error: Division by 0 not allowed!\n";
+		return "";
 	}
-	else if (y.isZero()) {
-		return "Error: Division by 0 not allowed!\n";
+	else if (x.isZero()) {
+		return "0";
 	}
 
 	std::string quotient = StringCalc::Helper::h_div(base, x.value, y.value);
