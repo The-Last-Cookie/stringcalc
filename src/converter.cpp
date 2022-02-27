@@ -55,6 +55,9 @@ std::string Converter::convertTo(unsigned int base) {
 	else if (base == 10) {
 		return value;
 	}
+	else if (value == "0") {
+		return value;
+	}
 
 	std::string result = "";
 	std::string quotient = value;
