@@ -17,3 +17,4 @@
 #include "tests/TestSubtraction.h"
 #include "tests/TestMultiplication.h"
 #include "tests/TestDivision.h"
+#include "tests/TestConverter.h"

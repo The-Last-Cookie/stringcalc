@@ -147,6 +147,7 @@
     <ClInclude Include="random.h" />
     <ClInclude Include="tests\TestAddition.h" />
     <ClInclude Include="tests\TestCharToInt.h" />
+    <ClInclude Include="tests\TestConverter.h" />
     <ClInclude Include="tests\TestDivision.h" />
     <ClInclude Include="tests\TestIntToString.h" />
     <ClInclude Include="tests\TestMax.h" />
