@@ -51,6 +51,21 @@
     <ClInclude Include="tests\TestNumber.h">
       <Filter>tests</Filter>
     </ClInclude>
+    <ClInclude Include="tests\TestAddition.h">
+      <Filter>tests</Filter>
+    </ClInclude>
+    <ClInclude Include="random.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="tests\TestSubtraction.h">
+      <Filter>tests</Filter>
+    </ClInclude>
+    <ClInclude Include="tests\TestMultiplication.h">
+      <Filter>tests</Filter>
+    </ClInclude>
+    <ClInclude Include="tests\TestDivision.h">
+      <Filter>tests</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

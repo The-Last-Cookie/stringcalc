@@ -13,3 +13,7 @@
 #include "tests/TestMax.h"
 #include "tests/TestRemoveLeadingZeros.h"
 #include "tests/TestNumber.h"
+#include "tests/TestAddition.h"
+#include "tests/TestSubtraction.h"
+#include "tests/TestMultiplication.h"
+#include "tests/TestDivision.h"
