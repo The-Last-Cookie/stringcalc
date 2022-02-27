@@ -32,10 +32,10 @@ void Converter::parse(std::string str, unsigned int base) {
 		std::string index = std::to_string(str.length() - i - 1);
 		std::string coefficient = std::to_string(StringCalc::Helper::charToInt(str[i]));
 		std::string temp = StringCalc::mult(
-			base,
+			10,
 			coefficient,
-			StringCalc::pow(base, std::to_string(base), index));
-		number = StringCalc::add(base, number, temp);
+			StringCalc::pow(10, std::to_string(base), index));
+		number = StringCalc::add(10, number, temp);
 	}
 
 	value = number;
