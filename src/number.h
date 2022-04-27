@@ -20,6 +20,7 @@ namespace StringCalc {
 			bool isValid();
 			bool isNegative();
 			void setNegative();
+			void setPositive();
 			std::string toString();
 			
 			std::string value;

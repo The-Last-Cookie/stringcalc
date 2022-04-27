@@ -57,6 +57,10 @@ void StringCalc::Number::setNegative() {
 	this->m_isNegative = true;
 }
 
+void StringCalc::Number::setPositive() {
+	this->m_isNegative = false;
+}
+
 std::string StringCalc::Number::toString() {
 	if (this->m_isNegative) {
 		return "-" + value;
