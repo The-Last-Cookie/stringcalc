@@ -19,8 +19,28 @@ TEST_SUITE("test min function") {
         CHECK(StringCalc::Helper::min("0", "1") == "0");
     }
 
+    TEST_CASE("return min(01, 00)") {
+        CHECK(StringCalc::Helper::min("01", "00") == "00");
+    }
+
+    TEST_CASE("return min(00, 01)") {
+        CHECK(StringCalc::Helper::min("00", "01") == "00");
+    }
+
     TEST_CASE("return min(0, 0)") {
         CHECK(StringCalc::Helper::min("0", "0") == "");
+    }
+
+    TEST_CASE("return min(00, 00)") {
+        CHECK(StringCalc::Helper::min("00", "00") == "");
+    }
+
+    TEST_CASE("return min(005, 00006)") {
+        CHECK(StringCalc::Helper::min("005", "00006") == "005");
+    }
+
+    TEST_CASE("return min(005, 2)") {
+        CHECK(StringCalc::Helper::min("005", "2") == "2");
     }
 
     TEST_CASE("return empty on empty input") {

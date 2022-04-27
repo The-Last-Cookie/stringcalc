@@ -19,8 +19,28 @@ TEST_SUITE("test max function") {
         CHECK(StringCalc::Helper::max("0", "1") == "1");
     }
 
+    TEST_CASE("return max(01, 00)") {
+        CHECK(StringCalc::Helper::max("01", "00") == "01");
+    }
+
+    TEST_CASE("return max(00, 01)") {
+        CHECK(StringCalc::Helper::max("00", "01") == "01");
+    }
+
     TEST_CASE("return max(0, 0)") {
         CHECK(StringCalc::Helper::max("0", "0") == "");
+    }
+
+    TEST_CASE("return max(00, 00)") {
+        CHECK(StringCalc::Helper::max("00", "00") == "");
+    }
+
+    TEST_CASE("return max(005, 00006)") {
+        CHECK(StringCalc::Helper::max("005", "00006") == "00006");
+    }
+
+    TEST_CASE("return max(005, 2)") {
+        CHECK(StringCalc::Helper::max("005", "2") == "005");
     }
 
     TEST_CASE("return empty on empty input") {
