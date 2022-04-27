@@ -12,13 +12,16 @@ StringCalc::Number::Number(unsigned int base, std::string value) {
 	// Has to be set here because the parameter will be accessed for checks
 	this->value = value;
 
+	if (checkNegative()) {
+		setNegative();
+
+		// Remove minus at the beginning
+		this->value.erase(0, 1);
+	}
+
 	if (!isInBase(base)) {
 		this->value = "";
 		return;
-	}
-
-	if (checkNegative()) {
-		setNegative();
 	}
 
 	this->base = base;
@@ -52,9 +55,6 @@ bool StringCalc::Number::isNegative() {
 
 void StringCalc::Number::setNegative() {
 	this->m_isNegative = true;
-
-	// Remove minus at the beginning
-	this->value.erase(0, 1);
 }
 
 std::string StringCalc::Number::toString() {
