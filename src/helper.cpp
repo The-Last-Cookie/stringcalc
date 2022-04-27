@@ -43,42 +43,104 @@ int StringCalc::Helper::charToInt(char c) {
 }
 
 std::string StringCalc::Helper::min(std::string str1, std::string str2) {
-	if (str1.length() < str2.length()) {
-		return str1;
-	}
-	else if (str1.length() > str2.length()) {
-		return str2;
+	for (uint64 i = 0; i < str1.length(); ++i) {
+		if (i < (str1.length() - 1) && charToInt(str1[i]) == '0') {
+			continue;
+		}
+
+		for (uint64 j = 0; j < str2.length(); ++j) {
+			if (j < (str2.length() - 1) && charToInt(str2[j]) == '0') {
+				continue;
+			}
+
+			uint64 lenWithoutZerostr1 = str1.length() - i;
+			uint64 lenWithoutZerostr2 = str2.length() - j;
+
+			if (lenWithoutZerostr1 < lenWithoutZerostr2) {
+				return str1;
+			}
+
+			if (lenWithoutZerostr2 < lenWithoutZerostr1) {
+				return str2;
+			}
+
+			// compare numbers as if they had no leading zeros
+			while (i < str1.length()) {
+				int num1 = charToInt(str1[i]);
+				int num2 = charToInt(str2[j]);
+
+				if (num1 < num2) {
+					return str1;
+				}
+
+				if (num2 < num1) {
+					return str2;
+				}
+
+				++i;
+				++j;
+			}
+
+			// both numbers are the same
+			return "";
+		}
+
+		// str2 is empty, break to dismiss unnecessary loop iterations
+		break;
 	}
 
-	for (uint64 i = 0; i < str1.length(); i++) {
-		if (charToInt(str1[i]) < charToInt(str2[i])) {
-			return str1;
-		}
-		else if (charToInt(str1[i]) > charToInt(str2[i])) {
-			return str2;
-		}
-	}
-
+	std::cout << "Error: Strings may not be empty for comparison.\n";
 	return "";
 }
 
 std::string StringCalc::Helper::max(std::string str1, std::string str2) {
-	if (str1.length() > str2.length()) {
-		return str1;
-	}
-	else if (str1.length() < str2.length()) {
-		return str2;
+	for (uint64 i = 0; i < str1.length(); ++i) {
+		if (i < (str1.length() - 1) && charToInt(str1[i]) == '0') {
+			continue;
+		}
+
+		for (uint64 j = 0; j < str2.length(); ++j) {
+			if (j < (str2.length() - 1) && charToInt(str2[j]) == '0') {
+				continue;
+			}
+
+			uint64 lenWithoutZerostr1 = str1.length() - i;
+			uint64 lenWithoutZerostr2 = str2.length() - j;
+
+			if (lenWithoutZerostr1 > lenWithoutZerostr2) {
+				return str1;
+			}
+
+			if (lenWithoutZerostr2 > lenWithoutZerostr1) {
+				return str2;
+			}
+
+			// compare numbers as if they had no leading zeros
+			while (i < str1.length()) {
+				int num1 = charToInt(str1[i]);
+				int num2 = charToInt(str2[j]);
+
+				if (num1 > num2) {
+					return str1;
+				}
+
+				if (num2 > num1) {
+					return str2;
+				}
+
+				++i;
+				++j;
+			}
+
+			// both numbers are the same
+			return "";
+		}
+
+		// str2 is empty, break to dismiss unnecessary loop iterations
+		break;
 	}
 
-	for (uint64 i = 0; i < str1.length(); i++) {
-		if (charToInt(str1[i]) > charToInt(str2[i])) {
-			return str1;
-		}
-		else if (charToInt(str1[i]) < charToInt(str2[i])) {
-			return str2;
-		}
-	}
-
+	std::cout << "Error: Strings may not be empty for comparison.\n";
 	return "";
 }
 
