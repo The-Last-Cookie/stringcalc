@@ -44,12 +44,12 @@ int StringCalc::Helper::charToInt(char c) {
 
 std::string StringCalc::Helper::min(std::string str1, std::string str2) {
 	for (uint64 i = 0; i < str1.length(); ++i) {
-		if (i < (str1.length() - 1) && charToInt(str1[i]) == '0') {
+		if (i < (str1.length() - 1) && charToInt(str1[i]) == 0) {
 			continue;
 		}
 
 		for (uint64 j = 0; j < str2.length(); ++j) {
-			if (j < (str2.length() - 1) && charToInt(str2[j]) == '0') {
+			if (j < (str2.length() - 1) && charToInt(str2[j]) == 0) {
 				continue;
 			}
 
@@ -95,12 +95,12 @@ std::string StringCalc::Helper::min(std::string str1, std::string str2) {
 
 std::string StringCalc::Helper::max(std::string str1, std::string str2) {
 	for (uint64 i = 0; i < str1.length(); ++i) {
-		if (i < (str1.length() - 1) && charToInt(str1[i]) == '0') {
+		if (i < (str1.length() - 1) && charToInt(str1[i]) == 0) {
 			continue;
 		}
 
 		for (uint64 j = 0; j < str2.length(); ++j) {
-			if (j < (str2.length() - 1) && charToInt(str2[j]) == '0') {
+			if (j < (str2.length() - 1) && charToInt(str2[j]) == 0) {
 				continue;
 			}
 
