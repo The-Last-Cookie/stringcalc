@@ -13,17 +13,57 @@ std::string StringCalc::add(unsigned int base, std::string addend1, std::string 
 	}
 
 	// Add zeros, so both strings have the same length
-	if (addend1.length() > addend2.length()) {
-		uint64 zerosToAdd = addend1.length() - addend2.length();
+	if (x.value.length() > y.value.length()) {
+		uint64 zerosToAdd = x.value.length() - y.value.length();
 		y.addZeros(zerosToAdd);
 	}
-	else if (addend1.length() < addend2.length()) {
-		uint64 zerosToAdd = addend2.length() - addend1.length();
+	else if (x.value.length() < y.value.length()) {
+		uint64 zerosToAdd = y.value.length() - x.value.length();
 		x.addZeros(zerosToAdd);
 	}
 
-	std::string sum = StringCalc::Helper::h_add(base, x.value, y.value);
-	return sum;
+	// Number x gets reused for result to save memory space
+	if (!x.isNegative() && y.isNegative()) {
+		if (StringCalc::Helper::max(x.value, y.value) == x.value) {
+			// Result is positive
+			x.value = StringCalc::Helper::h_sub(base, x.value, y.value);
+		}
+		else if (x.value == y.value) {
+			return "0";
+		}
+		else {
+			// Result is negative
+			x.value = StringCalc::Helper::h_sub(base, y.value, x.value);
+			x.setNegative();
+		}
+	}
+	else if (x.isNegative() && !y.isNegative()) {
+		if (StringCalc::Helper::max(x.value, y.value) == y.value) {
+			// Result is positive
+			x.value = StringCalc::Helper::h_sub(base, y.value, x.value);
+
+			// x is reused and thus needs to be set explicitely to being positive
+			x.setPositive();
+		}
+		else if (x.value == y.value) {
+			return "0";
+		}
+		else {
+			// Result is negative
+			x.value = StringCalc::Helper::h_sub(base, x.value, y.value);
+			x.setNegative();
+		}
+	}
+	else if (x.isNegative() && y.isNegative()) {
+		x.value = StringCalc::Helper::h_add(base, x.value, y.value);
+		x.setNegative();
+	}
+	else {
+		// Both numbers are positive
+		x.value = StringCalc::Helper::h_add(base, x.value, y.value);
+	}
+
+	return x.toString();
 }
 
 std::string StringCalc::sub(unsigned int base, std::string minuend, std::string subtrahend) {
@@ -35,23 +75,51 @@ std::string StringCalc::sub(unsigned int base, std::string minuend, std::string 
 	}
 
 	// Add zeros, so both strings have the same length
-	if (minuend.length() > subtrahend.length()) {
-		uint64 zerosToAdd = minuend.length() - subtrahend.length();
+	if (x.value.length() > y.value.length()) {
+		uint64 zerosToAdd = x.value.length() - y.value.length();
 		y.addZeros(zerosToAdd);
 	}
-	else if (minuend.length() < subtrahend.length()) {
-		uint64 zerosToAdd = subtrahend.length() - minuend.length();
+	else if (x.value.length() < y.value.length()) {
+		uint64 zerosToAdd = y.value.length() - x.value.length();
 		x.addZeros(zerosToAdd);
 	}
 
-	// TODO: implement negativity
-	if (subtrahend == StringCalc::Helper::max(minuend, subtrahend)) {
-		std::cout << "Error: Result may only be positive!\n";
-		return "";
+	// Number x gets reused for result to save memory space
+	if (!x.isNegative() && y.isNegative()) {
+		if (StringCalc::Helper::max(x.value, y.value) == x.value) {
+			// Result is positive
+			x.value = StringCalc::Helper::h_add(base, x.value, y.value);
+		}
+		else {
+			x.value = StringCalc::Helper::h_add(base, y.value, x.value);
+			x.setPositive();
+		}
+	}
+	else if (x.isNegative() && !y.isNegative()) {
+		if (StringCalc::Helper::max(x.value, y.value) == y.value) {
+			// Result is positive
+			x.value = StringCalc::Helper::h_add(base, y.value, x.value);
+		}
+		else {
+			// Result is negative
+			x.value = StringCalc::Helper::h_add(base, x.value, y.value);
+		}
+	}
+	else if (x.isNegative() && y.isNegative()) {
+		x.value = StringCalc::Helper::h_sub(base, x.value, y.value);
+		x.setPositive();
+	}
+	else {
+		// Both numbers are positive
+		if (StringCalc::Helper::max(x.value, y.value) == x.value) {
+			x.value = StringCalc::Helper::h_sub(base, x.value, y.value);
+		}
+		else {
+			x.value = StringCalc::Helper::h_sub(base, y.value, x.value);
+		}
 	}
 
-	std::string difference = StringCalc::Helper::h_sub(base, x.value, y.value);
-	return difference;
+	return x.toString();
 }
 
 std::string StringCalc::mult(unsigned int base, std::string factor1, std::string factor2) {
@@ -62,8 +130,22 @@ std::string StringCalc::mult(unsigned int base, std::string factor1, std::string
 		return "";
 	}
 
-	std::string product = StringCalc::Helper::h_mult(base, x.value, y.value);
-	return product;
+	if (x.isNegative() && y.isNegative()) {
+		x.value = StringCalc::Helper::h_mult(base, x.value, y.value);
+		x.setPositive();
+	}
+	else if (x.isNegative() || y.isNegative()) {
+		x.value = StringCalc::Helper::h_mult(base, x.value, y.value);
+
+		if (x.value == "0") {
+			x.setPositive();
+		}
+	}
+	else {
+		x.value = StringCalc::Helper::h_mult(base, x.value, y.value);
+	}
+
+	return x.toString();
 }
 
 std::string StringCalc::div(unsigned int base, std::string dividend, std::string divisor) {
