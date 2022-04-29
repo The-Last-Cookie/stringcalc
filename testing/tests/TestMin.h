@@ -43,6 +43,10 @@ TEST_SUITE("test min function") {
         CHECK(StringCalc::Helper::min("005", "2") == "2");
     }
 
+    TEST_CASE("return min(00070, 0000010)") {
+        CHECK(StringCalc::Helper::min("00070", "0000010") == "0000010");
+    }
+
     TEST_CASE("return empty on empty input") {
         CHECK(StringCalc::Helper::min("", "") == "");
     }

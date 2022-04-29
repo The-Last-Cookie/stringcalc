@@ -43,6 +43,10 @@ TEST_SUITE("test max function") {
         CHECK(StringCalc::Helper::max("005", "2") == "005");
     }
 
+    TEST_CASE("return max(00070, 0000010)") {
+        CHECK(StringCalc::Helper::max("00070", "0000010") == "00070");
+    }
+
     TEST_CASE("return empty on empty input") {
         CHECK(StringCalc::Helper::max("", "") == "");
     }
