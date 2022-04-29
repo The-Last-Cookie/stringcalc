@@ -7,7 +7,7 @@
 #include "doctest.h"
 #include "random.h"
 
-TEST_SUITE("test addition") {
+TEST_SUITE("test division") {
 	TEST_CASE("return empty for division through 0") {
 		CHECK(StringCalc::div(10, "0", "0") == "");
 		CHECK(StringCalc::div(10, "00", "0000") == "");
