@@ -7,7 +7,7 @@
 #include "doctest.h"
 #include "random.h"
 
-TEST_SUITE("test addition") {
+TEST_SUITE("test multiplication") {
 	TEST_CASE("return 0 * 0") {
 		CHECK(StringCalc::mult(10, "0", "0") == "0");
 		CHECK(StringCalc::mult(10, "00", "0000") == "0");
@@ -27,5 +27,17 @@ TEST_SUITE("test addition") {
 
 	TEST_CASE("return 15E * U") {
 		CHECK(StringCalc::mult(31, "15E", "U") == "148H");
+	}
+
+	TEST_CASE("return -5 * -5") {
+		CHECK(StringCalc::mult(10, "-5", "-5") == "25");
+	}
+
+	TEST_CASE("return -1 * 0") {
+		CHECK(StringCalc::mult(10, "-1", "0") == "0");
+	}
+
+	TEST_CASE("return -5 * 5") {
+		CHECK(StringCalc::mult(10, "-5", "5") == "-25");
 	}
 }

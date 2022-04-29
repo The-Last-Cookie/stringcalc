@@ -8,19 +8,18 @@
 #include "random.h"
 
 TEST_SUITE("test subtraction") {
-	// TODO: activate tests as soon as negativity is implemented
-	/*TEST_CASE("return 0 - 0") {
+	TEST_CASE("return 0 - 0") {
 		CHECK(StringCalc::sub(10, "0", "0") == "0");
 		CHECK(StringCalc::sub(10, "00", "0000") == "0");
-	}*/
+	}
 
 	TEST_CASE("return 1 - 0") {
 		CHECK(StringCalc::sub(10, "1", "0") == "1");
 	}
 
-	/*TEST_CASE("return 999 - 999") {
+	TEST_CASE("return 999 - 999") {
 		CHECK(StringCalc::sub(10, "999", "999") == "0");
-	}*/
+	}
 
 	TEST_CASE("return 100F - G") {
 		CHECK(StringCalc::sub(36, "100F", "G") == "ZZZ");
@@ -30,20 +29,35 @@ TEST_SUITE("test subtraction") {
 		CHECK(StringCalc::sub(31, "15E", "U") == "14F");
 	}
 
-	/*TEST_CASE("subtract two random numbers"
-		* doctest::description("fails if random numbers overflow")
-		* doctest::may_fail(true)) {
+	TEST_CASE("return 5 - 5") {
+		CHECK(StringCalc::sub(10, "5", "5") == "0");
+	}
 
-		// To reduce the probability of overflow, use half the value of INT_MAX
-		int rand1 = Random::randInt(0, INT_MAX / 2);
-		int rand2 = Random::randInt(0, INT_MAX / 2);
+	TEST_CASE("return 5 - (-5)") {
+		CHECK(StringCalc::sub(10, "5", "-5") == "10");
+	}
 
-		INFO("The numbers are ", rand1, " and ", rand2);
+	TEST_CASE("return 5 - (-4)") {
+		CHECK(StringCalc::sub(10, "5", "-4") == "9");
+	}
 
-		std::string num1 = std::to_string(rand1);
-		std::string num2 = std::to_string(rand2);
-		std::string result = std::to_string(rand1 + rand2);
+	TEST_CASE("return 5 - (-6)") {
+		CHECK(StringCalc::sub(10, "5", "-6") == "11");
+	}
 
-		CHECK(StringCalc::sub(10, num1, num2) == result);
-	}*/
+	TEST_CASE("return (-5) - 5") {
+		CHECK(StringCalc::sub(10, "-5", "5") == "-10");
+	}
+
+	TEST_CASE("return (-5) - 4") {
+		CHECK(StringCalc::sub(10, "-5", "4") == "-9");
+	}
+
+	TEST_CASE("return (-5) - 6") {
+		CHECK(StringCalc::sub(10, "-5", "6") == "-11");
+	}
+
+	TEST_CASE("return (-5) - (-5)") {
+		CHECK(StringCalc::sub(10, "-5", "-5") == "0");
+	}
 }
