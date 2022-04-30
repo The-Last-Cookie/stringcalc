@@ -1,12 +1,22 @@
 # StringCalc
 
+## Content
+
+1. [Description](#description)
+2. [Main features](#main-features)
+3. [Technical documentation](#technical-documentation)
+4. [Testing](#testing)
+5. [Planned features](#planned-features)
+6. [Links](#links)
+7. [Licence](#licence)
+
 ## Description
 
 Integers and other data types alike have a specific set of values which they can have. If you want to use bigger numbers than these data types offer, you will need a workaround. Strings can theoretically be infinite (practically, they are limited by the maximum available memory space). This C++ library offers the ability to use strings and calculate equations with them as if they were numbers.
 
 The maximum size of a string is given by `std::string().max_size()`. In standard C++ it is around 2^32 most of the times. However, this can vary due to compiler and memory implementation. I will try to optimize the code, so that strings can be as long as possible. An idea might be to use the [rope data structure](https://en.wikipedia.org/wiki/Rope_(data_structure)). This will need further investigation though.
 
-Every main function can only have positive numbers as input and returns the calculated number as a string. The _base_ parameter can be between 2 and 36.
+Every main function can only have positive numbers as input and returns the calculated number as a string. The *base* parameter can be between 2 and 36.
 
 ## Main features
 
@@ -30,7 +40,7 @@ std::cout << "10110 / 111 = " << StringCalc::div(2, "10110", "111") << "\n";
 
 ### Converter
 
-With the converter, you can convert numbers from one base to another. The bases may be between 2 and 36. So there are the numbers 1 to 9 as well as the letters A to Z to represent a number. If you want to use one number several times, it is recommended to `parse` this number once and then call `convertTo` each time for a new base. Unfortunately, the converter can get quite slow with big numbers (more than 10 digits).
+With the converter, you can convert numbers from one base to another. The bases may be between 2 and 36. So there are the numbers 1 to 9 as well as the letters A to Z to represent a number. If you want to use one number several times, it is recommended to `parse` this number once and then call `convertTo` each time for a new base. Unfortunately, the converter can get quite slow with big numbers (more than 30 digits).
 
 ```cpp
 StringCalc::Converter conv;
@@ -42,27 +52,49 @@ std::cout << "1679615 Base 10 in Base 16 is: " << conv.convertTo(16);
 
 ### Overview
 
-*Note: There are more functions available in the library, but they aren't listed here. These functions are used for internal calculations and therefore shouldn't be used when implementing this library. They are marked as `h_` (h as in helper). Additionally, using them without prior caution can lead to unexpected behavior.*
+#### Main functions
 
-- Main functions:
-    - function _add_: Addition
-    - function _sub_: Subtraction
-    - function _mult_: Multiplication
-    - function _div_: Integer division (without remainder)
-    - function _mod_: Modulo
-    - function _pow_: Exponentiation
-    - function _fact_: Factorial
+| Name | Description | Input | Output |
+|---|---|---|---|
+| *add* | Addition | Number base and two positive integers | Sum |
+| *sub* | Subtraction | Number base and two positive integers | Difference |
+| *mult* | Multiplication | Number base and two positive integers | Product |
+| *div* | Integer division (without remainder) | Number base and two positive integers | Quotient |
+| *mod* | Modulo | Number base and two positive integers | Remainder |
+| *pow* | Exponentiation | Number base and two positive integers | Power |
+| *fact* | Factorial | Number base and one positive integer | Factorial |
 
-- Class Converter:
-    - method _parse_: Parse a number into the converter
-    - method _convertTo_: Convert the number which was given via `parse` to a specific base
+#### Converter methods
 
-- Namespace Helper:
-    - function _min_: Find the string with the smaller value
-    - function _max_: Find the string with the higher value
-    - function _intToString_: Convert the given number to its string value (10 and higher will be converted to A, B, etc. respectively)
-    - function _charToInt_: Convert a string value to its integer value (e.g. A will be converted to 10)
-    - function _removeLeadingZeros_: Removes zeros in front of a string (for example, "00" will be converted to "0")
+| Name | Description | Input | Output |
+|---|---|---|---|
+| *parse* | Parse a number into the converter | Number base and one positive integer | *Nothing* |
+| *convertTo* | Convert the number which was given via `parse` to a specific base | Number base | Number in given number base |
+
+#### Helper functions
+
+| Name | Description | Input | Output | Commentary |
+|---|---|---|---|---|
+| *min* | Find the string with the smaller value | Two positive integers | String with smaller value | Can lead to unexpected behaviour if the given numbers are invalid |
+| *max* | Find the string with the higher value | Two positive integers | String with the higher value | Can lead to unexpected behaviour if the given numbers are invalid |
+| *intToString* | Convert the given number to its string value | One positive integer | String value of integer | (`10` and higher will be converted to `A`, `B`, etc. respectively) |
+| *charToInt* | Convert a string value to its integer value | Char value | Actual integer value of char | E.g. `A` will be converted to `10` |
+| *removeLeadingZeros* | Remove zeros in front of a string | One positive integer | Positive integer without any zeros in front | |
+
+#### Private functions
+
+*Notice: These functions here are available in the library, however they are used for internal calculations and therefore shouldn't be used when implementing this library as they have no input validation. Though, the functions are listed here, so that the documentation is complete. Additionally, using them without prior caution can lead to unexpected behavior.*
+
+| Name | Description | Input | Output | Commentary |
+|---|---|---|---|---|
+| *h\_add* | Helper function for addition | Number base and two positive integers | Sum |
+| *h\_sub* | Helper function for subtraction | Number base and two positive integers | Difference |
+| *h\_mult* | Helper function for multiplication | Number base and two positive integers | Product |
+| *h\_div\_sub* | Normal integer division with naive subtraction | Two positive integers | Quotient without remainder | Needed as a component for the actual division algorithm |
+| *h\_div* | Helper function for integer division | Number base, two positive integers and a parameter if quotient or remainder should be returned | Quotient or remainder |
+| *h\_mod* | Helper function for modulo | Number base and two positive integers | Remainder |
+| *h\_pow* | Helper function for exponentiation | Number base and two positive integers | Power |
+| *h\_fact* | Helper function for factorial | Number base and one positive integer | Factorial |
 
 ### Testing
 
