@@ -20,9 +20,9 @@ Every main function can only have positive numbers as input and returns the calc
 
 ## Main features
 
-### Mathematical operations
+This section lists a few examples of calculations that can be done with the library. More examples can be found in the `example.cpp` file.
 
-Here are a few examples of calculations that can be done with the library:
+### Mathematical operations
 
 ```cpp
 // Addition
