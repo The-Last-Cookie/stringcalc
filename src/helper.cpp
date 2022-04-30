@@ -274,6 +274,7 @@ std::string StringCalc::Helper::h_div(unsigned int base, std::string dividend, s
 			i = divisor.length();
 		}
 		else {
+			// take next part from dividend
 			currentDividend += dividend[i];
 			++i;
 		}
