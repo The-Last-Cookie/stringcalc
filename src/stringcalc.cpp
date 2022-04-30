@@ -127,6 +127,9 @@ std::string StringCalc::fact(unsigned int base, std::string num) {
 	if (!x.isValid()) {
 		return "";
 	}
+	else if (x.isZero()) {
+		return "1";
+	}
 
 	std::string factorial = StringCalc::Helper::h_fact(base, x.value);
 	return factorial;
