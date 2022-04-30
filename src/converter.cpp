@@ -66,8 +66,7 @@ std::string Converter::convertTo(unsigned int base) {
 	while (quotient != "0") {
 		std::string temp = quotient;
 		quotient = StringCalc::div(10, quotient, std::to_string(base));
-		std::string remainder = StringCalc::sub(10, temp,
-			StringCalc::mult(10, std::to_string(base), quotient));
+		std::string remainder = StringCalc::mod(10, temp, std::to_string(base));
 
 		// Convert numbers over 9 to letters
 		remainder = StringCalc::Helper::intToString(std::atoi(remainder.c_str()));
