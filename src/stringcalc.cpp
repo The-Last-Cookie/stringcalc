@@ -82,8 +82,11 @@ std::string StringCalc::div(unsigned int base, std::string dividend, std::string
 	else if (x.isZero()) {
 		return "0";
 	}
+	else if (StringCalc::Helper::max(x.value, y.value) == y.value) {
+		return "0";
+	}
 
-	std::string quotient = StringCalc::Helper::h_div(base, x.value, y.value);
+	std::string quotient = StringCalc::Helper::h_div(base, x.value, y.value, false);
 	return quotient;
 }
 
