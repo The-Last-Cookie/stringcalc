@@ -14,20 +14,35 @@ TEST_SUITE("test converter") {
 		conv.parse("0", 10);
 		CHECK(conv.convertTo(16) == "0");
 	}
-
+	
 	TEST_CASE("Convert 1") {
 		conv.parse("1", 10);
 		CHECK(conv.convertTo(16) == "1");
 	}
-
+	
 	TEST_CASE("Convert A Base 16 to Base 10") {
 		conv.parse("A", 16);
 		CHECK(conv.convertTo(10) == "10");
 	}
-
+	
 	TEST_CASE("Convert ZZZ Base 36 to Base 10") {
 		conv.parse("ZZZ", 36);
 		CHECK(conv.convertTo(10) == "46655");
+	}
+
+	TEST_CASE("Convert 1679615 Base 10 to Base 16") {
+		conv.parse("1679615", 10);
+		CHECK(conv.convertTo(16) == "19A0FF");
+	}
+
+	TEST_CASE("Convert 1679615 Base 10 to Base 16") {
+		conv.parse("1679615", 10);
+		CHECK(conv.convertTo(16) == "19A0FF");
+	}
+
+	TEST_CASE("Convert 1679615 Base 10 to Base 16") {
+		conv.parse("1679615", 10);
+		CHECK(conv.convertTo(16) == "19A0FF");
 	}
 
 	TEST_CASE("Convert 1679615 Base 10 to Base 16") {
