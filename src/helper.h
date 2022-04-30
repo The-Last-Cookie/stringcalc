@@ -33,7 +33,9 @@ namespace StringCalc {
 
 		std::string h_mult(unsigned int base, std::string factor1, std::string factor2);
 
-		std::string h_div(unsigned int base, std::string dividend, std::string divisor);
+		std::string h_div_sub(unsigned int base, std::string dividend, std::string divisor);
+
+		std::string h_div(unsigned int base, std::string dividend, std::string divisor, bool modular);
 
 		std::string h_mod(unsigned int base, std::string dividend, std::string divisor);
 

@@ -253,7 +253,7 @@ std::string StringCalc::Helper::h_mult(unsigned int base, std::string factor1, s
 	return product;
 }
 
-std::string StringCalc::Helper::h_div(unsigned int base, std::string dividend, std::string divisor) {
+std::string StringCalc::Helper::h_div_sub(unsigned int base, std::string dividend, std::string divisor) {
 	std::string quotient = "0";
 
 	while (dividend == StringCalc::Helper::max(dividend, divisor) || StringCalc::Helper::max(dividend, divisor) == "") {
@@ -264,10 +264,38 @@ std::string StringCalc::Helper::h_div(unsigned int base, std::string dividend, s
 	return quotient;
 }
 
+std::string StringCalc::Helper::h_div(unsigned int base, std::string dividend, std::string divisor, bool modular) {
+	std::string quotient;
+
+	std::string currentDividend;
+	for (uint64 i = 0; i < dividend.length();) {
+		if (i == 0) {
+			currentDividend += dividend.substr(0, divisor.length());
+			i = divisor.length();
+		}
+		else {
+			currentDividend += dividend[i];
+			++i;
+		}
+
+		std::string multiplicator = StringCalc::Helper::h_div_sub(base, currentDividend, divisor);
+		quotient += multiplicator;
+
+		std::string numberUnderDividend = mult(base, multiplicator, divisor);
+		currentDividend = sub(base, currentDividend, numberUnderDividend);
+	}
+
+	// return remainder
+	if (modular) {
+		return currentDividend;
+	}
+
+	quotient = removeLeadingZeros(quotient);
+	return quotient;
+}
+
 std::string StringCalc::Helper::h_mod(unsigned int base, std::string dividend, std::string divisor) {
-	std::string quotient = div(base, dividend, divisor);
-	std::string remainder = sub(base, dividend, h_mult(base, divisor, quotient));
-	return remainder;
+	return h_div(base, dividend, divisor, true);
 }
 
 std::string StringCalc::Helper::h_pow(unsigned int base, std::string baseExp, std::string exponent) {
