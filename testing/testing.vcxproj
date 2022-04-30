@@ -149,11 +149,14 @@
     <ClInclude Include="tests\TestCharToInt.h" />
     <ClInclude Include="tests\TestConverter.h" />
     <ClInclude Include="tests\TestDivision.h" />
+    <ClInclude Include="tests\TestFactorial.h" />
     <ClInclude Include="tests\TestIntToString.h" />
     <ClInclude Include="tests\TestMax.h" />
     <ClInclude Include="tests\TestMin.h" />
+    <ClInclude Include="tests\TestModular.h" />
     <ClInclude Include="tests\TestMultiplication.h" />
     <ClInclude Include="tests\TestNumber.h" />
+    <ClInclude Include="tests\TestPower.h" />
     <ClInclude Include="tests\TestRemoveLeadingZeros.h" />
     <ClInclude Include="tests\TestSubtraction.h" />
   </ItemGroup>

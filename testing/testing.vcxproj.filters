@@ -69,6 +69,15 @@
     <ClInclude Include="tests\TestConverter.h">
       <Filter>tests</Filter>
     </ClInclude>
+    <ClInclude Include="tests\TestFactorial.h">
+      <Filter>tests</Filter>
+    </ClInclude>
+    <ClInclude Include="tests\TestModular.h">
+      <Filter>tests</Filter>
+    </ClInclude>
+    <ClInclude Include="tests\TestPower.h">
+      <Filter>tests</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
