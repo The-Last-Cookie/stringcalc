@@ -18,13 +18,19 @@ namespace StringCalc {
 			bool isZero();
 			void addZeros(uint64 count);
 			bool isValid();
+			bool isNegative();
+			void setNegative();
+			void setPositive();
+			std::string toString();
 			
 			std::string value;
 			unsigned int base;
 
 		private:
 			bool isInBase(unsigned int base);
+			bool checkNegative();
 
 			bool m_isValid;
+			bool m_isNegative;
 	};
 }

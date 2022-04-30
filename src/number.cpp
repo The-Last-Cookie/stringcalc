@@ -7,9 +7,17 @@
 StringCalc::Number::Number(unsigned int base, std::string value) {
 	this->base = 0;
 	m_isValid = false;
+	m_isNegative = false;
 
 	// Has to be set here because the parameter will be accessed for checks
 	this->value = value;
+
+	if (checkNegative()) {
+		setNegative();
+
+		// Remove minus at the beginning
+		this->value.erase(0, 1);
+	}
 
 	if (!isInBase(base)) {
 		this->value = "";
@@ -17,7 +25,6 @@ StringCalc::Number::Number(unsigned int base, std::string value) {
 	}
 
 	this->base = base;
-
 	m_isValid = true;
 }
 
@@ -42,6 +49,26 @@ bool StringCalc::Number::isValid() {
 	return m_isValid;
 }
 
+bool StringCalc::Number::isNegative() {
+	return this->m_isNegative;
+}
+
+void StringCalc::Number::setNegative() {
+	this->m_isNegative = true;
+}
+
+void StringCalc::Number::setPositive() {
+	this->m_isNegative = false;
+}
+
+std::string StringCalc::Number::toString() {
+	if (this->m_isNegative) {
+		return "-" + value;
+	}
+
+	return value;
+}
+
 bool StringCalc::Number::isInBase(unsigned int base) {
 	if (this->value.empty()) {
 		std::cout << "Error: Strings may not be empty!\n";
@@ -60,4 +87,13 @@ bool StringCalc::Number::isInBase(unsigned int base) {
 	}
 
 	return true;
+}
+
+bool StringCalc::Number::checkNegative()
+{
+	if (this->value[0] == '-') {
+		return true;
+	}
+
+	return false;
 }

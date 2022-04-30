@@ -45,4 +45,32 @@ TEST_SUITE("test addition") {
 
 		CHECK(StringCalc::add(10, num1, num2) == result);
 	}
+
+	TEST_CASE("return 5 + (-5)") {
+		CHECK(StringCalc::add(10, "5", "-5") == "0");
+	}
+
+	TEST_CASE("return 5 + (-4)") {
+		CHECK(StringCalc::add(10, "5", "-4") == "1");
+	}
+
+	TEST_CASE("return 5 + (-6)") {
+		CHECK(StringCalc::add(10, "5", "-6") == "-1");
+	}
+
+	TEST_CASE("return (-5) + 5") {
+		CHECK(StringCalc::add(10, "-5", "5") == "0");
+	}
+
+	TEST_CASE("return (-5) + 4") {
+		CHECK(StringCalc::add(10, "-5", "4") == "-1");
+	}
+
+	TEST_CASE("return (-5) + 6") {
+		CHECK(StringCalc::add(10, "-5", "6") == "1");
+	}
+
+	TEST_CASE("return (-5) + (-5)") {
+		CHECK(StringCalc::add(10, "-5", "-5") == "-10");
+	}
 }
