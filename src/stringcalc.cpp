@@ -79,9 +79,6 @@ std::string StringCalc::div(unsigned int base, std::string dividend, std::string
 		std::cout << "Error: Division by 0 not allowed!\n";
 		return "";
 	}
-	else if (x.isZero()) {
-		return "0";
-	}
 	else if (StringCalc::Helper::max(x.value, y.value) == y.value) {
 		return "0";
 	}
