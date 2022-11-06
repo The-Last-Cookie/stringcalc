@@ -33,6 +33,18 @@ TEST_SUITE("test division") {
 		CHECK(StringCalc::div(10, "0010", "0005") == "2");
 	}
 
+	TEST_CASE("return -0010 / 0005") {
+		CHECK(StringCalc::div(10, "-0010", "0005") == "-2");
+	}
+
+	TEST_CASE("return 8 /-4") {
+		CHECK(StringCalc::div(10, "8", "-4") == "-2");
+	}
+
+	TEST_CASE("return -15 / -15") {
+		CHECK(StringCalc::div(10, "-15", "-15") == "-1");
+	}
+
 	TEST_CASE("return ZZA / P") {
 		CHECK(StringCalc::div(36, "ZZA", "P") == "1FT");
 	}

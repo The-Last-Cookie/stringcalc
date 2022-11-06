@@ -12,12 +12,20 @@ TEST_SUITE("test modular arithmetic") {
 		CHECK(StringCalc::mod(10, "0", "2") == "0");
 		CHECK(StringCalc::mod(10, "00", "2") == "0");
 	}
-
+	
 	TEST_CASE("return 9 % 5") {
 		CHECK(StringCalc::mod(10, "9", "5") == "4");
 	}
-
+	
 	TEST_CASE("return 998 % 999") {
 		CHECK(StringCalc::mod(10, "998", "999") == "998");
+	}
+
+	TEST_CASE("return 5 % 6") {
+		CHECK(StringCalc::mod(10, "5", "6") == "5");
+	}
+
+	TEST_CASE("return -5 % 6") {
+		CHECK(StringCalc::mod(10, "-5", "6") == "1");
 	}
 }

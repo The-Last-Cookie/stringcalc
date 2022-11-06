@@ -24,4 +24,12 @@ TEST_SUITE("test power") {
 	TEST_CASE("return 10 ^ 5") {
 		CHECK(StringCalc::pow(10, "10", "5") == "100000");
 	}
+
+	TEST_CASE("return -5 ^ 2") {
+		CHECK(StringCalc::pow(10, "-5", "2") == "25");
+	}
+
+	TEST_CASE("return -2 ^ 3") {
+		CHECK(StringCalc::pow(10, "-2", "3") == "-8");
+	}
 }
