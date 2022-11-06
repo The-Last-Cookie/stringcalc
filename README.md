@@ -131,7 +131,7 @@ As a final step, you need to include the header file in the `main.cpp` file in t
 
 ## Links
 
-- [doctest](https://github.com/doctest/doctest) ([v2.4.8](https://github.com/doctest/doctest/releases/tag/v2.4.8))
+- [doctest](https://github.com/doctest/doctest) ([v2.4.9](https://github.com/doctest/doctest/releases/tag/v2.4.9))
 
 ## Licence
 
