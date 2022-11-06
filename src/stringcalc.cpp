@@ -165,8 +165,16 @@ std::string StringCalc::div(unsigned int base, std::string dividend, std::string
 		return "0";
 	}
 
-	std::string quotient = StringCalc::Helper::h_div(base, x.value, y.value, false);
-	return quotient;
+	// Only set negative if one of the numbers is negative
+	if (!x.isNegative() != !y.isNegative()) {
+		x.value = StringCalc::Helper::h_div(base, x.value, y.value, false);
+		x.setNegative();
+	}
+	else {
+		x.value = StringCalc::Helper::h_div(base, x.value, y.value, false);
+	}
+
+	return x.toString();
 }
 
 std::string StringCalc::mod(unsigned int base, std::string dividend, std::string divisor) {
@@ -177,9 +185,13 @@ std::string StringCalc::mod(unsigned int base, std::string dividend, std::string
 		return "";
 	}
 
-	if (y.isZero()) {
-		std::cout << "Error: Modular arithmetic with 0 not allowed!\n";
+	if (StringCalc::Helper::max("2", y.value) == "2" || y.isNegative()) {
+		std::cout << "Error: Modular arithmetic with less than 1 not allowed!\n";
 		return "";
+	}
+
+	if (x.isNegative()) {
+		return StringCalc::Helper::h_mod(base, y.value, x.value);
 	}
 
 	std::string remainder = StringCalc::Helper::h_mod(base, x.value, y.value);
@@ -193,14 +205,22 @@ std::string StringCalc::pow(unsigned int base, std::string baseExp, std::string 
 	if (!x.isValid() || !y.isValid()) {
 		return "";
 	}
-
 	else if (x.isZero() && y.isZero()) {
 		std::cout << "Error: 0 ^ 0 is not defined!\n";
 		return "";
 	}
+	else if (y.isNegative()) {
+		std::cout << "Error: Floating values not supported!\n";
+		return "";
+	}
 
-	std::string power = StringCalc::Helper::h_pow(base, x.value, y.value);
-	return power;
+	x.value = StringCalc::Helper::h_pow(base, x.value, y.value);
+
+	if (x.isNegative() && (StringCalc::mod(base, y.value, "2") == "1")) {
+		return x.toString();
+	}
+
+	return x.value;
 }
 
 std::string StringCalc::fact(unsigned int base, std::string num) {
