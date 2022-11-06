@@ -16,7 +16,7 @@ Integers and other data types alike have a specific set of values which they can
 
 The maximum size of a string is given by `std::string().max_size()`. In standard C++ it is around 2^32 most of the times. However, this can vary due to compiler and memory implementation. I will try to optimize the code, so that strings can be as long as possible. An idea might be to use the [rope data structure](https://en.wikipedia.org/wiki/Rope_(data_structure)). This will need further investigation though.
 
-Every main function can only have positive numbers as input and returns the calculated number as a string. The *base* parameter can be between 2 and 36.
+Every operator function can have positive as well as negative numbers as input and returns the calculated number as a string. The *base* parameter can be between 2 and 36. **Note: Negative inputs for the factorial function will be used as if they are positive.**
 
 ## Main features
 
@@ -40,7 +40,7 @@ std::cout << "10110 / 111 = " << StringCalc::div(2, "10110", "111") << "\n";
 
 ### Converter
 
-With the converter, you can convert numbers from one base to another. The bases may be between 2 and 36. So there are the numbers 1 to 9 as well as the letters A to Z to represent a number. If you want to use one number several times, it is recommended to `parse` this number once and then call `convertTo` each time for a new base. Unfortunately, the converter can get quite slow with big numbers (more than 30 digits).
+With the converter, you can convert positive numbers from one base to another. The bases may be between 2 and 36. So there are the numbers 1 to 9 as well as the letters A to Z to represent a number. If you want to use one number several times, it is recommended to `parse` this number once and then call `convertTo` each time for a new base. Unfortunately, the converter can get quite slow with big numbers (more than 30 digits).
 
 ```cpp
 StringCalc::Converter conv;
@@ -56,12 +56,12 @@ std::cout << "1679615 Base 10 in Base 16 is: " << conv.convertTo(16);
 
 | Name | Description | Input | Output |
 |---|---|---|---|
-| *add* | Addition | Number base and two positive integers | Sum |
-| *sub* | Subtraction | Number base and two positive integers | Difference |
-| *mult* | Multiplication | Number base and two positive integers | Product |
-| *div* | Integer division (without remainder) | Number base and two positive integers | Quotient |
-| *mod* | Modulo | Number base and two positive integers | Remainder |
-| *pow* | Exponentiation | Number base and two positive integers | Power |
+| *add* | Addition | Number base and two integers | Sum |
+| *sub* | Subtraction | Number base and two integers | Difference |
+| *mult* | Multiplication | Number base and two integers | Product |
+| *div* | Integer division (without remainder) | Number base and two integers | Quotient |
+| *mod* | Modulo | Number base and two integers | Remainder |
+| *pow* | Exponentiation | Number base and two integers | Power |
 | *fact* | Factorial | Number base and one positive integer | Factorial |
 
 #### Converter methods
@@ -126,7 +126,7 @@ As a final step, you need to include the header file in the `main.cpp` file in t
 ### Major release v2
 
 - [x] Merge all number categories into one namespace and use base as indicator
-- [ ] Support for negative numbers
+- [x] Support for negative numbers
 - [ ] Use more pointers (call-by-reference)
 
 ## Links
