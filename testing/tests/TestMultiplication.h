@@ -40,4 +40,12 @@ TEST_SUITE("test multiplication") {
 	TEST_CASE("return -5 * 5") {
 		CHECK(StringCalc::mult(10, "-5", "5") == "-25");
 	}
+
+	TEST_CASE("return -7 * -5") {
+		CHECK(StringCalc::mult(10, "-7", "-5") == "35");
+	}
+
+	TEST_CASE("return -6 * -8") {
+		CHECK(StringCalc::mult(10, "-6", "-8") == "48");
+	}
 }

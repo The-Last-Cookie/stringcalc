@@ -73,4 +73,8 @@ TEST_SUITE("test addition") {
 	TEST_CASE("return (-5) + (-5)") {
 		CHECK(StringCalc::add(10, "-5", "-5") == "-10");
 	}
+
+	TEST_CASE("return (-5) + (-6)") {
+		CHECK(StringCalc::add(10, "-5", "-6") == "-11");
+	}
 }

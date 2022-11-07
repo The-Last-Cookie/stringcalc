@@ -11,6 +11,7 @@ TEST_SUITE("test division") {
 	TEST_CASE("return empty for division through 0") {
 		CHECK(StringCalc::div(10, "0", "0") == "");
 		CHECK(StringCalc::div(10, "00", "0000") == "");
+		CHECK(StringCalc::div(10, "5", "0") == "");
 	}
 
 	TEST_CASE("return 0 / 1") {
@@ -37,7 +38,7 @@ TEST_SUITE("test division") {
 		CHECK(StringCalc::div(10, "-0010", "0005") == "-2");
 	}
 
-	TEST_CASE("return 8 /-4") {
+	TEST_CASE("return 8 / -4") {
 		CHECK(StringCalc::div(10, "8", "-4") == "-2");
 	}
 
@@ -63,5 +64,9 @@ TEST_SUITE("test division") {
 
 	TEST_CASE("return 104 / 3") {
 		CHECK(StringCalc::div(5, "104", "3") == "14");
+	}
+
+	TEST_CASE("return 7 / -20") {
+		CHECK(StringCalc::div(10, "7", "-20") == "0");
 	}
 }

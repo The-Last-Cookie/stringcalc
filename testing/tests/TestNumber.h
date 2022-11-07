@@ -39,4 +39,17 @@ TEST_SUITE("test number class") {
         n.addZeros(4);
         CHECK(n.value == "00000");
     }
+
+    TEST_CASE("create negative number") {
+        StringCalc::Number n = StringCalc::Number(10, "-2");
+        CHECK(n.isValid());
+        CHECK(n.isNegative());
+    }
+
+    TEST_CASE("check if number is zero") {
+        StringCalc::Number n = StringCalc::Number(10, "0");
+        CHECK(n.isZero());
+        n = StringCalc::Number(10, "-9");
+        CHECK(!n.isZero());
+    }
 }
