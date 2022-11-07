@@ -106,8 +106,13 @@ std::string StringCalc::sub(unsigned int base, std::string minuend, std::string 
 		}
 	}
 	else if (x.isNegative() && y.isNegative()) {
-		x.value = StringCalc::Helper::h_sub(base, x.value, y.value);
-		x.setPositive();
+		if (StringCalc::Helper::max(x.value, y.value) == x.value) {
+			x.value = StringCalc::Helper::h_sub(base, x.value, y.value);
+		}
+		else {
+			x.value = StringCalc::Helper::h_sub(base, y.value, x.value);
+			x.setPositive();
+		}
 	}
 	else {
 		// Both numbers are positive

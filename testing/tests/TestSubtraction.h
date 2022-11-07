@@ -60,4 +60,16 @@ TEST_SUITE("test subtraction") {
 	TEST_CASE("return (-5) - (-5)") {
 		CHECK(StringCalc::sub(10, "-5", "-5") == "0");
 	}
+
+	TEST_CASE("return (-5) - (-6)") {
+		CHECK(StringCalc::sub(10, "-5", "-6") == "1");
+	}
+
+	TEST_CASE("return (-12) - (-25)") {
+		CHECK(StringCalc::sub(10, "-12", "-25") == "13");
+	}
+
+	TEST_CASE("return (-20) - (-4)") {
+		CHECK(StringCalc::sub(10, "-20", "-4") == "-16");
+	}
 }
